@@ -2,6 +2,8 @@
 #include "myrect.h"
 #include <QGraphicsScene>
 #include <QGraphicsView>
+#include <QTimer>
+#include <enemy.h>
 
 
 int main(int argc, char *argv[]){
@@ -34,6 +36,11 @@ int main(int argc, char *argv[]){
 
     // startposition player (in the middle on the bottom side
     player->setPos(view->width()/2 - (player->rect().width()/2),view->height() - (player->rect().height()*1.2));
+
+    // spawn enemies (move this to new class later)
+    QTimer * timer = new QTimer();
+    QObject::connect(timer,SIGNAL(timeout()), player,SLOT(spawn()));
+    timer->start(2000);
 
 
     return a.exec();

@@ -6,7 +6,7 @@
 
 class Enemy: public QObject, public QGraphicsRectItem
 {
-   Q_OBJECT    // bullet needs to be an Qobject for movement
+   Q_OBJECT    // enemy needs to be an Qobject for movement
 public:
     Enemy();
 public slots:
