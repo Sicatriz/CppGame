@@ -3,12 +3,6 @@
 #include <QGraphicsScene>
 #include <QGraphicsView>
 
-/*
-Tutorial Topics:
--events (keyPressEvent() and QKeyEvent)
--event propogation system
--QDebug
-*/
 
 int main(int argc, char *argv[]){
     QApplication a(argc, argv);
@@ -38,6 +32,7 @@ int main(int argc, char *argv[]){
     view->setFixedSize(800, 600);
     scene->setSceneRect(0,0,800,600);
 
+    // startposition player (in the middle on the bottom side
     player->setPos(view->width()/2 - (player->rect().width()/2),view->height() - (player->rect().height()*1.2));
 
 

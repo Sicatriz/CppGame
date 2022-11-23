@@ -6,7 +6,7 @@
 
 class Bullet: public QObject, public QGraphicsRectItem
 {
-   Q_OBJECT
+   Q_OBJECT    // bullet needs to be an Qobject for movement
 public:
     Bullet();
 public slots:
