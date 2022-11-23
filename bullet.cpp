@@ -3,15 +3,17 @@
 #include <QGraphicsScene>
 #include <QList>
 #include "enemy.h"
+#include "game.h"
 
+extern Game * game; // there is an external global object called game
 
-Bullet::Bullet()
+Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent)
 {
     // draw the rect
     setRect(0,0,10,50);
 
     // connect
-    QTimer * timer = new QTimer();
+    QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));  // use of THIS
 
     // timer for bullet movement
@@ -21,18 +23,25 @@ Bullet::Bullet()
 
 void Bullet::move()
 {
-    // if bullet collision, destroy both
+    // get a list of all the items currently colliding with this bullet
     QList<QGraphicsItem * > colliding_items = collidingItems();
+
+    // if one of the colliding items is an Enemy, destroy both the bullet and the enemy
     for (int i = 0, n= colliding_items.size(); i < n; ++i)
     {
         if (typeid(*(colliding_items[i])) == typeid(Enemy))
         {
+            // increase the score
+            game->score->increase();
+
             // remove them both
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
+
             // free memory
             delete colliding_items[i];
             delete this;
+
             return;
         }
     }

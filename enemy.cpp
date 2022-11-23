@@ -3,8 +3,11 @@
 #include <QGraphicsScene>
 #include <QList>
 #include <stdlib.h>
+#include "game.h"
 
-Enemy::Enemy()
+extern Game * game;
+
+Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent)
 {
     // set random start position
     int random_number = rand() % 700;
@@ -14,7 +17,7 @@ Enemy::Enemy()
     setRect(0,0,100,100);
 
     // connect
-    QTimer * timer = new QTimer();
+    QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));  // use of THIS
 
     // timer for enemy movement
@@ -28,8 +31,11 @@ void Enemy::move()
     setPos(x(),y()+5);
 
     // when enemy is out of screen, free memory
-    if(pos().y() + rect().height() < 0)
-    {
+    if(pos().y() > 600){
+
+        //decrease the health
+        game->health->decrease();
+
         scene()->removeItem(this);
         delete this;
     }
