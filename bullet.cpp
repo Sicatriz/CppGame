@@ -12,11 +12,11 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent)
     // draw the rect
     setRect(0,0,10,50);
 
-    // connect
+    // connects
     QTimer * timer = new QTimer(this);
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));  // use of THIS
+    connect(timer,SIGNAL(timeout()),this,SLOT(move()));  // Connects timer to public slot move.
 
-    // timer for bullet movement
+    // timer for bullet movement, this changes the speed of the bullet.
     timer->start(50);
 
 }
@@ -29,6 +29,7 @@ void Bullet::move()
     // if one of the colliding items is an Enemy, destroy both the bullet and the enemy
     for (int i = 0, n= colliding_items.size(); i < n; ++i)
     {
+        //checks if the bullet hit a enemy.
         if (typeid(*(colliding_items[i])) == typeid(Enemy))
         {
             // increase the score

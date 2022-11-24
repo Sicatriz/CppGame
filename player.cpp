@@ -9,7 +9,7 @@ Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){
 }
 
 void Player::keyPressEvent(QKeyEvent *event){
-    // move the player left and right
+    // move the player left
     if (event->key() == Qt::Key_Left){
         if (pos().x() > 0)
         setPos(x()-10,y());
