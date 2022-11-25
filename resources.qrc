@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/sounds"/>
+    <qresource prefix="/gfx">
+        <file>gfx/playerJet.png</file>
+        <file>gfx/bullet.png</file>
+    </qresource>
+</RCC>
