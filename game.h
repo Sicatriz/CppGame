@@ -16,7 +16,7 @@ public:
     Player * player;
     Score * score;
     Health * health;
-
+//gathers all information to make sure that the game runs
 };
 
 #endif // GAME_H

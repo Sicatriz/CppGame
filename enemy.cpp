@@ -7,7 +7,7 @@
 
 extern Game * game;
 
-Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent)
+Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent) //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
 {
     // set random start position
     int random_number = rand() % 700;
@@ -16,11 +16,12 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent)
     // draw the rect
     setRect(0,0,100,100);
 
-    // connect
+    /***\
+    Connects timer to public slot move .
+    timer is there for bullet movement, this changes the speed of the bullet.
+    \***/
     QTimer * timer = new QTimer(this);
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));  // use of THIS
-
-    // timer for enemy movement
+    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(50);
 
 }
