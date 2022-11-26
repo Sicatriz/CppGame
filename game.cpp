@@ -3,6 +3,8 @@
 #include <QGraphicsTextItem>
 #include <QFont>
 #include "enemy.h"
+#include <QMediaPlayer>
+
 
 Game::Game(QWidget *parent)
 {
@@ -38,6 +40,8 @@ Game::Game(QWidget *parent)
     QTimer * timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);
+
+    // play background music
 
     show();
 }
