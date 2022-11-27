@@ -10,7 +10,7 @@ extern Game * game; // there is an external global object called game
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
 {
     // draw the rect
-    setRect(0,0,10,50);
+    setRect(45,0,10,50);
 
     // connects
     QTimer * timer = new QTimer(this);
@@ -32,7 +32,7 @@ void Bullet::move()
     for (int i = 0, n= colliding_items.size(); i < n; ++i)
     {
         //checks if the bullet hit a enemy.
-        if (typeid(*(colliding_items[i])) == typeid(Enemy))
+        if (typeid(*(colliding_items[i])) == typeid(Enemy) || typeid(*(colliding_items[i])) == typeid(Enemy2))
         {
             // increase the score
             game->score->increase();

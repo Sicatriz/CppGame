@@ -17,7 +17,6 @@ SOURCES += \
     game.cpp \
     health.cpp \
     main.cpp \
-    myrect.cpp \
     player.cpp \
     score.cpp
 
@@ -26,7 +25,6 @@ HEADERS += \
     enemy.h \
     game.h \
     health.h \
-    myrect.h \
     player.h \
     score.h
 
