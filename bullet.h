@@ -1,11 +1,12 @@
 #ifndef BULLET_H
 #define BULLET_H
 
-#include <QGraphicsRectItem>
+
 #include <QGraphicsItem>
+#include <QGraphicsPixmapItem>
 #include <QObject>
 
-class Bullet: public QObject, public QGraphicsRectItem
+class Bullet: public QObject, public QGraphicsPixmapItem
 {
    Q_OBJECT    // bullet needs to be an Qobject for movement and this makes it a object.
 public:

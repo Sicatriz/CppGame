@@ -7,10 +7,11 @@
 
 extern Game * game; // there is an external global object called game
 
-Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
+Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
 {
     // draw the rect
-    setRect(45,0,10,50);
+    //setRect(45,0,10,50);
+    setPixmap(QPixmap(":/gfx/gfx/bullet.png"));
 
     // connects
     QTimer * timer = new QTimer(this);
@@ -31,29 +32,27 @@ void Bullet::move()
     // if one of the colliding items is an Enemy, destroy both the bullet and the enemy
     for (int i = 0, n= colliding_items.size(); i < n; ++i)
     {
-        //checks if the bullet hit a enemy.
+        //checks if the bullet hit a enemy./*
         if (typeid(*(colliding_items[i])) == typeid(Enemy) || typeid(*(colliding_items[i])) == typeid(Enemy2))
         {
             // increase the score
             game->score->increase();
 
-            // remove them both
+            // remove them both/*
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
 
             // free memory
             delete colliding_items[i];
             delete this;
-
-            return;
         }
     }
 
     // move bullet up by pixels
     setPos(x(),y()-10);
 
-    // when bullet is out of screen, free memory and remove bullet
-    if(pos().y() + rect().height() < 0)
+     //when bullet is out of screen, free memory and remove bullet
+    if(pos().y() < -800)
     {
         scene()->removeItem(this);
         delete this;
