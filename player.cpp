@@ -48,7 +48,17 @@ void Player::keyPressEvent(QKeyEvent *event){
 }
 
 void Player::spawn(){
+    srand(time(NULL));
+    if((rand()%2)%2)
+    {
+        Enemy * enemy2 = new Enemy2();
+        scene()->addItem(enemy2);
+    }
     // create an enemy
-    Enemy * enemy = new Enemy();
-    scene()->addItem(enemy);
+    else
+    {
+        Enemy * enemy = new Enemy();
+        scene()->addItem(enemy);
+    }
+
 }

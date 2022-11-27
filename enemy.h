@@ -19,8 +19,7 @@ public slots:
 };
 
 class Enemy2: public Enemy{
-     Q_OBJECT
-
+    Q_OBJECT
 public:
     Enemy2(QGraphicsItem * parent=0);
 public slots:

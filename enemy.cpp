@@ -43,3 +43,37 @@ void Enemy::move(int speed)
 }
 
 
+
+Enemy2::Enemy2(QGraphicsItem *parent)
+{
+    // set random start position
+    int random_number = rand() % 700;
+    setPos(random_number, 0);
+
+    // draw the rect
+    setRect(0,0,100,100);
+
+    /***\
+    Connects timer to public slot move .
+    timer is there for bullet movement, this changes the speed of the bullet.
+    \***/
+    QTimer * timer = new QTimer(this);
+    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
+    timer->start(200);
+}
+
+void Enemy2::move(int speed)
+{
+    // move enemy down
+    setPos(x(),y()+speed);
+
+    // when enemy is out of screen, free memory
+    if(pos().y() > 600){
+
+        //decrease the health
+        game->health->decrease();
+
+        scene()->removeItem(this);
+        delete this;
+    }
+}
