@@ -13,7 +13,7 @@ public:
 public slots:
     void move();
 private:
-    virtual void skin();
+    virtual void skin(){};
 
 };
 #endif // ENEMY_H

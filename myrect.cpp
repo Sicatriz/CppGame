@@ -4,7 +4,7 @@
 #include <QKeyEvent>
 #include <QGraphicsScene>
 
-#include <QDebug>
+//#include <QDebug>
 
 void MyRect::keyPressEvent(QKeyEvent *event)
 {
