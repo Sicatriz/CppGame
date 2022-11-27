@@ -18,7 +18,7 @@ Game::Game(QWidget *parent)
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(800,600);
+    setFixedSize(800,600);  //set the size of the window
 
     // create the player
     player = new Player();

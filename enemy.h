@@ -12,6 +12,8 @@ public:
     Enemy(QGraphicsItem * parent=0);
 public slots:
     void move();
+private:
+    virtual void skin();
 
 };
 #endif // ENEMY_H
