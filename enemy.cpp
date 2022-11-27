@@ -26,10 +26,10 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent) //With
 
 }
 
-void Enemy::move()
+void Enemy::move(int speed)
 {
     // move enemy down
-    setPos(x(),y()+5);
+    setPos(x(),y()+speed);
 
     // when enemy is out of screen, free memory
     if(pos().y() > 600){
