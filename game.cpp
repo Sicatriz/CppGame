@@ -4,7 +4,8 @@
 #include <QFont>
 #include "enemy.h"
 #include <QMediaPlayer>
-
+#include <QAudioOutput>
+//#include <QAmbientSound>
 
 Game::Game(QWidget *parent)
 {
@@ -42,6 +43,19 @@ Game::Game(QWidget *parent)
     timer->start(2000);
 
     // play background music
+    QMediaPlayer * music = new QMediaPlayer();
+
+    QAudioOutput * audioOutput = new QAudioOutput();
+
+    music->setAudioOutput(audioOutput);
+    connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
+    //music->setSource(QUrl("qrc:/sounds/gameOver.wav"));
+    music->setSource(QUrl("qrc:/sounds/1.MainTheme-320bit.mp3"));
+    audioOutput->setVolume(100);
+    music->audioOutput()->setVolume(100);
+    music->play();
+
+
 
     show();
 }
