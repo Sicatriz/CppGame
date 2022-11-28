@@ -8,6 +8,9 @@
 #include "enemy3.h"
 #include "game.h"
 
+//dit is een test branch
+
+
 extern Game * game; // there is an external global object called game
 
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
