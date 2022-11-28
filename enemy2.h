@@ -3,7 +3,7 @@
 
 #include <enemy.h>
 
-class Enemy2: public Enemy{
+class Enemy2: public Enemy{ /***4 inheritance***/
     Q_OBJECT
 public:
     Enemy2(QGraphicsItem * parent=0);

@@ -4,7 +4,7 @@
 #include <QGraphicsTextItem>
 #include <QFont>
 
-class Health: public QGraphicsTextItem{
+class Health: public QGraphicsTextItem{ /***3 encapsulation ***/
 public:
     Health(QGraphicsItem * parent=0);
     void decrease();
