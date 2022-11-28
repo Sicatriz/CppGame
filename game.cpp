@@ -1,7 +1,5 @@
 #include "game.h"
 
-//#include <QAmbientSound>
-
 Game::Game(QWidget *parent)
 {
     // create the scene

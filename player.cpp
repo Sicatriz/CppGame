@@ -11,8 +11,6 @@ Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
     bulletsound->setSource(QUrl("qrc:/sounds/sounds/bulletSmall.wav"));
 }
 
-
-
 void Player::keyPressEvent(QKeyEvent *event){
     // move the player left and right
     if (event->key() == Qt::Key_Left){
