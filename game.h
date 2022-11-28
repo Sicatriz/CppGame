@@ -4,9 +4,17 @@
 #include <QGraphicsView>
 #include <QWidget>
 #include <QGraphicsScene>
+#include <QTimer>
+#include <QGraphicsTextItem>
+#include <QMediaPlayer>
+#include <QAudioOutput>
+#include <QFont>
+#include <QImage>
+#include <QBrush>
 #include "player.h"
 #include "Score.h"
 #include "Health.h"
+#include "enemy.h"
 
 class Game: public QGraphicsView{
 public:

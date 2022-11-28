@@ -1,12 +1,4 @@
 #include "bullet.h"
-#include <QTimer>
-#include <QGraphicsScene>
-#include <QList>
-
-#include "game.h"
-
-//dit is een test branch
-
 
 extern Game * game; // there is an external global object called game
 

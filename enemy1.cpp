@@ -1,5 +1,4 @@
 #include "enemy1.h"
-#include "game.h"
 
 extern Game * game;
 

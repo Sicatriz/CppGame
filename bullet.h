@@ -5,7 +5,10 @@
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
 #include <QObject>
-
+#include <QTimer>
+#include <QGraphicsScene>
+#include <QList>
+#include "game.h"
 #include "enemy.h"
 #include "enemy1.h"
 #include "enemy2.h"

@@ -2,6 +2,7 @@
 #define ENEMY1_H
 
 #include <enemy.h>
+#include "game.h"
 
 class Enemy1: public Enemy{
     Q_OBJECT

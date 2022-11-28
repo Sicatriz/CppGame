@@ -1,9 +1,5 @@
 #include "enemy.h"
-#include <QTimer>
-#include <QGraphicsScene>
-#include <QList>
-#include <stdlib.h>
-#include "game.h"
+
 
 extern Game * game;
 
