@@ -1,4 +1,7 @@
 #include "game.h"
+#include <QMouseEvent>
+#include "player.h"
+
 
 Game::Game(QWidget *parent)
 {
@@ -50,3 +53,21 @@ Game::Game(QWidget *parent)
 
     show();
 }
+
+void Game::mouseMoveEvent(QMouseEvent *mouse)
+{
+//    // connects
+//    QTimer * timer = new QTimer(this);
+//    connect(timer,SIGNAL(timeout()),this,SLOT(mouse()));
+//    timer->start(50);
+
+    player->setPos(mouse->pos());
+
+}
+
+//void Game::mousePressEvent(QMouseEvent *event)
+//{
+//    // move player to mouse click
+
+//    //player->setPos(event->pos());
+//}

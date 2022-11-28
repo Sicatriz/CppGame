@@ -8,12 +8,16 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
 #include <QKeyEvent>
+#include <QMouseEvent>
 
 class Player:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     Player(QGraphicsItem * parent=0);
     void keyPressEvent(QKeyEvent * event);
+
+
+
 public slots:
     void spawn();
 private:
