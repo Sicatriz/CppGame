@@ -4,11 +4,11 @@
 #include <QGraphicsTextItem>
 #include <QFont>
 
-class Health: public QGraphicsTextItem{ /***3 encapsulation ***/
+class Health: public QGraphicsTextItem{
 public:
     Health(QGraphicsItem * parent=0);
     void decrease();
-    int getHealth();
+    int getHealth();    /***3 encapsulation ***/
 private:
     int health;
 };

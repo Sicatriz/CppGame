@@ -16,7 +16,7 @@ public:
     void keyPressEvent(QKeyEvent * event);
 public slots:
     void spawn();
-private:  /***2 abstraction ***/
+private:
     QMediaPlayer * bulletsound;
 
 };

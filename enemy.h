@@ -20,7 +20,7 @@ public:
 
    Enemy(QGraphicsItem * parent=0);
 public slots:
-    virtual void move(int speed)=0; /***5 polymorphism***/ /***9 virtual function***/
+    virtual void move(int speed)=0;  /***9 virtual function***/
 
 };
 

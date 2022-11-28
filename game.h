@@ -21,7 +21,7 @@ public:
     Game(QWidget * parent=0);
 
     QGraphicsScene * scene;
-    Player * player;
+    Player * player;        /***2 abstraction ***/
     Score * score;
     Health * health;
 //gathers all information to make sure that the game runs

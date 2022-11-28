@@ -13,7 +13,7 @@
 #include "enemy2.h"
 #include "enemy3.h"
 
-class Bullet: public QObject, public QGraphicsPixmapItem
+class Bullet: public QObject, public QGraphicsPixmapItem  /****1 usefull and correct class ****/
 {
    Q_OBJECT    // bullet needs to be an Qobject for movement and this makes it a object.
 public:
