@@ -9,8 +9,9 @@
     <qresource prefix="/gfx">
         <file>gfx/playerJet.png</file>
         <file>gfx/bullet.png</file>
-        <file>gfx/enemy.png</file>
+        <file>gfx/enemy3.png</file>
         <file>gfx/enemy2.png</file>
         <file>gfx/zee.png</file>
+        <file>gfx/enemy1.png</file>
     </qresource>
 </RCC>

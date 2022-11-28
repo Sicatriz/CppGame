@@ -44,7 +44,7 @@ Game::Game(QWidget *parent)
     // spawn enemies
     QTimer * timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
-    timer->start(2000);
+    timer->start(500);
 
     // play background music
     QMediaPlayer * music = new QMediaPlayer();

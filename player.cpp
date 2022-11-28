@@ -3,6 +3,9 @@
 #include <QKeyEvent>
 #include "bullet.h"
 #include "enemy.h"
+#include "enemy1.h"
+#include "enemy2.h"
+#include "enemy3.h"
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
     bulletsound = new QMediaPlayer ();
@@ -49,16 +52,23 @@ void Player::keyPressEvent(QKeyEvent *event){
 
 void Player::spawn(){
     srand(time(NULL));
-    if((rand()%5)%5)
-    {
-        Enemy * enemy = new Enemy();
-        scene()->addItem(enemy);
-    }
-    // create an enemy
-    else
+    int ran = rand()%5;
+
+    if(ran%5 == 0)
     {
         Enemy * enemy2 = new Enemy2();
         scene()->addItem(enemy2);
+    }
+    // create an enemy
+    else if(ran%2 == 0)
+    {
+        Enemy * enemy1 = new Enemy1();
+        scene()->addItem(enemy1);
+    }
+    else
+    {
+        Enemy * enemy3 = new Enemy3();
+        scene()->addItem(enemy3);
     }
 
 }

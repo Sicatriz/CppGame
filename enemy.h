@@ -5,6 +5,11 @@
 #include <QObject>
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
+#include <QTimer>
+#include <QGraphicsScene>
+#include <QList>
+#include <stdlib.h>
+#include "game.h"
 
 class Enemy: public QObject, public QGraphicsPixmapItem
 {
@@ -14,17 +19,9 @@ public:
 
    Enemy(QGraphicsItem * parent=0);
 public slots:
-    virtual void move(int speed = 5);
-
-
-};
-
-class Enemy2: public Enemy{
-    Q_OBJECT
-public:
-    Enemy2(QGraphicsItem * parent=0);
-public slots:
-    void move(int speed = 10);
+    virtual void move(int speed)=0;
 
 };
+
+
 #endif // ENEMY_H

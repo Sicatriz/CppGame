@@ -3,6 +3,9 @@
 #include <QGraphicsScene>
 #include <QList>
 #include "enemy.h"
+#include "enemy1.h"
+#include "enemy2.h"
+#include "enemy3.h"
 #include "game.h"
 
 extern Game * game; // there is an external global object called game
@@ -41,7 +44,7 @@ void Bullet::move()
     for (int i = 0, n= colliding_items.size(); i < n; ++i)
     {
         //checks if the bullet hit a enemy./*
-        if (typeid(*(colliding_items[i])) == typeid(Enemy) || typeid(*(colliding_items[i])) == typeid(Enemy2))
+        if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3))
         {
             // increase the score
             game->score->increase();
