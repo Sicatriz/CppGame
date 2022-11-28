@@ -2,10 +2,7 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList>
-#include "enemy.h"
-#include "enemy1.h"
-#include "enemy2.h"
-#include "enemy3.h"
+
 #include "game.h"
 
 //dit is een test branch

@@ -5,8 +5,11 @@
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
 #include <QObject>
-#include "enemy1.h"
+
 #include "enemy.h"
+#include "enemy1.h"
+#include "enemy2.h"
+#include "enemy3.h"
 
 class Bullet: public QObject, public QGraphicsPixmapItem
 {
