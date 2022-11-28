@@ -9,22 +9,17 @@ extern Game * game; // there is an external global object called game
 
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
 {
-    // draw the rect
-    //setRect(45,0,10,50);
-    setPixmap(QPixmap(":/gfx/gfx/bullet.png"));
+    setPixmap(QPixmap(":/gfx/gfx/bullet.png")); //give bullet graphics
     QGraphicsPixmapItem::setOffset(2,50);
 
-    QMediaPlayer * music = new QMediaPlayer();
-
+    QMediaPlayer * music = new QMediaPlayer(); //adding bullet sound
     QAudioOutput * audioOutput = new QAudioOutput();
-
     music->setAudioOutput(audioOutput);
     connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
     music->setSource(QUrl("qrc:/sounds/sounds/bulletSmall.wav"));
     audioOutput->setVolume(100);
     music->audioOutput()->setVolume(100);
     music->play();
-
 
     // connects
     QTimer * timer = new QTimer(this);
@@ -53,9 +48,7 @@ void Bullet::move()
 
             // play hit sound
             QMediaPlayer * music = new QMediaPlayer();
-
             QAudioOutput * audioOutput = new QAudioOutput();
-
             music->setAudioOutput(audioOutput);
             connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
             music->setSource(QUrl("qrc:/sounds/sounds/hit.wav"));
@@ -63,7 +56,7 @@ void Bullet::move()
             music->audioOutput()->setVolume(100);
             music->play();
 
-            // remove them both/*
+            // remove them both
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
 

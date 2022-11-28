@@ -13,9 +13,7 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) //Wi
     int random_number = rand() % 700;
     setPos(random_number, 0);
 
-    // draw the rect
-    //setRect(0,0,100,100);
-
+    //gfx enemy type 1
     setPixmap(QPixmap(":/gfx/gfx/enemy.png"));
 
 
@@ -53,9 +51,9 @@ Enemy2::Enemy2(QGraphicsItem *parent)
     int random_number = rand() % 700;
     setPos(random_number, 0);
 
-    // draw the rect
-    //setRect(0,0,100,100);
+    //gfx enemy type 2
     setPixmap(QPixmap(":/gfx/gfx/enemy2.png"));
+
 
     /***\
     Connects timer to public slot move .

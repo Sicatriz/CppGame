@@ -14,7 +14,7 @@ Game::Game(QWidget *parent)
     // create the scene
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,800,600); // make the scene 800x600 instead of infinity by infinity (default)
-    setBackgroundBrush(QBrush(QImage(":/gfx/gfx/zee.png")));
+    setBackgroundBrush(QBrush(QImage(":/gfx/gfx/zee.png"))); //set background image
 
     // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
     // it can be used to visualize scenes)
@@ -25,10 +25,9 @@ Game::Game(QWidget *parent)
 
     // create the player
     player = new Player();
-    player->setPixmap(QPixmap(":/gfx/gfx/playerJet.png"));
-
+    player->setPixmap(QPixmap(":/gfx/gfx/playerJet.png")); //playerskin
+    //startposition
     player->setPos(scene->width()/2, scene->height()- 150);
-    //player->setPos(scene->width()/2 - (player->rect().width()/2),scene->height() - (player->rect().height()*1.2)); // Startposition middle bottom
     // make the player focusable and set it to be the current focus
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();
@@ -49,7 +48,6 @@ Game::Game(QWidget *parent)
 
     // play background music
     QMediaPlayer * music = new QMediaPlayer();
-
     QAudioOutput * audioOutput = new QAudioOutput();
 
     music->setAudioOutput(audioOutput);
@@ -58,8 +56,6 @@ Game::Game(QWidget *parent)
     audioOutput->setVolume(70);
     music->audioOutput()->setVolume(70);
     music->play();
-
-
 
     show();
 }
