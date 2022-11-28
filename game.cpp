@@ -26,8 +26,7 @@ Game::Game(QWidget *parent)
     // create the player
     player = new Player();
     player->setPixmap(QPixmap(":/gfx/gfx/playerJet.png"));
-    //setPixmap(QPixmap(":/gfx/gfx/bullet.png"));
-    //player->setRect(0,0,100,100); // change the rect from 0x0 (default) to 100x100 pixels
+
     player->setPos(scene->width()/2, scene->height()- 150);
     //player->setPos(scene->width()/2 - (player->rect().width()/2),scene->height() - (player->rect().height()*1.2)); // Startposition middle bottom
     // make the player focusable and set it to be the current focus
@@ -55,10 +54,9 @@ Game::Game(QWidget *parent)
 
     music->setAudioOutput(audioOutput);
     connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-    //music->setSource(QUrl("qrc:/sounds/gameOver.wav"));
-    music->setSource(QUrl("qrc:/sounds/1.MainTheme-320bit.mp3"));
-    audioOutput->setVolume(100);
-    music->audioOutput()->setVolume(100);
+    music->setSource(QUrl("qrc:/sounds/sounds/1.MainTheme-320bit.mp3"));
+    audioOutput->setVolume(70);
+    music->audioOutput()->setVolume(70);
     music->play();
 
 

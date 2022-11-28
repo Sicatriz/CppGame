@@ -6,7 +6,7 @@
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
     bulletsound = new QMediaPlayer ();
-    bulletsound->setSource(QUrl("qrc:/sounds/bulletSmall.wav"));
+    bulletsound->setSource(QUrl("qrc:/sounds/sounds/bulletSmall.wav"));
 }
 
 void Player::keyPressEvent(QKeyEvent *event){

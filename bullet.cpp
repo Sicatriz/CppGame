@@ -14,6 +14,16 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  /
     setPixmap(QPixmap(":/gfx/gfx/bullet.png"));
     QGraphicsPixmapItem::setOffset(2,50);
 
+    QMediaPlayer * music = new QMediaPlayer();
+
+    QAudioOutput * audioOutput = new QAudioOutput();
+
+    music->setAudioOutput(audioOutput);
+    connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
+    music->setSource(QUrl("qrc:/sounds/sounds/bulletSmall.wav"));
+    audioOutput->setVolume(100);
+    music->audioOutput()->setVolume(100);
+    music->play();
 
 
     // connects
@@ -40,6 +50,18 @@ void Bullet::move()
         {
             // increase the score
             game->score->increase();
+
+            // play hit sound
+            QMediaPlayer * music = new QMediaPlayer();
+
+            QAudioOutput * audioOutput = new QAudioOutput();
+
+            music->setAudioOutput(audioOutput);
+            connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
+            music->setSource(QUrl("qrc:/sounds/sounds/hit.wav"));
+            audioOutput->setVolume(100);
+            music->audioOutput()->setVolume(100);
+            music->play();
 
             // remove them both/*
             scene()->removeItem(colliding_items[i]);
