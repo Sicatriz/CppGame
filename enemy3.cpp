@@ -2,7 +2,7 @@
 
 extern Game * game;
 
-Enemy3::Enemy3(QGraphicsItem *parent):Enemy()
+Enemy3::Enemy3(QGraphicsItem *parent):Enemy1()
 {
     // set random start position
     int random_number = rand() % 700;

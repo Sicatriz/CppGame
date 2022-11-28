@@ -1,9 +1,9 @@
 #ifndef ENEMY3_H
 #define ENEMY3_H
 
-#include <enemy.h>
+#include <enemy1.h>
 
-class Enemy3: public Enemy{
+class Enemy3: public Enemy1{
     Q_OBJECT
 public:
     Enemy3(QGraphicsItem * parent=0);
