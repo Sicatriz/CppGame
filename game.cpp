@@ -1,12 +1,5 @@
 #include "game.h"
-#include <QTimer>
-#include <QGraphicsTextItem>
-#include <QFont>
-#include "enemy.h"
-#include <QMediaPlayer>
-#include <QAudioOutput>
-#include <QImage>
-#include <QBrush>
+
 //#include <QAmbientSound>
 
 Game::Game(QWidget *parent)

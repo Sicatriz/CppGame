@@ -1,7 +1,6 @@
 #include "player.h"
-#include <QGraphicsScene>
-#include <QKeyEvent>
 #include "bullet.h"
+
 #include "enemy.h"
 #include "enemy1.h"
 #include "enemy2.h"
@@ -11,6 +10,8 @@ Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
     bulletsound = new QMediaPlayer ();
     bulletsound->setSource(QUrl("qrc:/sounds/sounds/bulletSmall.wav"));
 }
+
+
 
 void Player::keyPressEvent(QKeyEvent *event){
     // move the player left and right

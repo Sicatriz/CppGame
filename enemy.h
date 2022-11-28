@@ -10,6 +10,7 @@
 #include <QList>
 #include <stdlib.h>
 #include "game.h"
+#include <QTimer>
 
 class Enemy: public QObject, public QGraphicsPixmapItem
 {
@@ -22,6 +23,5 @@ public slots:
     virtual void move(int speed)=0;
 
 };
-
 
 #endif // ENEMY_H
