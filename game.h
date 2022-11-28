@@ -14,7 +14,7 @@
 #include "player.h"
 #include "Score.h"
 #include "Health.h"
-#include "enemy.h"
+//#include "enemy.h"
 
 class Game: public QGraphicsView{
 public:
