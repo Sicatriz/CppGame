@@ -2,13 +2,14 @@
 #define PLAYER_H
 
 
-#include <QGraphicsRectItem>
+//#include <QGraphicsRectItem>
 #include <QObject>
 #include <QGraphicsItem>
 #include <QMediaPlayer>
 #include <QAudioOutput>
+#include <QGraphicsPixmapItem>
 
-class Player:public QObject, public QGraphicsRectItem{
+class Player:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
     Player(QGraphicsItem * parent=0);

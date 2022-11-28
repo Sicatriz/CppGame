@@ -22,8 +22,11 @@ Game::Game(QWidget *parent)
 
     // create the player
     player = new Player();
-    player->setRect(0,0,100,100); // change the rect from 0x0 (default) to 100x100 pixels
-    player->setPos(scene->width()/2 - (player->rect().width()/2),scene->height() - (player->rect().height()*1.2)); // Startposition middle bottom
+    player->setPixmap(QPixmap(":/gfx/gfx/playerJet.png"));
+    //setPixmap(QPixmap(":/gfx/gfx/bullet.png"));
+    //player->setRect(0,0,100,100); // change the rect from 0x0 (default) to 100x100 pixels
+    player->setPos(scene->width()/2, scene->height()- 150);
+    //player->setPos(scene->width()/2 - (player->rect().width()/2),scene->height() - (player->rect().height()*1.2)); // Startposition middle bottom
     // make the player focusable and set it to be the current focus
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     player->setFocus();

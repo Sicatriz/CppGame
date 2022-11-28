@@ -1,11 +1,12 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
-#include <QGraphicsRectItem>
+//#include <QGraphicsRectItem>
 #include <QObject>
 #include <QGraphicsItem>
+#include <QGraphicsPixmapItem>
 
-class Enemy: public QObject, public QGraphicsRectItem
+class Enemy: public QObject, public QGraphicsPixmapItem
 {
    Q_OBJECT    // enemy needs to be an Qobject for movement
 

@@ -12,6 +12,9 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  /
     // draw the rect
     //setRect(45,0,10,50);
     setPixmap(QPixmap(":/gfx/gfx/bullet.png"));
+    QGraphicsPixmapItem::setOffset(2,50);
+
+
 
     // connects
     QTimer * timer = new QTimer(this);

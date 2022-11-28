@@ -4,7 +4,7 @@
 #include "bullet.h"
 #include "enemy.h"
 
-Player::Player(QGraphicsItem *parent): QGraphicsRectItem(parent){
+Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
     bulletsound = new QMediaPlayer ();
     bulletsound->setSource(QUrl("qrc:/sounds/bulletSmall.wav"));
 }
@@ -49,16 +49,16 @@ void Player::keyPressEvent(QKeyEvent *event){
 
 void Player::spawn(){
     srand(time(NULL));
-    if((rand()%2)%2)
+    if((rand()%5)%5)
     {
-        Enemy * enemy2 = new Enemy2();
-        scene()->addItem(enemy2);
+        Enemy * enemy = new Enemy();
+        scene()->addItem(enemy);
     }
     // create an enemy
     else
     {
-        Enemy * enemy = new Enemy();
-        scene()->addItem(enemy);
+        Enemy * enemy2 = new Enemy2();
+        scene()->addItem(enemy2);
     }
 
 }

@@ -7,14 +7,17 @@
 
 extern Game * game;
 
-Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsRectItem(parent) //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
+Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
 {
     // set random start position
     int random_number = rand() % 700;
     setPos(random_number, 0);
 
     // draw the rect
-    setRect(0,0,100,100);
+    //setRect(0,0,100,100);
+
+    setPixmap(QPixmap(":/gfx/gfx/enemy.png"));
+
 
     /***\
     Connects timer to public slot move .
@@ -51,7 +54,8 @@ Enemy2::Enemy2(QGraphicsItem *parent)
     setPos(random_number, 0);
 
     // draw the rect
-    setRect(0,0,100,100);
+    //setRect(0,0,100,100);
+    setPixmap(QPixmap(":/gfx/gfx/enemy2.png"));
 
     /***\
     Connects timer to public slot move .
