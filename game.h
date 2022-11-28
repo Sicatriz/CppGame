@@ -24,7 +24,7 @@ public:
 
     void mouseMoveEvent(QMouseEvent * mouse) override;
 
-    void mousePressEvent(QMouseEvent *event) override{};
+
 
     QGraphicsScene * scene;
     Player * player;

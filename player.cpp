@@ -52,7 +52,29 @@ void Player::keyPressEvent(QKeyEvent *event){
     }
 }
 
+//void Player::mousePressEvent(QMouseEvent *event)
+//{
 
+
+//    if(event->buttons() == Qt::LeftButton)
+//    {
+//        Bullet * bullet = new Bullet();
+//        bullet->setPos(x(),y());
+//        scene()->addItem(bullet);
+
+//        // play bulletsound
+//        if (bulletsound->playbackState() == QMediaPlayer::PlayingState)
+//        {
+//            bulletsound->setPosition(0);
+//        }
+//        else if (bulletsound->playbackState() == QMediaPlayer::StoppedState)
+//        {
+//            bulletsound->play();
+//        }
+//    }
+
+
+//}
 
 void Player::spawn(){
     srand(time(NULL));

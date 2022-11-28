@@ -1,6 +1,7 @@
 #include "game.h"
 #include <QMouseEvent>
 #include "player.h"
+#include "bullet.h"
 
 
 Game::Game(QWidget *parent)
@@ -65,9 +66,4 @@ void Game::mouseMoveEvent(QMouseEvent *mouse)
 
 }
 
-//void Game::mousePressEvent(QMouseEvent *event)
-//{
-//    // move player to mouse click
 
-//    //player->setPos(event->pos());
-//}
