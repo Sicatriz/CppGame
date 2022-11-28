@@ -11,5 +11,6 @@
         <file>gfx/bullet.png</file>
         <file>gfx/enemy.png</file>
         <file>gfx/enemy2.png</file>
+        <file>gfx/zee.png</file>
     </qresource>
 </RCC>
