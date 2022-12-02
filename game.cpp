@@ -1,7 +1,9 @@
 #include "game.h"
 #include <QMouseEvent>
 #include "player.h"
-#include "bullet.h"
+
+//#include "bullet.h"
+
 
 
 Game::Game(QWidget *parent)
@@ -55,15 +57,25 @@ Game::Game(QWidget *parent)
     show();
 }
 
+
 void Game::mouseMoveEvent(QMouseEvent *mouse)
 {
-//    // connects
-//    QTimer * timer = new QTimer(this);
-//    connect(timer,SIGNAL(timeout()),this,SLOT(mouse()));
-//    timer->start(50);
+    // connects
+    QTimer * timer = new QTimer();
+    connect(timer,SIGNAL(timeout()),this,SLOT(mouse()));
+    timer->start(500);
 
-    player->setPos(mouse->pos());
+    player->motion(mouse);
+    //player->motion(mouse);
+   // player->setPos(mouse->pos());
 
 }
+
+//void Game::motion:QMouseEvent(QMouseEvent *mouse)
+//{
+//    player->setPos(mouse->pos());
+//}
+
+
 
 

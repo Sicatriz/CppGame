@@ -16,7 +16,8 @@ public:
     Player(QGraphicsItem * parent=0);
     void keyPressEvent(QKeyEvent * event) override;
 
-  //  void mousePressEvent(QMouseEvent *event);
+    //void mousePressEvent(QMouseEvent *event) override;
+    void motion(QMouseEvent *event);
 
 public slots:
     void spawn();

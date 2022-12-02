@@ -5,10 +5,13 @@
 #include "enemy1.h"
 #include "enemy2.h"
 #include "enemy3.h"
+#include <QMouseEvent>
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
     bulletsound = new QMediaPlayer ();
     bulletsound->setSource(QUrl("qrc:/sounds/sounds/bulletSmall.wav"));
+
+
 }
 
 
@@ -52,29 +55,11 @@ void Player::keyPressEvent(QKeyEvent *event){
     }
 }
 
-//void Player::mousePressEvent(QMouseEvent *event)
-//{
+void Player::motion(QMouseEvent *mouse)
+{
+    setPos(mouse->pos());
 
-
-//    if(event->buttons() == Qt::LeftButton)
-//    {
-//        Bullet * bullet = new Bullet();
-//        bullet->setPos(x(),y());
-//        scene()->addItem(bullet);
-
-//        // play bulletsound
-//        if (bulletsound->playbackState() == QMediaPlayer::PlayingState)
-//        {
-//            bulletsound->setPosition(0);
-//        }
-//        else if (bulletsound->playbackState() == QMediaPlayer::StoppedState)
-//        {
-//            bulletsound->play();
-//        }
-//    }
-
-
-//}
+}
 
 void Player::spawn(){
     srand(time(NULL));

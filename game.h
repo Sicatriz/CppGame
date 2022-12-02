@@ -12,8 +12,8 @@
 #include <QImage>
 #include <QBrush>
 #include "player.h"
-#include "Score.h"
-#include "Health.h"
+#include "score.h"
+#include "health.h"
 #include <QMouseEvent>
 //#include "enemy.h"
 
@@ -23,6 +23,8 @@ public:
     Game(QWidget * parent=0);
 
     void mouseMoveEvent(QMouseEvent * mouse) override;
+
+//    void motion();
 
 
 
