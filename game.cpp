@@ -54,16 +54,19 @@ Game::Game(QWidget *parent)
     music->audioOutput()->setVolume(70);
     music->play();
 
+    // connects player move signal
+    QTimer * timer2 = new QTimer();
+    connect(timer2,SIGNAL(timeout()),player,SLOT(motion()));
+    timer2->start(2000);
+    setMouseTracking(true);
+
     show();
 }
 
 
 void Game::mouseMoveEvent(QMouseEvent *mouse)
 {
-    // connects
-    QTimer * timer = new QTimer();
-    connect(timer,SIGNAL(timeout()),this,SLOT(mouse()));
-    timer->start(500);
+
 
     player->motion(mouse);
     //player->motion(mouse);

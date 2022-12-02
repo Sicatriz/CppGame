@@ -16,11 +16,12 @@ public:
     Player(QGraphicsItem * parent=0);
     void keyPressEvent(QKeyEvent * event) override;
 
-    //void mousePressEvent(QMouseEvent *event) override;
-    void motion(QMouseEvent *event);
+ //   void mousePressEvent(QMouseEvent *event);
+
 
 public slots:
     void spawn();
+    void motion(QMouseEvent *event);
 private:
     QMediaPlayer * bulletsound;
 

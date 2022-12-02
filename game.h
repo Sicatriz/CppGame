@@ -24,7 +24,7 @@ public:
 
     void mouseMoveEvent(QMouseEvent * mouse) override;
 
-//    void motion();
+    void motion();
 
 
 
