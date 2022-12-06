@@ -14,9 +14,6 @@ Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
 
 }
 
-
-
-
 void Player::keyPressEvent(QKeyEvent *event){
     // move the player left and right
     if (event->key() == Qt::Key_Left){
@@ -55,6 +52,17 @@ void Player::keyPressEvent(QKeyEvent *event){
     }
 }
 
+void Player::setWannaBeX(int x)
+{
+    wannaBeX = x;
+
+}
+
+void Player::setWannaBeY(int y)
+{
+    wannaBeY = y;
+}
+
 //void Player::mousePressEvent(QMouseEvent *event)
 //{
 //    Bullet * bullet = new Bullet();
@@ -62,13 +70,18 @@ void Player::keyPressEvent(QKeyEvent *event){
 //    scene()->addItem(bullet);
 //}
 
-void Player::motion(QMouseEvent *mouse)
+void Player::motion()
 {
-    setPos(mouse->pos());
+
+//    double coef = sqrt(pow(wannaBeX-pos().x(), 2)+pow(wannaBeY-pos().y(), 2));
+//    if( coef > 19 )
+//        coef = 19;
+//    else
+//        coef = 9;
+    int coef = 19;
+    setPos((wannaBeX*(20-coef)+pos().x()*coef)/20, (wannaBeY*(20-coef)+pos().y()*coef)/20 );
 
 }
-
-
 
 void Player::spawn(){
     srand(time(NULL));

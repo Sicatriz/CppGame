@@ -16,14 +16,19 @@ public:
     Player(QGraphicsItem * parent=0);
     void keyPressEvent(QKeyEvent * event) override;
 
+    void setWannaBeX(int x);
+    void setWannaBeY(int y);
+
  //   void mousePressEvent(QMouseEvent *event);
 
 
 public slots:
     void spawn();
-    void motion(QMouseEvent *event);
+    void motion();
 private:
     QMediaPlayer * bulletsound;
+    int wannaBeX = 0;
+    int wannaBeY = 0;
 
 };
 #endif // PLAYER_H
