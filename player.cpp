@@ -39,10 +39,13 @@ void Player::keyPressEvent(QKeyEvent *event){
     // shoot with the spacebar
     else if (event->key() == Qt::Key_Space){
         // create a bullet
-        Bullet * bullet = new Bullet();
-        bullet->setPos(x(),y());
-        scene()->addItem(bullet);
+        Bullet * bullet1 = new Bullet(2, 50);
+        Bullet * bullet2 = new Bullet(90, 50);
 
+        bullet1->setPos(x(),y());
+        bullet2->setPos(x(),y());
+        scene()->addItem(bullet1);
+        scene()->addItem(bullet2);
         // play bulletsound
         if (bulletsound->playbackState() == QMediaPlayer::PlayingState)
         {
