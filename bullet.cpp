@@ -44,6 +44,7 @@ void Bullet::move()
             Enemy* enemy = (Enemy*) colliding_items[i];
             enemy->hit(1);
 
+                //dit is een test lijn
 
 
             // play hit sound
