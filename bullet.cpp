@@ -6,7 +6,7 @@ extern Game * game; // there is an external global object called game
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
 {
     setPixmap(QPixmap(":/gfx/gfx/bullet.png")); //give bullet graphics
-    QGraphicsPixmapItem::setOffset(2,50);
+    QGraphicsPixmapItem::setOffset(2, 50);
 
     QMediaPlayer * music = new QMediaPlayer(); //adding bullet sound
     QAudioOutput * audioOutput = new QAudioOutput();
@@ -26,6 +26,30 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  /
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(50);
 
+}
+
+Bullet::Bullet(int xas, int yas)
+{
+    setPixmap(QPixmap(":/gfx/gfx/bullet.png")); //give bullet graphics
+    QGraphicsPixmapItem::setOffset(xas, yas);
+
+    QMediaPlayer * music = new QMediaPlayer(); //adding bullet sound
+    QAudioOutput * audioOutput = new QAudioOutput();
+    music->setAudioOutput(audioOutput);
+    connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
+    music->setSource(QUrl("qrc:/sounds/sounds/bulletSmall.wav"));
+    audioOutput->setVolume(100);
+    music->audioOutput()->setVolume(100);
+    music->play();
+
+    // connects
+    QTimer * timer = new QTimer(this);
+    /***\
+    Connects timer to public slot move .
+    timer is there for bullet movement, this changes the speed of the bullet.
+    \***/
+    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
+    timer->start(50);
 }
 
 void Bullet::move()
