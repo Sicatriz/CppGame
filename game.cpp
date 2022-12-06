@@ -57,7 +57,7 @@ Game::Game(QWidget *parent)
     // connects player move signal
     QTimer * timer2 = new QTimer();
     connect(timer2,SIGNAL(timeout()),player,SLOT(motion()));
-    timer2->start(10);
+    timer2->start(15);
     setMouseTracking(true);
 
     show();
