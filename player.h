@@ -25,6 +25,7 @@ public:
 public slots:
     void spawn();
     void motion();
+    void collision();
 private:
     QMediaPlayer * bulletsound;
     int wannaBeX = 0;
