@@ -41,7 +41,7 @@ void Bullet::move()
         {
             // increase the score
             game->score->increase();
-            Enemy * enemy = (Enemy*) colliding_items[i];
+            Enemy* enemy = (Enemy*) colliding_items[i];
             enemy->hit(1);
 
 
@@ -57,7 +57,7 @@ void Bullet::move()
             music->play();
 
             // remove them both
-            scene()->removeItem(colliding_items[i]);
+            //scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
 
             // free memory
