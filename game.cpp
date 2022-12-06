@@ -1,6 +1,9 @@
 #include "game.h"
 #include <QMouseEvent>
 #include "player.h"
+#include "bgdecks.h"
+#include "bgdeckscontainer.h"
+#include "bgdeckscruise.h"
 
 //#include "bullet.h"
 
@@ -42,6 +45,21 @@ Game::Game(QWidget *parent)
     QTimer * timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);
+
+    // spawn boats
+    QTimer * timerBoat = new QTimer();
+    QObject::connect(timerBoat,SIGNAL(timeout()),player,SLOT(spawnBoat()));
+    timerBoat->start(40000);
+
+    // boats on start screen
+    BgDecks * container = new BgdecksContainer();
+    container->setPos(400,600);
+    scene->addItem(container);
+
+    BgDecks * cruise = new BgdecksCruise();
+    container->setPos(500,400);
+    scene->addItem(cruise);
+
 
     // play background music
     QMediaPlayer * music = new QMediaPlayer();

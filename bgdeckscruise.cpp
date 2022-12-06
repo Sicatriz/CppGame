@@ -1,18 +1,18 @@
-#include "bgdeckscontainer.h"
+#include "bgdeckscruise.h"
 
 extern Game * game;
 
-BgdecksContainer::BgdecksContainer(QGraphicsItem *parent):BgDecks()
+BgdecksCruise::BgdecksCruise(QGraphicsItem *parent):BgDecks()
 {
     // set random start position
     //int random_number = rand() % 1800;
     int random_width = 150 + (rand() % 1600);
     int random_rotation = rand() % 360;
-    setPos(random_width, 20);
+    setPos(random_width, 0);
     setRotation(random_rotation);
 
     //gfx enemy type 2
-    setPixmap(QPixmap(":/gfx/gfx/boatContainer.png"));
+    setPixmap(QPixmap(":/gfx/gfx/boatCruise.png"));
 
 
     /***\
@@ -21,10 +21,10 @@ BgdecksContainer::BgdecksContainer(QGraphicsItem *parent):BgDecks()
     \***/
     QTimer * timerBoat = new QTimer(this);
     connect(timerBoat,SIGNAL(timeout()),this,SLOT(move()));
-    timerBoat->start(10000);
+    timerBoat->start(3000);
 }
 
-void BgdecksContainer::move(int speed)
+void BgdecksCruise::move(int speed)
 {
     // move enemy down
     setPos(x(),y()+speed);

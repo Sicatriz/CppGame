@@ -60,7 +60,7 @@ void Bullet::move()
             // remove them both
             //scene()->removeItem(colliding_items[i]);
             if(enemy->destroy()){
-              scene()->removeItem(colliding_items[i]);
+               scene()->removeItem(colliding_items[i]);
             }
             scene()->removeItem(this);
 

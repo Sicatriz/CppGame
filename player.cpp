@@ -6,7 +6,11 @@
 #include "enemy2.h"
 #include "enemy3.h"
 #include <QMouseEvent>
-#include "game.h"
+//#include "game.h"
+#include "bgdecks.h"
+#include "bgdeckscontainer.h"
+#include "bgdeckscruise.h"
+#include <qvideowidget.h>
 
 //extern Game * game;
 
@@ -112,6 +116,7 @@ void Player::collision()
             music->audioOutput()->setVolume(100);
             music->play();
 
+
             // remove them both
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
@@ -143,5 +148,34 @@ void Player::spawn(){
         Enemy * enemy3 = new Enemy3();
         scene()->addItem(enemy3);
     }
+    if(ran%9 == 4)
+    {
+        BgDecks * container = new BgdecksContainer();
+        scene()->addItem(container);
+    }
+
+}
+
+void Player::spawnBoat(){
+    srand(time(NULL));
+    int ran = rand()%5;
+    // create backgroundboats
+    if(ran%5 == 0)
+    {
+        BgDecks * container = new BgdecksContainer();
+        scene()->addItem(container);
+    }
+
+    else if(ran%4 == 0)
+    {
+        BgDecks * cruise = new BgdecksCruise();
+        scene()->addItem(cruise);
+    }
+//    else
+//    {
+//        Enemy * enemy3 = new Enemy3();
+//        scene()->addItem(enemy3);
+//    }
+
 
 }
