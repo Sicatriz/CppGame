@@ -38,9 +38,16 @@ void Enemy::move(int speed)
         this->deleteLater();
     }
 
-    void Enemy::hit(int dmg)
-    {
-        hp = hp - dmg;
+
+}
+
+void Enemy::hit(int dmg){
+    hp = hp - dmg;
+}
+
+void Enemy::destroy(){
+    if(hp <= 0){
+    this->deleteLater();
     }
 }
 

@@ -62,7 +62,7 @@ void Bullet::move()
 
             // free memory
 
-            delete colliding_items[i];
+            enemy->destroy();
             this->deleteLater();
         }
     }

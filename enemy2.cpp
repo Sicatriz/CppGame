@@ -36,14 +36,18 @@ void Enemy2::move(int speed)
         scene()->removeItem(this);
         delete this;
     }
-    void Enemy2::baseHP(int hp){
-        hp = 1;
-    }
 
 
-    void Enemy2::hit(int dmg)
-    {
-        hp = hp - dmg;
+}
+
+void Enemy2::hit(int dmg)
+{
+    hp = hp - dmg;
+}
+
+void Enemy2::destroy(){
+    if(hp <= 0){
+    this->deleteLater();
     }
 }
 

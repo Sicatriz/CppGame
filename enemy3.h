@@ -9,8 +9,10 @@ public:
     Enemy3(QGraphicsItem * parent=0);
 public slots:
     void move(int speed = 5);
-    void baseHP(int hp);
     void hit(int dmg);
+    virtual void destroy();
+private:
+   int hp = 1;
 };
 
 #endif // ENEMY3_H

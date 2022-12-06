@@ -24,8 +24,9 @@ public:
 public slots:
     virtual void move(int speed)=0;
     virtual void hit(int dmg)=0; /***9 virtual function***/
+    virtual void destroy()=0;
 private:
-   int hp = 1;
+    int hp = 1;
 
 };
 
