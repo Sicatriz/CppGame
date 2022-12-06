@@ -45,9 +45,5 @@ void Enemy3::hit(int dmg)
     hp = hp - dmg;
 }
 
-void Enemy3::destroy(){
-    if(hp <= 0){
-    this->deleteLater();
-    }
-}
+
 

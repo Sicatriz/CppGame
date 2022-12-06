@@ -19,6 +19,7 @@ Enemy1::Enemy1(QGraphicsItem *parent):Enemy()
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(200);
+    hp = 5;
 }
 
 void Enemy1::move(int speed)
@@ -45,8 +46,5 @@ void Enemy1::hit(int dmg)
     hp = hp - dmg;
 }
 
-void Enemy1::destroy(){
-    if(hp <= 0){
-    this->deleteLater();
-    }
-}
+
+

@@ -10,9 +10,9 @@ public:
 public slots:
     void move(int speed = 5);
     void hit(int dmg);
-     virtual void destroy();
+
 private:
-   int hp = 5;
+   //int hp = 5;
 };
 
 #endif // ENEMY2_H

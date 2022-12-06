@@ -45,9 +45,11 @@ void Enemy::hit(int dmg){
     hp = hp - dmg;
 }
 
-void Enemy::destroy(){
+bool Enemy::destroy(){
     if(hp <= 0){
     this->deleteLater();
+        return true;
     }
+    return false;
 }
 
