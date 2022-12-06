@@ -36,5 +36,15 @@ void Enemy1::move(int speed)
         scene()->removeItem(this);
         delete this;
     }
+    void Enemy1::baseHP(int hp)
+    {
+
+    }
+
+
+    void Enemy1::hit(int dmg)
+    {
+        hp = hp - dmg;
+    }
 }
 
