@@ -5,10 +5,16 @@
 #include "enemy1.h"
 #include "enemy2.h"
 #include "enemy3.h"
+#include <QMouseEvent>
+#include "game.h"
+
+//extern Game * game;
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
     bulletsound = new QMediaPlayer ();
     bulletsound->setSource(QUrl("qrc:/sounds/sounds/bulletSmall.wav"));
+
+
 }
 
 void Player::keyPressEvent(QKeyEvent *event){
@@ -48,6 +54,73 @@ void Player::keyPressEvent(QKeyEvent *event){
         else if (bulletsound->playbackState() == QMediaPlayer::StoppedState)
         {
             bulletsound->play();
+        }
+    }
+}
+
+void Player::setWannaBeX(int x)
+{
+    wannaBeX = x;
+
+}
+
+void Player::setWannaBeY(int y)
+{
+    wannaBeY = y;
+}
+
+//void Player::mousePressEvent(QMouseEvent *event)
+//{
+//    Bullet * bullet = new Bullet();
+//    bullet->setPos(x(),y());
+//    scene()->addItem(bullet);
+//}
+
+void Player::motion()
+{
+
+//    double coef = sqrt(pow(wannaBeX-pos().x(), 2)+pow(wannaBeY-pos().y(), 2));
+//    if( coef > 19 )
+//        coef = 19;
+//    else
+//        coef = 9;
+    int coef = 19;
+    setPos((wannaBeX*(20-coef)+pos().x()*coef)/20, (wannaBeY*(20-coef)+pos().y()*coef)/20 );
+    collision();
+
+}
+
+void Player::collision()
+{
+    // get a list of all the items currently colliding with the player
+    QList<QGraphicsItem * > colliding_items = collidingItems();
+
+    // if one of the colliding items is an Enemy, destroy both the player and the enemy
+    for (int i = 0, n= colliding_items.size(); i < n; ++i)
+    {
+        //checks if the player hit a enemy./*
+        if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3))
+        {
+            // increase the score
+          //  game->score->increase();
+
+            // play hit sound
+            QMediaPlayer * music = new QMediaPlayer();
+            QAudioOutput * audioOutput = new QAudioOutput();
+            music->setAudioOutput(audioOutput);
+            connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
+            music->setSource(QUrl("qrc:/sounds/sounds/gameOver.wav"));
+            audioOutput->setVolume(100);
+            music->audioOutput()->setVolume(100);
+            music->play();
+
+            // remove them both
+            scene()->removeItem(colliding_items[i]);
+            scene()->removeItem(this);
+
+            // free memory
+            delete colliding_items[i];
+            delete this;
         }
     }
 }

@@ -12,13 +12,21 @@
 #include <QImage>
 #include <QBrush>
 #include "player.h"
-#include "Score.h"
-#include "Health.h"
+#include "score.h"
+#include "health.h"
+#include <QMouseEvent>
 //#include "enemy.h"
 
-class Game: public QGraphicsView{
+class Game: public QGraphicsView
+{
 public:
     Game(QWidget * parent=0);
+
+    void mouseMoveEvent(QMouseEvent * mouse) override;
+
+    void motion();
+
+
 
     QGraphicsScene * scene;
     Player * player;        /***2 abstraction ***/
