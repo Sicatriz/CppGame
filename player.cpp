@@ -5,10 +5,13 @@
 #include "enemy1.h"
 #include "enemy2.h"
 #include "enemy3.h"
+#include <QMouseEvent>
 
 Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
     bulletsound = new QMediaPlayer ();
     bulletsound->setSource(QUrl("qrc:/sounds/sounds/bulletSmall.wav"));
+
+
 }
 
 void Player::keyPressEvent(QKeyEvent *event){
@@ -47,6 +50,37 @@ void Player::keyPressEvent(QKeyEvent *event){
             bulletsound->play();
         }
     }
+}
+
+void Player::setWannaBeX(int x)
+{
+    wannaBeX = x;
+
+}
+
+void Player::setWannaBeY(int y)
+{
+    wannaBeY = y;
+}
+
+//void Player::mousePressEvent(QMouseEvent *event)
+//{
+//    Bullet * bullet = new Bullet();
+//    bullet->setPos(x(),y());
+//    scene()->addItem(bullet);
+//}
+
+void Player::motion()
+{
+
+//    double coef = sqrt(pow(wannaBeX-pos().x(), 2)+pow(wannaBeY-pos().y(), 2));
+//    if( coef > 19 )
+//        coef = 19;
+//    else
+//        coef = 9;
+    int coef = 19;
+    setPos((wannaBeX*(20-coef)+pos().x()*coef)/20, (wannaBeY*(20-coef)+pos().y()*coef)/20 );
+
 }
 
 void Player::spawn(){
