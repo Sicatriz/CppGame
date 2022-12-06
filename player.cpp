@@ -24,7 +24,7 @@ void Player::keyPressEvent(QKeyEvent *event){
         setPos(x()-10,y());
     }
     else if (event->key() == Qt::Key_Right){
-        if (pos().x() + 100 < 800)
+        if (pos().x() + 100 < 1920)
         setPos(x()+10,y());
     }
     // move the player up and down
@@ -33,7 +33,7 @@ void Player::keyPressEvent(QKeyEvent *event){
         setPos(x(),y()-10);
     }
     else if (event->key() == Qt::Key_Down){
-        if (pos().y() + 100 < 600)
+        if (pos().y() + 100 < 900)
         setPos(x(),y()+10);
     }
     // shoot with the spacebar
@@ -84,6 +84,7 @@ void Player::motion()
     int coef = 19;
     setPos((wannaBeX*(20-coef)+pos().x()*coef)/20, (wannaBeY*(20-coef)+pos().y()*coef)/20 );
     collision();
+
 
 }
 

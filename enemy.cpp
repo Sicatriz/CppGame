@@ -1,12 +1,13 @@
 #include "enemy.h"
 #include "bullet.h"
+#include "game.h"
 
 extern Game * game;
 extern Bullet * bullet;
 Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
 {
     // set random start position
-    int random_number = rand() % 700;
+    int random_number = rand() % 1850;
     setPos(random_number, 0);
 
     //gfx enemy type 1
@@ -29,7 +30,7 @@ void Enemy::move(int speed)
     setPos(x(),y()+speed);
 
     // when enemy is out of screen, free memory
-    if(pos().y() > 600){
+    if(pos().y() > 1100){
 
         //decrease the health
         game->health->decrease();

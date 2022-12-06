@@ -13,5 +13,9 @@
         <file>gfx/enemy2.png</file>
         <file>gfx/zee.png</file>
         <file>gfx/enemy1.png</file>
+        <file>gfx/sea.jpg</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>gfx/sea.jpg</file>
     </qresource>
 </RCC>

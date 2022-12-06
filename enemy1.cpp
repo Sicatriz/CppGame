@@ -5,7 +5,7 @@ extern Game * game;
 Enemy1::Enemy1(QGraphicsItem *parent):Enemy()
 {
     // set random start position
-    int random_number = rand() % 700;
+    int random_number = rand() % 1850;
     setPos(random_number, 0);
 
     //gfx enemy type 2
@@ -28,7 +28,7 @@ void Enemy1::move(int speed)
     setPos(x(),y()+speed);
 
     // when enemy is out of screen, free memory
-    if(pos().y() > 600){
+    if(pos().y() > 1100){
 
         //decrease the health
         game->health->decrease();
