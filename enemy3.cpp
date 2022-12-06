@@ -36,5 +36,14 @@ void Enemy3::move(int speed)
         scene()->removeItem(this);
         delete this;
     }
+
+
 }
+
+void Enemy3::hit(int dmg)
+{
+    hp = hp - dmg;
+}
+
+
 

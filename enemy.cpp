@@ -1,7 +1,8 @@
 #include "enemy.h"
+#include "bullet.h"
 
 extern Game * game;
-
+extern Bullet * bullet;
 Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
 {
     // set random start position
@@ -34,7 +35,21 @@ void Enemy::move(int speed)
         game->health->decrease();
 
         scene()->removeItem(this);
-        delete this;
+        this->deleteLater();
     }
+
+
+}
+
+void Enemy::hit(int dmg){
+    hp = hp - dmg;
+}
+
+bool Enemy::destroy(){
+    if(hp <= 0){
+    this->deleteLater();
+        return true;
+    }
+    return false;
 }
 

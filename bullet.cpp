@@ -1,4 +1,5 @@
 #include "bullet.h"
+#include "enemy.h"
 
 extern Game * game; // there is an external global object called game
 
@@ -40,6 +41,10 @@ void Bullet::move()
         {
             // increase the score
             game->score->increase();
+            Enemy* enemy = (Enemy*) colliding_items[i];
+            enemy->hit(1);
+
+
 
             // play hit sound
             QMediaPlayer * music = new QMediaPlayer();
@@ -52,12 +57,17 @@ void Bullet::move()
             music->play();
 
             // remove them both
-            scene()->removeItem(colliding_items[i]);
+            //scene()->removeItem(colliding_items[i]);
+            if(enemy->destroy()){
+              scene()->removeItem(colliding_items[i]);
+            }
             scene()->removeItem(this);
 
             // free memory
-            delete colliding_items[i];
-            delete this;
+
+
+
+            this->deleteLater();
         }
     }
 

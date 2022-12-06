@@ -10,6 +10,7 @@
 #include <QList>
 #include <stdlib.h>
 #include "game.h"
+
 #include <QTimer>
 
 class Enemy: public QObject, public QGraphicsPixmapItem /***8 abstract base class***/
@@ -19,8 +20,13 @@ class Enemy: public QObject, public QGraphicsPixmapItem /***8 abstract base clas
 public:
 
    Enemy(QGraphicsItem * parent=0);
+
 public slots:
-    virtual void move(int speed)=0;  /***9 virtual function***/
+    virtual void move(int speed)=0;
+    void hit(int dmg); /***9 virtual function***/
+    bool destroy();
+protected:
+    int hp = 1;
 
 };
 

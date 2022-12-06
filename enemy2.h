@@ -9,7 +9,10 @@ public:
     Enemy2(QGraphicsItem * parent=0);
 public slots:
     void move(int speed = 5);
+    void hit(int dmg);
 
+private:
+   //int hp = 5;
 };
 
 #endif // ENEMY2_H
