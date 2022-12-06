@@ -64,9 +64,6 @@ void Bullet::move()
             scene()->removeItem(this);
 
             // free memory
-
-
-
             this->deleteLater();
         }
     }
