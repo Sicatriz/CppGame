@@ -3,7 +3,7 @@
 
 #include <enemy1.h>
 
-class Enemy3: public Enemy1{
+class Enemy3: public Enemy{
     Q_OBJECT
 public:
     Enemy3(QGraphicsItem * parent=0);

@@ -1,7 +1,7 @@
 #include "enemy1.h"
 
 extern Game * game;
-
+//this is the base enemy
 Enemy1::Enemy1(QGraphicsItem *parent):Enemy()
 {
     // set random start position

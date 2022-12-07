@@ -1,7 +1,7 @@
 #include "enemy2.h"
 
 extern Game * game;
-
+//this is the fast enemy
 Enemy2::Enemy2(QGraphicsItem *parent):Enemy()
 {
     // set random start position
@@ -19,6 +19,7 @@ Enemy2::Enemy2(QGraphicsItem *parent):Enemy()
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(50);
+    hp = 2;
 }
 
 void Enemy2::move(int speed)

@@ -1,8 +1,8 @@
 #include "enemy3.h"
 
 extern Game * game;
-
-Enemy3::Enemy3(QGraphicsItem *parent):Enemy1()
+//this enemy is the small enemy
+Enemy3::Enemy3(QGraphicsItem *parent):Enemy()
 {
     // set random start position
     int random_number = rand() % 700;
@@ -19,6 +19,7 @@ Enemy3::Enemy3(QGraphicsItem *parent):Enemy1()
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(250);
+    hp = 1;
 }
 
 void Enemy3::move(int speed)
