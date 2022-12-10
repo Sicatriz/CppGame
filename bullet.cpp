@@ -76,6 +76,6 @@ void Bullet::move()
     if(pos().y() < -800)
     {
         scene()->removeItem(this);
-        delete this;
+        this->deleteLater();
     }
 }

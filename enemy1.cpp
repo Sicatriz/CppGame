@@ -35,7 +35,7 @@ void Enemy1::move(int speed)
 
 
         scene()->removeItem(this);
-        delete this;
+        this->deleteLater();
     }
 
 

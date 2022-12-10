@@ -127,7 +127,7 @@ void Player::collision()
 
             // free memory
             delete colliding_items[i];
-            delete this;
+            this->deleteLater();
         }
     }
 }
@@ -162,15 +162,15 @@ void Player::spawn(){
 
 void Player::spawnBoat(){
     srand(time(NULL));
-    int ran = rand()%10;
+    int ran = rand()%9;
     // create backgroundboats
-    if(ran%10 == 4)
+    if(ran%9 == 4)
     {
         BgDecks * container = new BgdecksContainer();
         scene()->addItem(container);
     }
 
-    else if(ran%10 == 3)
+    else if(ran%9 == 3)
     {
         BgDecks * cruise = new BgdecksCruise();
         scene()->addItem(cruise);

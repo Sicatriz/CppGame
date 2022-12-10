@@ -33,6 +33,6 @@ void BgdecksCruise::move(int speed)
     if(pos().y() > 1100){
 
     scene()->removeItem(this);
-    delete this;
+    this->deleteLater();
     }
 }
