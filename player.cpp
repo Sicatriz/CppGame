@@ -11,6 +11,7 @@
 #include "bgdeckscontainer.h"
 #include "bgdeckscruise.h"
 #include <qvideowidget.h>
+#include <QMediaPlayer>
 
 //extern Game * game;
 
@@ -116,6 +117,9 @@ void Player::collision()
             music->audioOutput()->setVolume(100);
             music->play();
 
+//            QMediaPlayer * video = new QMediaPlayer();
+//            video->setSource(QUrl("qrc:/gfx/gfx/Xplosion.mp4"));
+//            video->play();
 
             // remove them both
             scene()->removeItem(colliding_items[i]);
