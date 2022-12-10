@@ -24,6 +24,7 @@ public:
 
 public slots:
     void spawn();
+    void spawnBoat();
     void motion();
     void collision();
 private:

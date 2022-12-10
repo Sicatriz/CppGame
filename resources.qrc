@@ -13,5 +13,13 @@
         <file>gfx/enemy2.png</file>
         <file>gfx/zee.png</file>
         <file>gfx/enemy1.png</file>
+        <file>gfx/sea.jpg</file>
+        <file>gfx/boatContainer.png</file>
+        <file>gfx/boatCruise.png</file>
+        <file>gfx/boatSmall.png</file>
+        <file>gfx/Xplosion.mp4</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>gfx/sea.jpg</file>
     </qresource>
 </RCC>
