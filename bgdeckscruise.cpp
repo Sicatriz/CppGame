@@ -21,7 +21,7 @@ BgdecksCruise::BgdecksCruise(QGraphicsItem *parent):BgDecks()
     \***/
     QTimer * timerBoat = new QTimer(this);
     connect(timerBoat,SIGNAL(timeout()),this,SLOT(move()));
-    timerBoat->start(3000);
+    timerBoat->start(500);
 }
 
 void BgdecksCruise::move(int speed)

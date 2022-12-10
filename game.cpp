@@ -16,6 +16,11 @@ Game::Game(QWidget *parent)
     scene->setSceneRect(0,0,1920,1080); // make the scene 800x600 instead of infinity by infinity (default)
     setBackgroundBrush(QBrush(QImage(":/gfx/gfx/sea.jpg"))); //set background image
 
+    // spawn boats
+    QTimer * timerBoat = new QTimer();
+    QObject::connect(timerBoat,SIGNAL(timeout()),player,SLOT(spawnBoat()));
+    timerBoat->start(100000);
+
     // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
     // it can be used to visualize scenes)
     setScene(scene);
@@ -46,19 +51,16 @@ Game::Game(QWidget *parent)
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);
 
-    // spawn boats
-    QTimer * timerBoat = new QTimer();
-    QObject::connect(timerBoat,SIGNAL(timeout()),player,SLOT(spawnBoat()));
-    timerBoat->start(40000);
 
-    // boats on start screen
-    BgDecks * container = new BgdecksContainer();
-    container->setPos(400,600);
-    scene->addItem(container);
 
-    BgDecks * cruise = new BgdecksCruise();
-    container->setPos(500,400);
-    scene->addItem(cruise);
+//    // boats on start screen
+//    BgDecks * container = new BgdecksContainer();
+//    container->setPos(400,600);
+//    scene->addItem(container);
+
+//    BgDecks * cruise = new BgdecksCruise();
+//    container->setPos(500,400);
+//    scene->addItem(cruise);
 
 
     // play background music

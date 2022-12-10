@@ -164,13 +164,13 @@ void Player::spawnBoat(){
     srand(time(NULL));
     int ran = rand()%5;
     // create backgroundboats
-    if(ran%5 == 0)
+    if(ran%5 == 4)
     {
         BgDecks * container = new BgdecksContainer();
         scene()->addItem(container);
     }
 
-    else if(ran%4 == 0)
+    else if(ran%4 == 3)
     {
         BgDecks * cruise = new BgdecksCruise();
         scene()->addItem(cruise);

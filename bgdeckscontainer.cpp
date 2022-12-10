@@ -21,7 +21,7 @@ BgdecksContainer::BgdecksContainer(QGraphicsItem *parent):BgDecks()
     \***/
     QTimer * timerBoat = new QTimer(this);
     connect(timerBoat,SIGNAL(timeout()),this,SLOT(move()));
-    timerBoat->start(10000);
+    timerBoat->start(500);
 }
 
 void BgdecksContainer::move(int speed)
