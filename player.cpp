@@ -6,7 +6,12 @@
 #include "enemy2.h"
 #include "enemy3.h"
 #include <QMouseEvent>
-#include "game.h"
+//#include "game.h"
+#include "bgdecks.h"
+#include "bgdeckscontainer.h"
+#include "bgdeckscruise.h"
+#include <qvideowidget.h>
+#include <QMediaPlayer>
 
 //extern Game * game;
 
@@ -24,7 +29,7 @@ void Player::keyPressEvent(QKeyEvent *event){
         setPos(x()-10,y());
     }
     else if (event->key() == Qt::Key_Right){
-        if (pos().x() + 100 < 800)
+        if (pos().x() + 100 < 1920)
         setPos(x()+10,y());
     }
     // move the player up and down
@@ -33,7 +38,7 @@ void Player::keyPressEvent(QKeyEvent *event){
         setPos(x(),y()-10);
     }
     else if (event->key() == Qt::Key_Down){
-        if (pos().y() + 100 < 600)
+        if (pos().y() + 100 < 900)
         setPos(x(),y()+10);
     }
     // shoot with the spacebar
@@ -88,6 +93,7 @@ void Player::motion()
     setPos((wannaBeX*(20-coef)+pos().x()*coef)/20, (wannaBeY*(20-coef)+pos().y()*coef)/20 );
     collision();
 
+
 }
 
 void Player::collision()
@@ -114,13 +120,17 @@ void Player::collision()
             music->audioOutput()->setVolume(100);
             music->play();
 
+//            QMediaPlayer * video = new QMediaPlayer();
+//            video->setSource(QUrl("qrc:/gfx/gfx/Xplosion.mp4"));
+//            video->play();
+
             // remove them both
             scene()->removeItem(colliding_items[i]);
             scene()->removeItem(this);
 
             // free memory
             delete colliding_items[i];
-            delete this;
+            this->deleteLater();
         }
     }
 }
@@ -145,5 +155,34 @@ void Player::spawn(){
         Enemy * enemy3 = new Enemy3();
         scene()->addItem(enemy3);
     }
+    if(ran%9 == 4)
+    {
+        BgDecks * container = new BgdecksContainer();
+        scene()->addItem(container);
+    }
+
+}
+
+void Player::spawnBoat(){
+    srand(time(NULL));
+    int ran = rand()%9;
+    // create backgroundboats
+    if(ran%9 == 4)
+    {
+        BgDecks * container = new BgdecksContainer();
+        scene()->addItem(container);
+    }
+
+    else if(ran%9 == 3)
+    {
+        BgDecks * cruise = new BgdecksCruise();
+        scene()->addItem(cruise);
+    }
+//    else
+//    {
+//        Enemy * enemy3 = new Enemy3();
+//        scene()->addItem(enemy3);
+//    }
+
 
 }

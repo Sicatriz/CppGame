@@ -84,7 +84,7 @@ void Bullet::move()
             // remove them both
             //scene()->removeItem(colliding_items[i]);
             if(enemy->destroy()){
-              scene()->removeItem(colliding_items[i]);
+               scene()->removeItem(colliding_items[i]);
             }
             scene()->removeItem(this);
 
@@ -100,6 +100,6 @@ void Bullet::move()
     if(pos().y() < -800)
     {
         scene()->removeItem(this);
-        delete this;
+        this->deleteLater();
     }
 }

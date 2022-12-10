@@ -1,16 +1,19 @@
-#include "enemy3.h"
+#include "bgdecks.h"
+#include "game.h"
 
 extern Game * game;
-//this enemy is the small enemy
-Enemy3::Enemy3(QGraphicsItem *parent):Enemy()
+
+BgDecks::BgDecks(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {
+
     // set random start position
-    int random_number = rand() % 1850;
-    setPos(random_number, 0);
+    int random_width = 150 + (rand() % 1600);
 
-    //gfx enemy type 2
-    setPixmap(QPixmap(":/gfx/gfx/enemy3.png"));
+    setPos(random_width, 20);
 
+
+    //gfx enemy type 1
+    setPixmap(QPixmap(":/gfx/gfx/boatSmall.png"));
 
     /***\
     Connects timer to public slot move .
@@ -18,11 +21,11 @@ Enemy3::Enemy3(QGraphicsItem *parent):Enemy()
     \***/
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-    timer->start(250);
-    hp = 1;
+    timer->start(500);
+
 }
 
-void Enemy3::move(int speed)
+void BgDecks::move(int speed)
 {
     // move enemy down
     setPos(x(),y()+speed);
@@ -30,18 +33,9 @@ void Enemy3::move(int speed)
     // when enemy is out of screen, free memory
     if(pos().y() > 1100){
 
-        //decrease the health
-        game->health->decrease();
-
         scene()->removeItem(this);
         this->deleteLater();
     }
 }
-
-void Enemy3::hit(int dmg)
-{
-    hp = hp - dmg;
-}
-
 
 
