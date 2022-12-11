@@ -5,16 +5,16 @@ extern Game * game; // there is an external global object called game
 
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
 {
-    setPixmap(QPixmap(":/gfx/gfx/bullet.png")); //give bullet graphics
+    setPixmap(QPixmap(":/gfx/gfx/laser.png")); //give bullet graphics
     QGraphicsPixmapItem::setOffset(2, 50);
 
     QMediaPlayer * music = new QMediaPlayer(); //adding bullet sound
     QAudioOutput * audioOutput = new QAudioOutput();
     music->setAudioOutput(audioOutput);
     connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-    music->setSource(QUrl("qrc:/sounds/sounds/bulletSmall.wav"));
-    audioOutput->setVolume(100);
-    music->audioOutput()->setVolume(100);
+    music->setSource(QUrl("qrc:/sounds/sounds/shoot1.wav"));
+    //audioOutput->setVolume(100);
+    music->audioOutput()->setVolume(0.5);
     music->play();
 
     // connects
@@ -30,16 +30,16 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  /
 
 Bullet::Bullet(int xas, int yas)
 {
-    setPixmap(QPixmap(":/gfx/gfx/bullet.png")); //give bullet graphics
+    setPixmap(QPixmap(":/gfx/gfx/laser.png")); //give bullet graphics
     QGraphicsPixmapItem::setOffset(xas, yas);
 
     QMediaPlayer * music = new QMediaPlayer(); //adding bullet sound
     QAudioOutput * audioOutput = new QAudioOutput();
     music->setAudioOutput(audioOutput);
     connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-    music->setSource(QUrl("qrc:/sounds/sounds/bulletSmall.wav"));
-    audioOutput->setVolume(100);
-    music->audioOutput()->setVolume(100);
+    music->setSource(QUrl("qrc:/sounds/sounds/shoot1.wav"));
+    //audioOutput->setVolume(100);
+    music->audioOutput()->setVolume(0.5);
     music->play();
 
     // connects
@@ -76,9 +76,9 @@ void Bullet::move()
             QAudioOutput * audioOutput = new QAudioOutput();
             music->setAudioOutput(audioOutput);
             connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-            music->setSource(QUrl("qrc:/sounds/sounds/hit.wav"));
-            audioOutput->setVolume(100);
-            music->audioOutput()->setVolume(100);
+            music->setSource(QUrl("qrc:/sounds/sounds/Explosion.wav"));
+            //audioOutput->setVolume(100);
+            music->audioOutput()->setVolume(1);
             music->play();
 
             // remove them both

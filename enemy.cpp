@@ -10,7 +10,7 @@ Enemy::Enemy(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) //Wi
     setPos(random_number, 0);
 
     //gfx enemy type 1
-    setPixmap(QPixmap(":/gfx/gfx/enemy.png"));
+    setPixmap(QPixmap(":/gfx/gfx/WingShip_Spider.png"));
 
 
     /***\

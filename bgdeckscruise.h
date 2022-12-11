@@ -10,7 +10,7 @@ public:
     BgdecksCruise(QGraphicsItem * parent=0);
 
 public slots:
-    void move(int speed = 1);
+//    void move(int speed = 1);
 };
 
 #endif // BGDECKSCRUISE_H

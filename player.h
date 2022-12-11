@@ -19,6 +19,8 @@ public:
     void setWannaBeX(int x);
     void setWannaBeY(int y);
 
+    int playerWidth;
+
  //   void mousePressEvent(QMouseEvent *event);
 
 

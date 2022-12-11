@@ -5,6 +5,12 @@
         <file>sounds/gameOver.wav</file>
         <file>sounds/hit.wav</file>
         <file>sounds/bulletSmall.wav</file>
+        <file>sounds/shoot1.wav</file>
+        <file>sounds/slow-travel.wav</file>
+        <file>sounds/Explosion.wav</file>
+        <file>sounds/adios.wav</file>
+        <file>sounds/cry_karen.wav</file>
+        <file>sounds/gameOver_karen.wav</file>
     </qresource>
     <qresource prefix="/gfx">
         <file>gfx/playerJet.png</file>
@@ -18,6 +24,16 @@
         <file>gfx/boatCruise.png</file>
         <file>gfx/boatSmall.png</file>
         <file>gfx/Xplosion.mp4</file>
+        <file>gfx/bg56.png</file>
+        <file>gfx/bg48.png</file>
+        <file>gfx/Stones2Filled_25.png</file>
+        <file>gfx/SwordShip_FireBlade_188x188.png</file>
+        <file>gfx/bowBullet.png</file>
+        <file>gfx/laser.png</file>
+        <file>gfx/Starship_C.png</file>
+        <file>gfx/Buggy_LightPurple.png</file>
+        <file>gfx/Scorpion.png</file>
+        <file>gfx/WingShip_Spider.png</file>
     </qresource>
     <qresource prefix="/">
         <file>gfx/sea.jpg</file>

@@ -19,19 +19,19 @@ BgdecksCruise::BgdecksCruise(QGraphicsItem *parent):BgDecks()
     Connects timer to public slot move .
     timer is there for bullet movement, this changes the speed of the bullet.
     \***/
-    QTimer * timerBoat = new QTimer(this);
-    connect(timerBoat,SIGNAL(timeout()),this,SLOT(move()));
-    timerBoat->start(500);
+//    QTimer * timerBoat = new QTimer(this);
+//    connect(timerBoat,SIGNAL(timeout()),this,SLOT(move()));
+//    timerBoat->start(500);
 }
 
-void BgdecksCruise::move(int speed)
-{
-    // move enemy down
-    setPos(x(),y()+speed);
+//void BgdecksCruise::move(int speed)
+//{
+//    // move enemy down
+//    setPos(x(),y()+speed);
 
-    if(pos().y() > 1100)
-    {
-    scene()->removeItem(this);
-    this->deleteLater();
-    }
-}
+//    if(pos().y() > 1100)
+//    {
+//    scene()->removeItem(this);
+//    this->deleteLater();
+//    }
+//}

@@ -5,11 +5,11 @@ extern Game * game;
 Enemy1::Enemy1(QGraphicsItem *parent):Enemy()
 {
     // set random start position
-    int random_number = rand() % 1850;
+    int random_number = rand() % 1750;
     setPos(random_number, 0);
 
     //gfx enemy type 2
-    setPixmap(QPixmap(":/gfx/gfx/enemy1.png"));
+    setPixmap(QPixmap(":/gfx/gfx/WingShip_Spider.png"));
 
 
     /***\

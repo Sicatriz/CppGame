@@ -18,14 +18,13 @@
 //#include "enemy.h"
 
 class Game: public QGraphicsView
-{
+{ Q_OBJECT
 public:
     Game(QWidget * parent=0);
 
     void mouseMoveEvent(QMouseEvent * mouse) override;
 
     void motion();
-
 
 
     QGraphicsScene * scene;
