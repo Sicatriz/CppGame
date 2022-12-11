@@ -123,7 +123,7 @@ void Player::collision()
 
             // free memory
             delete colliding_items[i];
-            delete this;
+            this->deleteLater();
         }
     }
 }
