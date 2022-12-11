@@ -1,7 +1,7 @@
 #ifndef ENEMY2_H
 #define ENEMY2_H
 
-#include <enemy.h>
+#include "enemy.h"
 
 class Enemy2: public Enemy{ /***4 inheritance***/
     Q_OBJECT

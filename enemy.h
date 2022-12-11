@@ -9,7 +9,7 @@
 #include <QGraphicsScene>
 #include <QList>
 #include <stdlib.h>
-#include "game.h"
+
 
 #include <QTimer>
 

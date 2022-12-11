@@ -1,7 +1,9 @@
 #include "bullet.h"
 #include "enemy.h"
+#include "enemy1.h"
+#include "enemy2.h"
+#include "enemy3.h"
 
-extern Game * game; // there is an external global object called game
 
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
 {
@@ -64,7 +66,7 @@ void Bullet::move()
         if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3))
         {
             // increase the score
-            game->score->increase();
+            //game->score->increase();
             Enemy* enemy = (Enemy*) colliding_items[i];
             enemy->hit(1);
 

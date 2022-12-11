@@ -10,11 +10,18 @@
 #include <QKeyEvent>
 #include <QMouseEvent>
 
+#include "bullet.h"
+#include "score.h"
+#include "health.h"
+
 class Player:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
-    Player(QGraphicsItem * parent=0, QGraphicsScene *scene=0);
+    Player(QGraphicsItem * parent=0, QGraphicsScene *sceene=0);
     void keyPressEvent(QKeyEvent * event) override;
+
+
+    QGraphicsScene *scene;
 
     void setWannaBeX(int x);
     void setWannaBeY(int y);
@@ -24,7 +31,7 @@ public:
 
 public slots:
     void spawn();
-    void spawnBoat();
+    //void spawnBoat();
     void motion();
     void collision();
 private:

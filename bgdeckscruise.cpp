@@ -1,6 +1,6 @@
 #include "bgdeckscruise.h"
 
-extern Game * game;
+////extern game * game;
 
 BgdecksCruise::BgdecksCruise(QGraphicsItem *parent):BgDecks()
 {

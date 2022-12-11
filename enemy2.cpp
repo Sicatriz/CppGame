@@ -1,6 +1,5 @@
 #include "enemy2.h"
 
-extern Game * game;
 //this is the fast enemy
 Enemy2::Enemy2(QGraphicsItem *parent):Enemy()
 {
@@ -31,7 +30,7 @@ void Enemy2::move(int speed)
     if(pos().y() > 1100){
 
         //decrease the health
-        game->health->decrease();
+        //game->health->decrease();
 
 
         scene()->removeItem(this);

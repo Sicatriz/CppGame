@@ -7,11 +7,10 @@
 #include <QTimer>
 #include <QGraphicsScene>
 #include <QList>
-#include "game.h"
-#include "enemy.h"
-#include "enemy1.h"
-#include "enemy2.h"
-#include "enemy3.h"
+
+#include <qmediaplayer.h>
+#include <QAudioOutput>
+
 
 class Bullet: public QObject, public QGraphicsPixmapItem  /****1 usefull and correct class ****/
 {

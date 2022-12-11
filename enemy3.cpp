@@ -1,6 +1,6 @@
 #include "enemy3.h"
 
-extern Game * game;
+//extern game * game;
 //this enemy is the small enemy
 Enemy3::Enemy3(QGraphicsItem *parent):Enemy()
 {
@@ -31,7 +31,7 @@ void Enemy3::move(int speed/*, Game* game*/)
     if(pos().y() > 1100){
 
         //decrease the health
-        game->health->decrease();
+        //game->health->decrease();
 
         scene()->removeItem(this);
         this->deleteLater();
