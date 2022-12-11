@@ -30,8 +30,6 @@ public:
     Health* health;
     Score* score;
 
-
-
     QGraphicsScene * scene;
     Player * player;        /***2 abstraction ***/
     //Bullet * bullet;

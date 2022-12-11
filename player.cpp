@@ -6,6 +6,7 @@
 #include "enemy1.h"
 #include "enemy2.h"
 #include "enemy3.h"
+#include "score.h"
 
 
 Player::Player(QGraphicsItem *parent, QGraphicsScene *sceene): QGraphicsPixmapItem(parent){
@@ -18,6 +19,13 @@ Player::Player(QGraphicsItem *parent, QGraphicsScene *sceene): QGraphicsPixmapIt
     this->setFocus();
     // add the player to the scene
     scene->addItem(this);
+
+    // create the score/health
+    score = new Score();
+    scene->addItem(score);
+    health = new Health();
+    health->setPos(health->x(),health->y()+25);
+    scene->addItem(health);
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
@@ -53,8 +61,8 @@ void Player::keyPressEvent(QKeyEvent *event)
         music->play();
 
         // create a bullet
-        Bullet* bullet1 = new Bullet(2, 50);
-        Bullet* bullet2 = new Bullet(90, 50);
+        Bullet* bullet1 = new Bullet(2, 50, score);
+        Bullet* bullet2 = new Bullet(90, 50, score);
 
         bullet1->setPos(x(),y());
         bullet2->setPos(x(),y());

@@ -37,14 +37,6 @@ Game::Game(QWidget *parent)
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);
 
-
-    // create the score/health
-    score = new Score();
-    scene->addItem(score);
-    health = new Health();
-    health->setPos(health->x(),health->y()+25);
-    scene->addItem(health);
-
 //    // boats on start screen
 //    BgDecks * container = new BgdecksContainer();
 //    container->setPos(400,600);

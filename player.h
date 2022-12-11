@@ -23,6 +23,9 @@ public:
 
     QGraphicsScene *scene;
 
+    Score* score;
+    Health* health;
+
     void setWannaBeX(int x);
     void setWannaBeY(int y);
 

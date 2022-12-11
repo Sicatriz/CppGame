@@ -18,7 +18,6 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  /
     audioOutput->setVolume(100);
     music->audioOutput()->setVolume(100);
     music->play();
-
     // connects
     QTimer * timer = new QTimer(this);
     /***\
@@ -30,8 +29,9 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  /
 
 }
 
-Bullet::Bullet(int xas, int yas)
+Bullet::Bullet(int xas, int yas, Score* scoore)
 {
+    score = scoore;
     setPixmap(QPixmap(":/gfx/gfx/bullet.png")); //give bullet graphics
     QGraphicsPixmapItem::setOffset(xas, yas);
 
@@ -66,7 +66,7 @@ void Bullet::move()
         if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3))
         {
             // increase the score
-            //game->score->increase();
+            score->increase();
             Enemy* enemy = (Enemy*) colliding_items[i];
             enemy->hit(1);
 
