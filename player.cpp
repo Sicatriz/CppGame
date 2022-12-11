@@ -15,14 +15,20 @@
 
 //extern Game * game;
 
-Player::Player(QGraphicsItem *parent): QGraphicsPixmapItem(parent){
-    bulletsound = new QMediaPlayer ();
-    bulletsound->setSource(QUrl("qrc:/sounds/sounds/bulletSmall.wav"));
+Player::Player(QGraphicsItem *parent, QGraphicsScene *scene): QGraphicsPixmapItem(parent){
 
-
+    this->setPixmap(QPixmap(":/gfx/gfx/playerJet.png")); //playerskin
+    //startposition
+    this->setPos(scene->width()/2, scene->height()- 150);
+    // make the player focusable and set it to be the current focus
+    this->setFlag(QGraphicsItem::ItemIsFocusable);
+    this->setFocus();
+    // add the player to the scene
+    scene->addItem(this);
 }
 
-void Player::keyPressEvent(QKeyEvent *event){
+void Player::keyPressEvent(QKeyEvent *event)
+{
     // move the player left and right
     if (event->key() == Qt::Key_Left){
         if (pos().x() > 0)
@@ -43,6 +49,23 @@ void Player::keyPressEvent(QKeyEvent *event){
     }
     // shoot with the spacebar
     else if (event->key() == Qt::Key_Space){
+
+
+
+        QMediaPlayer * music = new QMediaPlayer();
+        QAudioOutput * audioOutput = new QAudioOutput();
+        music->setAudioOutput(audioOutput);
+        connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
+        music->setSource(QUrl("qrc:/sounds/sounds/bulletSmall.wav"));
+        audioOutput->setVolume(100);
+        music->audioOutput()->setVolume(100);
+        music->play();
+
+
+
+
+
+
         // create a bullet
         Bullet * bullet1 = new Bullet(2, 50);
         Bullet * bullet2 = new Bullet(90, 50);
@@ -52,13 +75,13 @@ void Player::keyPressEvent(QKeyEvent *event){
         scene()->addItem(bullet1);
         scene()->addItem(bullet2);
         // play bulletsound
-        if (bulletsound->playbackState() == QMediaPlayer::PlayingState)
+        if (music->playbackState() == QMediaPlayer::PlayingState)
         {
-            bulletsound->setPosition(0);
+            music->setPosition(0);
         }
-        else if (bulletsound->playbackState() == QMediaPlayer::StoppedState)
+        else if (music->playbackState() == QMediaPlayer::StoppedState)
         {
-            bulletsound->play();
+            music->play();
         }
     }
 }
@@ -66,7 +89,6 @@ void Player::keyPressEvent(QKeyEvent *event){
 void Player::setWannaBeX(int x)
 {
     wannaBeX = x;
-
 }
 
 void Player::setWannaBeY(int y)
@@ -83,17 +105,9 @@ void Player::setWannaBeY(int y)
 
 void Player::motion()
 {
-
-//    double coef = sqrt(pow(wannaBeX-pos().x(), 2)+pow(wannaBeY-pos().y(), 2));
-//    if( coef > 19 )
-//        coef = 19;
-//    else
-//        coef = 9;
     int coef = 19;
     setPos((wannaBeX*(20-coef)+pos().x()*coef)/20, (wannaBeY*(20-coef)+pos().y()*coef)/20 );
     collision();
-
-
 }
 
 void Player::collision()
@@ -119,10 +133,6 @@ void Player::collision()
             audioOutput->setVolume(100);
             music->audioOutput()->setVolume(100);
             music->play();
-
-//            QMediaPlayer * video = new QMediaPlayer();
-//            video->setSource(QUrl("qrc:/gfx/gfx/Xplosion.mp4"));
-//            video->play();
 
             // remove them both
             scene()->removeItem(colliding_items[i]);
@@ -166,6 +176,7 @@ void Player::spawn(){
 void Player::spawnBoat(){
     srand(time(NULL));
     int ran = rand()%9;
+
     // create backgroundboats
     if(ran%9 == 4)
     {
@@ -178,11 +189,4 @@ void Player::spawnBoat(){
         BgDecks * cruise = new BgdecksCruise();
         scene()->addItem(cruise);
     }
-//    else
-//    {
-//        Enemy * enemy3 = new Enemy3();
-//        scene()->addItem(enemy3);
-//    }
-
-
 }

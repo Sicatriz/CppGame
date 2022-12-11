@@ -22,7 +22,7 @@ Enemy3::Enemy3(QGraphicsItem *parent):Enemy()
     hp = 1;
 }
 
-void Enemy3::move(int speed)
+void Enemy3::move(int speed/*, Game* game*/)
 {
     // move enemy down
     setPos(x(),y()+speed);

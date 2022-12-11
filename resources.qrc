@@ -2,9 +2,9 @@
     <qresource prefix="/sounds">
         <file>sounds/1.MainTheme-320bit.mp3</file>
         <file>sounds/buffPickup.wav</file>
-        <file>sounds/bulletSmall.wav</file>
         <file>sounds/gameOver.wav</file>
         <file>sounds/hit.wav</file>
+        <file>sounds/bulletSmall.wav</file>
     </qresource>
     <qresource prefix="/gfx">
         <file>gfx/playerJet.png</file>
