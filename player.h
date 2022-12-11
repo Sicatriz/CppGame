@@ -13,7 +13,7 @@
 class Player:public QObject, public QGraphicsPixmapItem{
     Q_OBJECT
 public:
-    Player(QGraphicsItem * parent=0);
+    Player(QGraphicsItem * parent=0, QGraphicsScene *scene=0);
     void keyPressEvent(QKeyEvent * event) override;
 
     void setWannaBeX(int x);

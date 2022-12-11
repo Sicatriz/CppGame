@@ -31,8 +31,8 @@ void BgDecks::move(int speed)
     setPos(x(),y()+speed);
 
     // when enemy is out of screen, free memory
-    if(pos().y() > 1100){
-
+    if(pos().y() > 1100)
+    {
         scene()->removeItem(this);
         this->deleteLater();
     }

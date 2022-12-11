@@ -30,15 +30,8 @@ Game::Game(QWidget *parent)
     setFixedSize(1920,1080);  //set the size of the window
 
     // create the player
-    player = new Player();
-    player->setPixmap(QPixmap(":/gfx/gfx/playerJet.png")); //playerskin
-    //startposition
-    player->setPos(scene->width()/2, scene->height()- 150);
-    // make the player focusable and set it to be the current focus
-    player->setFlag(QGraphicsItem::ItemIsFocusable);
-    player->setFocus();
-    // add the player to the scene
-    scene->addItem(player);
+    player = new Player(0,scene);
+
 
     // create the score/health
     score = new Score();
@@ -72,7 +65,6 @@ Game::Game(QWidget *parent)
     connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
     music->setSource(QUrl("qrc:/sounds/sounds/1.MainTheme-320bit.mp3"));
     audioOutput->setVolume(70);
-    music->audioOutput()->setVolume(70);
     music->play();
 
     // connects player move signal
@@ -88,16 +80,8 @@ void Game::mouseMoveEvent(QMouseEvent *mouse)
 {
     player->setWannaBeX(mouse->pos().x()-50);
     player->setWannaBeY(mouse->pos().y()-25);
-    //player->motion(mouse);
-    //player->motion(mouse);
-   // player->setPos(mouse->pos());
-
 }
 
-//void Game::motion:QMouseEvent(QMouseEvent *mouse)
-//{
-//    player->setPos(mouse->pos());
-//}
 
 
 
