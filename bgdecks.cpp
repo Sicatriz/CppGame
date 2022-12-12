@@ -1,7 +1,7 @@
 #include "bgdecks.h"
 #include "game.h"
 
-extern Game * game;
+////extern game * game;
 
 BgDecks::BgDecks(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)
 {

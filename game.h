@@ -14,6 +14,7 @@
 #include "player.h"
 #include "score.h"
 #include "health.h"
+#include "bullet.h"
 #include <QMouseEvent>
 //#include "enemy.h"
 
@@ -26,12 +27,12 @@ public:
 
     void motion();
 
-
+    Health* health;
+    Score* score;
 
     QGraphicsScene * scene;
     Player * player;        /***2 abstraction ***/
-    Score * score;
-    Health * health;
+    //Bullet * bullet;
 //gathers all information to make sure that the game runs
 };
 

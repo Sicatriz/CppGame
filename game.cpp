@@ -1,9 +1,9 @@
 #include "game.h"
 #include <QMouseEvent>
 #include "player.h"
-#include "bgdecks.h"
-#include "bgdeckscontainer.h"
-#include "bgdeckscruise.h"
+//#include "bgdecks.h"
+//#include "bgdeckscontainer.h"
+//#include "bgdeckscruise.h"
 
 //#include "bullet.h"
 
@@ -32,20 +32,10 @@ Game::Game(QWidget *parent)
     // create the player
     player = new Player(0,scene);
 
-
-    // create the score/health
-    score = new Score();
-    scene->addItem(score);
-    health = new Health();
-    health->setPos(health->x(),health->y()+25);
-    scene->addItem(health);
-
     // spawn enemies
     QTimer * timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);
-
-
 
 //    // boats on start screen
 //    BgDecks * container = new BgdecksContainer();
