@@ -1,6 +1,6 @@
 #include "bgdeckscontainer.h"
 
-extern Game * game;
+////extern game * game;
 
 BgdecksContainer::BgdecksContainer(QGraphicsItem *parent):BgDecks()
 {

@@ -1,23 +1,17 @@
 #include "player.h"
-#include "bullet.h"
-
+#include <QMouseEvent>
+#include <qvideowidget.h>
+#include <QMediaPlayer>
 #include "enemy.h"
 #include "enemy1.h"
 #include "enemy2.h"
 #include "enemy3.h"
-#include <QMouseEvent>
-//#include "game.h"
-//#include "bgdecks.h"
-//#include "bgdeckscontainer.h"
-//#include "bgdeckscruise.h"
-#include <qvideowidget.h>
-#include <QMediaPlayer>
+#include "score.h"
 
-//extern Game * game;
-
-Player::Player(QGraphicsItem *parent, QGraphicsScene *scene):  QGraphicsPixmapItem(parent){
-
+Player::Player(QGraphicsItem *parent, QGraphicsScene *sceene): QGraphicsPixmapItem(parent){
+    scene = sceene;
     this->setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin
+
     //startposition
     this->setScale(1);
    // this->scale();
@@ -27,6 +21,13 @@ Player::Player(QGraphicsItem *parent, QGraphicsScene *scene):  QGraphicsPixmapIt
     this->setFocus();
     // add the player to the scene
     scene->addItem(this);
+
+    // create the score/health
+    score = new Score();
+    scene->addItem(score);
+    health = new Health();
+    health->setPos(health->x(),health->y()+25);
+    scene->addItem(health);
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
@@ -50,34 +51,28 @@ void Player::keyPressEvent(QKeyEvent *event)
         setPos(x(),y()+10);
     }
     // shoot with the spacebar
-    else if (event->key() == Qt::Key_Space){
-
-
-
+    else if (event->key() == Qt::Key_Space)
+    {
         QMediaPlayer * music = new QMediaPlayer();
         QAudioOutput * audioOutput = new QAudioOutput();
         music->setAudioOutput(audioOutput);
         connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
+
         music->setSource(QUrl("qrc:/sounds/sounds/shoot1.wav"));
        // audioOutput->setVolume(0.8);
         music->audioOutput()->setVolume(0.7);
+
         music->play();
 
-
-
-
-
-
         // create a bullet
-        //Bullet * bullet1 = new Bullet(2, 50);
-        Bullet * bullet1 = new Bullet(20, 30);
 
-        Bullet * bullet2 = new Bullet(70, 30);
+        Bullet * bullet1 = new Bullet(20, 30, score);
+        Bullet * bullet2 = new Bullet(70, 30, score);
 
         bullet1->setPos(x(),y());
         bullet2->setPos(x(),y());
-        scene()->addItem(bullet1);
-        scene()->addItem(bullet2);
+        scene->addItem(bullet1);
+        scene->addItem(bullet2);
         // play bulletsound
         if (music->playbackState() == QMediaPlayer::PlayingState)
         {
@@ -126,7 +121,7 @@ void Player::collision()
         if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3))
         {
             // increase the score
-          //  game->score->increase();
+            //score->increase();
 
             // play hit sound
             QMediaPlayer * music = new QMediaPlayer();
@@ -153,8 +148,8 @@ void Player::collision()
             }
 
             // remove them both
-            scene()->removeItem(colliding_items[i]);
-            scene()->removeItem(this);
+            scene->removeItem(colliding_items[i]);
+            scene->removeItem(this);
 
             // free memory
             delete colliding_items[i];
@@ -169,42 +164,23 @@ void Player::spawn(){
 
     if(ran%5 == 0)
     {
-        Enemy * enemy2 = new Enemy2();
-        scene()->addItem(enemy2);
+        Enemy * enemy2 = new Enemy2(0, health);
+        scene->addItem(enemy2);
     }
     // create an enemy
     else if(ran%2 == 0)
     {
-        Enemy * enemy1 = new Enemy1();
-        scene()->addItem(enemy1);
+        Enemy * enemy1 = new Enemy1(0, health);
+        scene->addItem(enemy1);
     }
     else
     {
-        Enemy * enemy3 = new Enemy3();
-        scene()->addItem(enemy3);
+        Enemy * enemy3 = new Enemy3(0, health);
+        scene->addItem(enemy3);
     }
-//    if(ran%9 == 4)
-//    {
-//        BgDecks * container = new BgdecksContainer();
-//        scene()->addItem(container);
-//    }
+
+
 
 }
 
-void Player::spawnBoat(){
-//    srand(time(NULL));
-//    int ran = rand()%9;
 
-//    // create backgroundboats
-//    if(ran%9 == 4)
-//    {
-//        BgDecks * container = new BgdecksContainer();
-//        scene()->addItem(container);
-//    }
-
-//    else if(ran%9 == 3)
-//    {
-//        BgDecks * cruise = new BgdecksCruise();
-//        scene()->addItem(cruise);
-//    }
-}

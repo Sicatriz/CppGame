@@ -1,7 +1,9 @@
 #include "bullet.h"
 #include "enemy.h"
+#include "enemy1.h"
+#include "enemy2.h"
+#include "enemy3.h"
 
-extern Game * game; // there is an external global object called game
 
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
 {
@@ -16,7 +18,6 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  /
     //audioOutput->setVolume(100);
     music->audioOutput()->setVolume(0.5);
     music->play();
-
     // connects
     QTimer * timer = new QTimer(this);
     /***\
@@ -28,9 +29,11 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  /
 
 }
 
-Bullet::Bullet(int xas, int yas)
+Bullet::Bullet(int xas, int yas, Score* scoore)
 {
     setPixmap(QPixmap(":/gfx/gfx/laser.png")); //give bullet graphics
+    score = scoore;
+
     QGraphicsPixmapItem::setOffset(xas, yas);
 
     QMediaPlayer * music = new QMediaPlayer(); //adding bullet sound
@@ -64,7 +67,7 @@ void Bullet::move()
         if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3))
         {
             // increase the score
-            game->score->increase();
+            score->increase();
             Enemy* enemy = (Enemy*) colliding_items[i];
             enemy->hit(1);
 

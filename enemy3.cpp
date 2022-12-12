@@ -1,9 +1,10 @@
 #include "enemy3.h"
 
-extern Game * game;
+//extern game * game;
 //this enemy is the small enemy
-Enemy3::Enemy3(QGraphicsItem *parent):Enemy()
+Enemy3::Enemy3(QGraphicsItem *parent, Health* h):Enemy()
 {
+    health = h;
     // set random start position
     int random_number = rand() % 1700;
     setPos(random_number, 0);
@@ -31,7 +32,7 @@ void Enemy3::move(int speed/*, Game* game*/)
     if(pos().y() > 1100){
 
         //decrease the health
-        game->health->decrease();
+        health->decrease();
 
         scene()->removeItem(this);
         this->deleteLater();

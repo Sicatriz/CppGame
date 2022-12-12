@@ -9,8 +9,8 @@
 #include <QGraphicsScene>
 #include <QList>
 #include <stdlib.h>
-#include "game.h"
 
+#include "health.h"
 #include <QTimer>
 
 class Enemy: public QObject, public QGraphicsPixmapItem /***8 abstract base class***/
@@ -19,7 +19,8 @@ class Enemy: public QObject, public QGraphicsPixmapItem /***8 abstract base clas
 
 public:
 
-   Enemy(QGraphicsItem * parent=0);
+   Enemy(QGraphicsItem * parent=0, Health* h=0);
+   Health* health;
 
 public slots:
     virtual void move(int speed)=0;
