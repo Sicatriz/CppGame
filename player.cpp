@@ -8,12 +8,13 @@
 #include "enemy3.h"
 #include "score.h"
 
-Player::Player(QGraphicsItem *parent, QGraphicsScene *sceene): QGraphicsPixmapItem(parent){
+Player::Player(QGraphicsItem *parent, QGraphicsScene *sceene)
+{
     scene = sceene;
-    this->setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin
+    this->QGraphicsPixmapItem::setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin
 
     //startposition
-    this->setScale(1);
+    this->QGraphicsPixmapItem::setScale(1);
    // this->scale();
     this->setPos(scene->width()/2, scene->height()- 150);
     // make the player focusable and set it to be the current focus
@@ -120,8 +121,38 @@ void Player::collision()
         //checks if the player hit a enemy./*
         if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3))
         {
-            // increase the score
+            // decrease HP
             //score->increase();
+            health->decreaseHP();
+            if(health->getHP() == 0 && health->getHealth() != 0)
+            {
+                health->decrease();
+
+                health->setHP();
+            }
+            else if(health->getHealth() == 0)
+            {
+
+                    // GAME OVER
+                    // play hit sound
+                    QMediaPlayer * music = new QMediaPlayer();
+                    QAudioOutput * audioOutput = new QAudioOutput();
+                    music->setAudioOutput(audioOutput);
+                    connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
+                    music->setSource(QUrl("qrc:/sounds/sounds/gameOver.wav"));
+                    music->audioOutput()->setVolume(1);
+                    music->play();
+
+                    // remove them both
+                    scene->removeItem(colliding_items[i]);
+                    scene->removeItem(this);
+
+                    // free memory
+                    delete colliding_items[i];
+                  //  this->deleteLater();
+                    delete this;
+
+            }
 
             // play hit sound
             QMediaPlayer * music = new QMediaPlayer();
@@ -136,7 +167,7 @@ void Player::collision()
             }
             else if (typeid(*(colliding_items[i])) == typeid(Enemy2))
             {
-                music->setSource(QUrl("qrc:/sounds/sounds/gameOver_karen.wav"));
+                music->setSource(QUrl("qrc:/sounds/sounds/shouting_karen.wav"));
                 music->audioOutput()->setVolume(1);
                 music->play();
             }
@@ -149,11 +180,8 @@ void Player::collision()
 
             // remove them both
             scene->removeItem(colliding_items[i]);
-            scene->removeItem(this);
+            delete(colliding_items[i]);
 
-            // free memory
-            delete colliding_items[i];
-            this->deleteLater();
         }
     }
 }

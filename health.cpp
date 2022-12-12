@@ -1,6 +1,6 @@
 #include "health.h"
 
-Health::Health(QGraphicsItem *parent): QGraphicsTextItem(parent){
+Health::Health(QGraphicsItem *parent){
     // initialize the score to 0
     health = 3;
 
@@ -18,3 +18,4 @@ void Health::decrease(){
 int Health::getHealth(){
     return health;
 }
+

@@ -93,6 +93,7 @@ void Bullet::move()
 
             // free memory
             this->deleteLater();
+            music->deleteLater();
         }
     }
 
@@ -104,5 +105,6 @@ void Bullet::move()
     {
         scene()->removeItem(this);
         this->deleteLater();
+
     }
 }
