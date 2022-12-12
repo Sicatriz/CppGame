@@ -67,9 +67,11 @@ void Bullet::move()
         if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3))
         {
             // increase the score
-            score->increase();
+
             Enemy* enemy = (Enemy*) colliding_items[i];
             enemy->hit(1);
+
+
 
                 //dit is een test lijn
 
@@ -88,12 +90,17 @@ void Bullet::move()
             //scene()->removeItem(colliding_items[i]);
             if(enemy->destroy()){
                scene()->removeItem(colliding_items[i]);
-            }
+               enemy->deleteLater();
+               score->increase();
+             }
+
             scene()->removeItem(this);
+
 
             // free memory
             this->deleteLater();
-            music->deleteLater();
+           // music->deleteLater();
+           // audioOutput->deleteLater();
         }
     }
 

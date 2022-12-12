@@ -130,27 +130,29 @@ void Player::collision()
 
                 health->setHP();
             }
-            else if(health->getHealth() == 0)
+            else if(health->getHealth() == 0 && health->getHP() == 0)
             {
 
                     // GAME OVER
                     // play hit sound
-                    QMediaPlayer * music = new QMediaPlayer();
-                    QAudioOutput * audioOutput = new QAudioOutput();
-                    music->setAudioOutput(audioOutput);
-                    connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-                    music->setSource(QUrl("qrc:/sounds/sounds/gameOver.wav"));
-                    music->audioOutput()->setVolume(1);
-                    music->play();
+                    QMediaPlayer * music2 = new QMediaPlayer();
+                    QAudioOutput * audioOutput2 = new QAudioOutput();
+                    music2->setAudioOutput(audioOutput2);
+                    connect(music2, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
+                    music2->setSource(QUrl("qrc:/sounds/sounds/gameOver.wav"));
+                    music2->audioOutput()->setVolume(1);
+                    music2->play();
 
                     // remove them both
                     scene->removeItem(colliding_items[i]);
                     scene->removeItem(this);
 
                     // free memory
-                    delete colliding_items[i];
-                  //  this->deleteLater();
-                    delete this;
+                 //   delete colliding_items[i];
+                    this->deleteLater();
+                    this->score->deleteLater();
+                    this->health->deleteLater();
+                  //  delete this;
 
             }
 
@@ -181,6 +183,8 @@ void Player::collision()
             // remove them both
             scene->removeItem(colliding_items[i]);
             delete(colliding_items[i]);
+            //music->deleteLater();
+            //audioOutput->deleteLater();
 
         }
     }
