@@ -1,8 +1,9 @@
 #include "enemy2.h"
 
 //this is the fast enemy
-Enemy2::Enemy2(QGraphicsItem *parent):Enemy()
+Enemy2::Enemy2(QGraphicsItem *parent, Health* h):Enemy()
 {
+    health = h;
     // set random start position
     int random_number = rand() % 1850;
     setPos(random_number, 0);
@@ -30,7 +31,7 @@ void Enemy2::move(int speed)
     if(pos().y() > 1100){
 
         //decrease the health
-        //game->health->decrease();
+        health->decrease();
 
 
         scene()->removeItem(this);

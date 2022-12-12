@@ -145,18 +145,18 @@ void Player::spawn(){
 
     if(ran%5 == 0)
     {
-        Enemy * enemy2 = new Enemy2();
+        Enemy * enemy2 = new Enemy2(0, health);
         scene->addItem(enemy2);
     }
     // create an enemy
     else if(ran%2 == 0)
     {
-        Enemy * enemy1 = new Enemy1();
+        Enemy * enemy1 = new Enemy1(0, health);
         scene->addItem(enemy1);
     }
     else
     {
-        Enemy * enemy3 = new Enemy3();
+        Enemy * enemy3 = new Enemy3(0, health);
         scene->addItem(enemy3);
     }
 
