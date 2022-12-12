@@ -25,6 +25,7 @@ SOURCES += \
     main.cpp \
     meteor.cpp \
     meteor1.cpp \
+    meteor2.cpp \
     player.cpp \
     score.cpp
 
@@ -41,6 +42,7 @@ HEADERS += \
     health.h \
     meteor.h \
     meteor1.h \
+    meteor2.h \
     player.h \
     score.h
 

@@ -8,6 +8,7 @@
 #include "enemy3.h"
 #include "meteor.h"
 #include "meteor1.h"
+#include "meteor2.h"
 #include "score.h"
 
 Player::Player(QGraphicsItem *parent, QGraphicsScene *sceene): QGraphicsPixmapItem(parent){
@@ -206,7 +207,9 @@ void Player::spawn(){
     else
     {
         Enemy * enemy3 = new Enemy3(0, health);
+        meteor * Meteor2 = new meteor2(0);
         scene->addItem(enemy3);
+         scene->addItem(Meteor2);
     }
 
 
