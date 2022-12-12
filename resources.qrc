@@ -34,6 +34,7 @@
         <file>gfx/Buggy_LightPurple.png</file>
         <file>gfx/Scorpion.png</file>
         <file>gfx/WingShip_Spider.png</file>
+        <file>gfx/bg52.png</file>
     </qresource>
     <qresource prefix="/">
         <file>gfx/sea.jpg</file>

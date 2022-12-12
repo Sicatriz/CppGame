@@ -14,8 +14,8 @@ Game::Game(QWidget *parent)
 {
     // create the scene
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,1920,1080); // make the scene 800x600 instead of infinity by infinity (default)
-    setBackgroundBrush(QBrush(QImage(":/gfx/gfx/bg48.png"))); //set background image
+    scene->setSceneRect(0,0,1800,1000); // make the scene 800x600 instead of infinity by infinity (default)
+    setBackgroundBrush(QBrush(QImage(":/gfx/gfx/bg52.png"))); //set background image
 
     // HIER EEN GEHEUGEN ISSUE
     // spawn boats
@@ -28,7 +28,7 @@ Game::Game(QWidget *parent)
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(1900,1080);  //set the size of the window
+    setFixedSize(1800,1000);  //set the size of the window
 
     // create the player
     player = new Player(0,scene);
