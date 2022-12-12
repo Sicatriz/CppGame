@@ -23,6 +23,8 @@ SOURCES += \
     game.cpp \
     health.cpp \
     main.cpp \
+    meteor.cpp \
+    meteor1.cpp \
     player.cpp \
     score.cpp
 
@@ -37,6 +39,8 @@ HEADERS += \
     enemy3.h \
     game.h \
     health.h \
+    meteor.h \
+    meteor1.h \
     player.h \
     score.h
 

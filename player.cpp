@@ -6,6 +6,8 @@
 #include "enemy1.h"
 #include "enemy2.h"
 #include "enemy3.h"
+#include "meteor.h"
+#include "meteor1.h"
 #include "score.h"
 
 Player::Player(QGraphicsItem *parent, QGraphicsScene *sceene): QGraphicsPixmapItem(parent){
@@ -117,6 +119,31 @@ void Player::collision()
     // if one of the colliding items is an Enemy, destroy both the player and the enemy
     for (int i = 0, n= colliding_items.size(); i < n; ++i)
     {
+        if ((typeid(*(colliding_items[i])) == typeid(meteor1)))
+        {
+            // increase the score
+            //score->increase();
+
+            // play hit sound
+            QMediaPlayer * music = new QMediaPlayer();
+            QAudioOutput * audioOutput = new QAudioOutput();
+            music->setAudioOutput(audioOutput);
+            connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
+            if(typeid(*(colliding_items[i])) == typeid(meteor1))
+            {
+                music->setSource(QUrl("qrc:/sounds/sounds/adios.wav"));
+                music->audioOutput()->setVolume(1);
+                music->play();
+            }
+
+            // remove them both
+            scene->removeItem(colliding_items[i]);
+            scene->removeItem(this);
+
+            // free memory
+            delete colliding_items[i];
+            this->deleteLater();
+        }
         //checks if the player hit a enemy./*
         if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3))
         {
@@ -156,6 +183,7 @@ void Player::collision()
             this->deleteLater();
         }
     }
+
 }
 
 void Player::spawn(){
@@ -171,7 +199,9 @@ void Player::spawn(){
     else if(ran%2 == 0)
     {
         Enemy * enemy1 = new Enemy1(0, health);
+        meteor * Meteor1 = new meteor1(0);
         scene->addItem(enemy1);
+         scene->addItem(Meteor1);
     }
     else
     {
