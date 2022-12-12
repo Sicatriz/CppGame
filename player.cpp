@@ -8,11 +8,13 @@
 #include "enemy3.h"
 #include "score.h"
 
-
 Player::Player(QGraphicsItem *parent, QGraphicsScene *sceene): QGraphicsPixmapItem(parent){
     scene = sceene;
-    this->setPixmap(QPixmap(":/gfx/gfx/playerJet.png")); //playerskin
+    this->setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin
+
     //startposition
+    this->setScale(1);
+   // this->scale();
     this->setPos(scene->width()/2, scene->height()- 150);
     // make the player focusable and set it to be the current focus
     this->setFlag(QGraphicsItem::ItemIsFocusable);
@@ -55,14 +57,17 @@ void Player::keyPressEvent(QKeyEvent *event)
         QAudioOutput * audioOutput = new QAudioOutput();
         music->setAudioOutput(audioOutput);
         connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-        music->setSource(QUrl("qrc:/sounds/sounds/bulletSmall.wav"));
-        audioOutput->setVolume(50);
-        music->audioOutput()->setVolume(50);
+
+        music->setSource(QUrl("qrc:/sounds/sounds/shoot1.wav"));
+       // audioOutput->setVolume(0.8);
+        music->audioOutput()->setVolume(0.7);
+
         music->play();
 
         // create a bullet
-        Bullet* bullet1 = new Bullet(2, 50, score);
-        Bullet* bullet2 = new Bullet(90, 50, score);
+
+        Bullet * bullet1 = new Bullet(20, 30, score);
+        Bullet * bullet2 = new Bullet(70, 30, score);
 
         bullet1->setPos(x(),y());
         bullet2->setPos(x(),y());
@@ -123,10 +128,24 @@ void Player::collision()
             QAudioOutput * audioOutput = new QAudioOutput();
             music->setAudioOutput(audioOutput);
             connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-            music->setSource(QUrl("qrc:/sounds/sounds/gameOver.wav"));
-            audioOutput->setVolume(100);
-            music->audioOutput()->setVolume(100);
-            music->play();
+            if(typeid(*(colliding_items[i])) == typeid(Enemy1))
+            {
+                music->setSource(QUrl("qrc:/sounds/sounds/adios.wav"));
+                music->audioOutput()->setVolume(1);
+                music->play();
+            }
+            else if (typeid(*(colliding_items[i])) == typeid(Enemy2))
+            {
+                music->setSource(QUrl("qrc:/sounds/sounds/gameOver_karen.wav"));
+                music->audioOutput()->setVolume(1);
+                music->play();
+            }
+            else
+            {
+                music->setSource(QUrl("qrc:/sounds/sounds/cry_karen.wav"));
+                music->audioOutput()->setVolume(1);
+                music->play();
+            }
 
             // remove them both
             scene->removeItem(colliding_items[i]);
@@ -161,23 +180,7 @@ void Player::spawn(){
     }
 
 
+
 }
 
-//void Player::spawnBoat(){
-/*    srand(time(NULL));
-    int ran = rand()%9;
 
-    // create backgroundboats
-    if(ran%9 == 4)
-    {
-        BgDecks * container = new BgdecksContainer();
-        scene->addItem(container);
-    }
-
-    else if(ran%9 == 3)
-    {
-        BgDecks * cruise = new BgdecksCruise();
-        scene->addItem(cruise);
-    }
-}
-*/

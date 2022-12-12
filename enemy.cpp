@@ -7,11 +7,11 @@ Enemy::Enemy(QGraphicsItem *parent, Health* h): QObject(), QGraphicsPixmapItem(p
 {
     health = h;
     // set random start position
-    int random_number = rand() % 1850;
+    int random_number = rand() % 1750;
     setPos(random_number, 0);
 
     //gfx enemy type 1
-    setPixmap(QPixmap(":/gfx/gfx/enemy.png"));
+    setPixmap(QPixmap(":/gfx/gfx/WingShip_Spider.png"));
 
 
     /***\

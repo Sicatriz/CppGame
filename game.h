@@ -19,7 +19,7 @@
 //#include "enemy.h"
 
 class Game: public QGraphicsView
-{
+{ Q_OBJECT
 public:
     Game(QWidget * parent=0);
 

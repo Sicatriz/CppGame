@@ -12,27 +12,29 @@ BgdecksContainer::BgdecksContainer(QGraphicsItem *parent):BgDecks()
     setRotation(random_rotation);
 
     //gfx enemy type 2
-    setPixmap(QPixmap(":/gfx/gfx/boatContainer.png"));
+    setPixmap(QPixmap(":/gfx/gfx/Stones2Filled_25.png"));
 
 
     /***\
     Connects timer to public slot move .
     timer is there for bullet movement, this changes the speed of the bullet.
     \***/
-    QTimer * timerBoat = new QTimer(this);
-    connect(timerBoat,SIGNAL(timeout()),this,SLOT(move()));
-    timerBoat->start(500);
+//    QTimer * timerBoat = new QTimer(this);
+//    connect(timerBoat,SIGNAL(timeout()),this,SLOT(move()));
+//    timerBoat->start(500);
 }
 
-void BgdecksContainer::move(int speed)
-{
-    // move enemy down
-    setPos(x(),y()+speed);
+//void BgdecksContainer::move(int speed)
+//{
+//    // move enemy down
+//    setPos(x(),y()+speed);
+//    this->rotation();
+//  //  this(setPixmap());
 
-    // when enemy is out of screen, free memory
-    if(pos().y() > 1100)
-    {
-    scene()->removeItem(this);
-    this->deleteLater();
-    }
-}
+//    // when enemy is out of screen, free memory
+//    if(pos().y() > 1100)
+//    {
+//    scene()->removeItem(this);
+//    this->deleteLater();
+//    }
+//}

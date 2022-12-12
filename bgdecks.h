@@ -18,7 +18,7 @@ public:
     BgDecks(QGraphicsItem * parent=0);
 
 public slots:
-    virtual void move(int speed)=0;
+//    virtual void move(int speed)=0;
 };
 
 #endif // BGDECKS_H
