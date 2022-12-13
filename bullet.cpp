@@ -108,8 +108,8 @@ void Bullet::move()
     setPos(x(),y()-10);
 
      //when bullet is out of screen, free memory and remove bullet
-    if(pos().y() < -50)
-    {
+
+    if(pos().y() < - this->pixmap().height() )    {
         scene()->removeItem(this);
         this->deleteLater();
 
