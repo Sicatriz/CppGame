@@ -1,8 +1,8 @@
 #include "health.h"
 
-Health::Health(QGraphicsItem *parent): QGraphicsTextItem(parent){
+Health::Health(QGraphicsItem *){
     // initialize the score to 0
-    health = 3;
+    health =3;
 
     // draw the text
     setPlainText(QString("Health: ") + QString::number(health)); // Health gets set to 3
@@ -11,10 +11,14 @@ Health::Health(QGraphicsItem *parent): QGraphicsTextItem(parent){
 }
 
 void Health::decrease(){
+
+    //if(health>0){
     health--;
     setPlainText(QString("Health: ") + QString::number(health)); // Health gets reduced
+   // }
 }
 
 int Health::getHealth(){
     return health;
 }
+

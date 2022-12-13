@@ -12,9 +12,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    bgdecks.cpp \
-    bgdeckscontainer.cpp \
-    bgdeckscruise.cpp \
+    audio.cpp \
     bullet.cpp \
     enemy.cpp \
     enemy1.cpp \
@@ -22,18 +20,18 @@ SOURCES += \
     enemy3.cpp \
     game.cpp \
     health.cpp \
+    hp.cpp \
     main.cpp \
     meteor.cpp \
     meteor1.cpp \
     meteor2.cpp \
     meteor3.cpp \
+    movableObjects.cpp \
     player.cpp \
     score.cpp
 
 HEADERS += \
-    bgdecks.h \
-    bgdeckscontainer.h \
-    bgdeckscruise.h \
+    audio.h \
     bullet.h \
     enemy.h \
     enemy1.h \
@@ -45,6 +43,8 @@ HEADERS += \
     meteor1.h \
     meteor2.h \
     meteor3.h \
+    hp.h \
+    movableObjects.h \
     player.h \
     score.h
 

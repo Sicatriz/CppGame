@@ -1,8 +1,7 @@
 #include "enemy1.h"
 
-//extern game * game;
 //this is the base enemy
-Enemy1::Enemy1(QGraphicsItem *parent, Health* h):Enemy()
+Enemy1::Enemy1(QGraphicsItem *, Health* h):Enemy()
 {
     health = h;
     // set random start position
@@ -11,7 +10,6 @@ Enemy1::Enemy1(QGraphicsItem *parent, Health* h):Enemy()
 
     //gfx enemy type 2
     setPixmap(QPixmap(":/gfx/gfx/WingShip_Spider.png"));
-
 
     /***\
     Connects timer to public slot move .
@@ -29,17 +27,11 @@ void Enemy1::move(int speed)
     setPos(x(),y()+speed);
 
     // when enemy is out of screen, free memory
-    if(pos().y() > 1100){
-
-        //decrease the health
-        //game->health->decrease();
-
+    if(pos().y() > 1000){
 
         scene()->removeItem(this);
         this->deleteLater();
     }
-
-
 }
 
 void Enemy1::hit(int dmg)

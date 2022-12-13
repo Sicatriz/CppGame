@@ -1,29 +1,19 @@
 <RCC>
     <qresource prefix="/sounds">
-        <file>sounds/1.MainTheme-320bit.mp3</file>
         <file>sounds/buffPickup.wav</file>
-        <file>sounds/gameOver.wav</file>
         <file>sounds/hit.wav</file>
-        <file>sounds/bulletSmall.wav</file>
         <file>sounds/shoot1.wav</file>
         <file>sounds/slow-travel.wav</file>
         <file>sounds/Explosion.wav</file>
         <file>sounds/adios.wav</file>
         <file>sounds/cry_karen.wav</file>
         <file>sounds/gameOver_karen.wav</file>
+        <file>sounds/shouting_karen.wav</file>
+        <file>sounds/death_1_ian.wav</file>
+        <file>sounds/death_5_sean.wav</file>
+        <file>sounds/death_8_sean.wav</file>
     </qresource>
     <qresource prefix="/gfx">
-        <file>gfx/playerJet.png</file>
-        <file>gfx/bullet.png</file>
-        <file>gfx/enemy3.png</file>
-        <file>gfx/enemy2.png</file>
-        <file>gfx/zee.png</file>
-        <file>gfx/enemy1.png</file>
-        <file>gfx/sea.jpg</file>
-        <file>gfx/boatContainer.png</file>
-        <file>gfx/boatCruise.png</file>
-        <file>gfx/boatSmall.png</file>
-        <file>gfx/Xplosion.mp4</file>
         <file>gfx/bg56.png</file>
         <file>gfx/bg48.png</file>
         <file>gfx/Stones2Filled_25.png</file>

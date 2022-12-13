@@ -1,8 +1,5 @@
 #include "enemy.h"
-#include "bullet.h"
-#include "game.h"
 
-//extern game * game;
 Enemy::Enemy(QGraphicsItem *parent, Health* h): QObject(), QGraphicsPixmapItem(parent) //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
 {
     health = h;
@@ -19,7 +16,7 @@ Enemy::Enemy(QGraphicsItem *parent, Health* h): QObject(), QGraphicsPixmapItem(p
     timer is there for bullet movement, this changes the speed of the bullet.
     \***/
     QTimer * timer = new QTimer(this);
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
+   // connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(50);
 
 }
@@ -38,8 +35,6 @@ void Enemy::move(int speed)
         scene()->removeItem(this);
         this->deleteLater();
     }
-
-
 }
 
 void Enemy::hit(int dmg){

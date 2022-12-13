@@ -1,5 +1,5 @@
 #include <QApplication>
-#include "Game.h"
+#include "game.h"
 
 /************************************************************/
 /*********  C++ taak Elektronica-ICT 2de jaar  **************/
@@ -15,7 +15,6 @@ int main(int argc, char *argv[]){
 
     Game* game = new Game(); //open and show the game
     game->show();
-
 
     return a.exec();
 }

@@ -1,6 +1,5 @@
 #include "enemy3.h"
 
-//extern game * game;
 //this enemy is the small enemy
 Enemy3::Enemy3(QGraphicsItem *parent, Health* h):Enemy()
 {
@@ -11,7 +10,6 @@ Enemy3::Enemy3(QGraphicsItem *parent, Health* h):Enemy()
 
     //gfx enemy type 2
     setPixmap(QPixmap(":/gfx/gfx/Scorpion.png"));
-
 
     /***\
     Connects timer to public slot move .
@@ -29,7 +27,7 @@ void Enemy3::move(int speed/*, Game* game*/)
     setPos(x(),y()+speed);
 
     // when enemy is out of screen, free memory
-    if(pos().y() > 1100){
+    if(pos().y() > 1000){
 
         //decrease the health
         health->decrease();

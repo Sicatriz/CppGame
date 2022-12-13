@@ -28,17 +28,14 @@ void Enemy2::move(int speed)
     setPos(x(),y()+speed);
 
     // when enemy is out of screen, free memory
-    if(pos().y() > 1100){
+    if(pos().y() > 1000){
 
         //decrease the health
         health->decrease();
 
-
         scene()->removeItem(this);
         this->deleteLater();
     }
-
-
 }
 
 void Enemy2::hit(int dmg)

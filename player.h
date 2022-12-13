@@ -9,19 +9,15 @@
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include <QMouseEvent>
-
-#include "bullet.h"
 #include "score.h"
 #include "health.h"
+#include "movableObjects.h"
 
-class Player:public QObject, public QGraphicsPixmapItem{
+class Player: public MovableObjects //public QObject, public QGraphicsPixmapItem
+{
     Q_OBJECT
 public:
-    Player(QGraphicsItem * parent=0, QGraphicsScene *sceene=0);
-    void keyPressEvent(QKeyEvent * event) override;
-
-
-    QGraphicsScene *scene;
+    Player(QGraphicsItem*parent = 0);
 
     Score* score;
     Health* health;
@@ -31,14 +27,10 @@ public:
 
     int playerWidth;
 
- //   void mousePressEvent(QMouseEvent *event);
-
-
 public slots:
-    void spawn();
-    //void spawnBoat();
-    void motion();
-    void collision();
+
+    void move();
+
 private:
     QMediaPlayer * bulletsound;
     int wannaBeX = 0;

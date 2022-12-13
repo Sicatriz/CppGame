@@ -2,91 +2,19 @@
 #include <QMouseEvent>
 #include <qvideowidget.h>
 #include <QMediaPlayer>
-#include "enemy.h"
-#include "enemy1.h"
-#include "enemy2.h"
-#include "enemy3.h"
+
+
 #include "meteor.h"
 #include "meteor1.h"
 #include "meteor2.h"
 #include "meteor3.h"
-#include "score.h"
 
-Player::Player(QGraphicsItem *parent, QGraphicsScene *sceene): QGraphicsPixmapItem(parent){
-    scene = sceene;
-    this->setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin
 
-    //startposition
-    this->setScale(1);
-   // this->scale();
-    this->setPos(scene->width()/2, scene->height()- 150);
-    // make the player focusable and set it to be the current focus
-    this->setFlag(QGraphicsItem::ItemIsFocusable);
-    this->setFocus();
-    // add the player to the scene
-    scene->addItem(this);
+Player::Player(QGraphicsItem *parent): MovableObjects(parent)
 
-    // create the score/health
-    score = new Score();
-    scene->addItem(score);
-    health = new Health();
-    health->setPos(health->x(),health->y()+25);
-    scene->addItem(health);
-}
-
-void Player::keyPressEvent(QKeyEvent *event)
 {
-    // move the player left and right
-    if (event->key() == Qt::Key_Left){
-        if (pos().x() > 0)
-        setPos(x()-10,y());
-    }
-    else if (event->key() == Qt::Key_Right){
-        if (pos().x() + 100 < 1920)
-        setPos(x()+10,y());
-    }
-    // move the player up and down
-    if (event->key() == Qt::Key_Up){
-        if (pos().y() > 0)
-        setPos(x(),y()-10);
-    }
-    else if (event->key() == Qt::Key_Down){
-        if (pos().y() + 100 < 900)
-        setPos(x(),y()+10);
-    }
-    // shoot with the spacebar
-    else if (event->key() == Qt::Key_Space)
-    {
-        QMediaPlayer * music = new QMediaPlayer();
-        QAudioOutput * audioOutput = new QAudioOutput();
-        music->setAudioOutput(audioOutput);
-        connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
 
-        music->setSource(QUrl("qrc:/sounds/sounds/shoot1.wav"));
-       // audioOutput->setVolume(0.8);
-        music->audioOutput()->setVolume(0.7);
-
-        music->play();
-
-        // create a bullet
-
-        Bullet * bullet1 = new Bullet(20, 30, score);
-        Bullet * bullet2 = new Bullet(70, 30, score);
-
-        bullet1->setPos(x(),y());
-        bullet2->setPos(x(),y());
-        scene->addItem(bullet1);
-        scene->addItem(bullet2);
-        // play bulletsound
-        if (music->playbackState() == QMediaPlayer::PlayingState)
-        {
-            music->setPosition(0);
-        }
-        else if (music->playbackState() == QMediaPlayer::StoppedState)
-        {
-            music->play();
-        }
-    }
+    this->QGraphicsPixmapItem::setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin
 }
 
 void Player::setWannaBeX(int x)
@@ -99,18 +27,11 @@ void Player::setWannaBeY(int y)
     wannaBeY = y;
 }
 
-//void Player::mousePressEvent(QMouseEvent *event)
-//{
-//    Bullet * bullet = new Bullet();
-//    bullet->setPos(x(),y());
-//    scene()->addItem(bullet);
-//}
-
-void Player::motion()
+void Player::move()
 {
     int coef = 19;
     setPos((wannaBeX*(20-coef)+pos().x()*coef)/20, (wannaBeY*(20-coef)+pos().y()*coef)/20 );
-    collision();
+//hier start meteor
 }
 
 void Player::collision()
@@ -222,5 +143,9 @@ void Player::spawn(){
 
 
 }
+// hier eindigt meteor
+}
+
+
 
 
