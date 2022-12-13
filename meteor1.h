@@ -3,11 +3,11 @@
 
 #include "meteor.h"
 
-class meteor1: public meteor{
+class Meteor1: public Meteor{
 
      Q_OBJECT
 public:
-    meteor1(QGraphicsItem * parent=0);
+    Meteor1(QGraphicsItem * parent=0);
 public slots:
     void move(int speed = 5);
 

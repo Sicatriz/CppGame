@@ -1,8 +1,6 @@
 #include "meteor3.h"
-#include "bullet.h"
-#include "game.h"
 
-meteor3::meteor3(QGraphicsItem *parent){
+Meteor3::Meteor3(QGraphicsItem *parent){
     int random_number = rand() % 1750;
     setPos(random_number, 0);
 
@@ -19,7 +17,7 @@ meteor3::meteor3(QGraphicsItem *parent){
     timer->start(50);
 }
 
-void meteor3::move(int speed)
+void Meteor3::move(int speed)
 {
 
 

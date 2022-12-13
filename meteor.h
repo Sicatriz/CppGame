@@ -1,7 +1,6 @@
 #ifndef METEOR_H
 #define METEOR_H
 
-//#include <QGraphicsRectItem>
 #include <QObject>
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
@@ -10,17 +9,17 @@
 #include <QList>
 #include <stdlib.h>
 
-
 #include <QTimer>
 
-class meteor: public QObject, public QGraphicsPixmapItem
+class Meteor: public QObject, public QGraphicsPixmapItem
 {
      Q_OBJECT
 public:
-    meteor(QGraphicsItem * parent=0);
+    Meteor(QGraphicsItem * parent=0);
 public slots:
     virtual void move(int speed)=0;
     void hit();
+
 };
 
 #endif // METEOR_H

@@ -1,8 +1,6 @@
 #include "meteor1.h"
-#include "bullet.h"
-#include "game.h"
 
-meteor1::meteor1(QGraphicsItem *parent){
+Meteor1::Meteor1(QGraphicsItem *parent){
     int random_number = rand() % 1750;
     setPos(random_number, 0);
 
@@ -19,7 +17,7 @@ meteor1::meteor1(QGraphicsItem *parent){
     timer->start(50);
 }
 
-void meteor1::move(int speed)
+void Meteor1::move(int speed)
 {
     // move enemy down
     setPos(x(),y()+speed);

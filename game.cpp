@@ -10,6 +10,10 @@
 #include "enemy1.h"
 #include "enemy2.h"
 #include "enemy3.h"
+#include "meteor.h"
+#include "meteor1.h"
+//#include "meteor2.h"
+#include "meteor3.h"
 
 Game::Game(QWidget *)
 {
@@ -55,9 +59,14 @@ Game::Game(QWidget *)
     scene->addItem(health);
 
     // spawn enemies
-    QTimer * timer = new QTimer();
-    QObject::connect(timer,SIGNAL(timeout()),this,SLOT(spawnEnemy()));
-    timer->start(2000);
+    QTimer * timerEnemy = new QTimer();
+    QObject::connect(timerEnemy,SIGNAL(timeout()),this,SLOT(spawnEnemy()));
+    timerEnemy->start(2000);
+
+    // spawn meteors
+    QTimer * timerMeteor = new QTimer();
+    QObject::connect(timerMeteor,SIGNAL(timeout()),this,SLOT(spawnMeteor()));
+    timerMeteor->start(8000);
 
     // play background sound
     Audio* backgroundMusic = new Audio();
@@ -166,3 +175,24 @@ void Game::spawnEnemy(){
     }
 }
 
+void Game::spawnMeteor(){
+
+    int ran = rand()%5;
+
+    if(ran%5 == 0)
+    {
+        Meteor * meteor3 = new Meteor3(0);
+        scene->addItem(meteor3);
+    }
+    // create an Meteor
+    else if(ran%2 == 0)
+    {
+        Meteor * meteor1 = new Meteor1(0);
+        scene->addItem(meteor1);
+    }
+//    else
+//    {
+//        Meteor * Meteor2 = new Meteor2(0);
+//        scene->addItem(Meteor2);
+//    }
+}

@@ -74,7 +74,7 @@ void Bullet::move()
             // free memory
             this->deleteLater();
         }
-        if ((typeid(*(colliding_items[i])) == typeid(meteor1) || (typeid(*(colliding_items[i])) == typeid(meteor3)))){
+        if ((typeid(*(colliding_items[i])) == typeid(Meteor1) || (typeid(*(colliding_items[i])) == typeid(Meteor3)))){
              scene()->removeItem(this);
              this->deleteLater();
         }
