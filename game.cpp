@@ -3,7 +3,7 @@
 #include "audio.h"
 #include "player.h"
 #include "audio.h"
-#include "bullet.h"
+//#include "bullet.h"
 
 Game::Game(QWidget *)
 {

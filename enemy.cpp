@@ -1,7 +1,5 @@
 #include "enemy.h"
 
-
-//extern game * game;
 Enemy::Enemy(QGraphicsItem *parent, Health* h): QObject(), QGraphicsPixmapItem(parent) //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
 {
     health = h;

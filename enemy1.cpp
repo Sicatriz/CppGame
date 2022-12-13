@@ -1,6 +1,5 @@
 #include "enemy1.h"
 
-//extern game * game;
 //this is the base enemy
 Enemy1::Enemy1(QGraphicsItem *, Health* h):Enemy()
 {
