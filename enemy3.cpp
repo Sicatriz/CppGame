@@ -11,7 +11,6 @@ Enemy3::Enemy3(QGraphicsItem *parent, Health* h):Enemy()
     //gfx enemy type 2
     setPixmap(QPixmap(":/gfx/gfx/Scorpion.png"));
 
-
     /***\
     Connects timer to public slot move .
     timer is there for bullet movement, this changes the speed of the bullet.
