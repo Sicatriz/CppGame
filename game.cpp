@@ -107,6 +107,8 @@ void Game::collision()
                 gameOverSound->playGameOver();
 
                 // remove them both
+
+                deleteItem(colliding_items[i]);
                 scene->removeItem(colliding_items[i]);
                 scene->removeItem(player);
 
@@ -121,7 +123,7 @@ void Game::collision()
 
             // remove them both
             scene->removeItem(colliding_items[i]);
-            delete(colliding_items[i]);
+            //delete(colliding_items[i]);
         }
     }
 }
@@ -136,6 +138,15 @@ void Game::addItem(MovableObjects * item)
 {
     scene->addItem(item);
     QObject::connect(moveTimer,SIGNAL(timeout()),item,SLOT(move()));
+}
+
+void Game::deleteItem(QGraphicsItem * item)
+{
+    scene->removeItem(item);
+    //item->deleteLater();
+    delete(item);
+
+
 }
 
 void Game::keyPressEvent(QKeyEvent *event)

@@ -8,6 +8,7 @@
 #include "meteor2.h"
 #include "meteor3.h"
 #include "audio.h"
+#include "game.h"
 
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
 {
@@ -68,6 +69,8 @@ void Bullet::move()
                enemy->deleteLater();
                score->increase();
              }
+
+
             //remove bullet
             scene()->removeItem(this);
 

@@ -7,7 +7,7 @@
 #include <QImage>
 
 
-MovableObjects::MovableObjects(QGraphicsItem * parent)
+MovableObjects::MovableObjects(QGraphicsItem * )
 {
 
 }

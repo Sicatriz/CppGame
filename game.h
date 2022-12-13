@@ -14,7 +14,6 @@
 #include "health.h"
 #include <QMouseEvent>
 #include "movableObjects.h"
-//#include "enemy.h"
 
 class Game: public QGraphicsView
 { Q_OBJECT
@@ -25,6 +24,7 @@ public:
     void keyPressEvent(QKeyEvent * event) override;
     void motion();
     void addItem(MovableObjects *);
+    void deleteItem(QGraphicsItem * item);
 
     Health* health;
     Score* score;
@@ -33,6 +33,7 @@ public:
     QGraphicsScene * scene;
     Player * player;        /***2 abstraction ***/
     MovableObjects * moveObjects;
+
 
 public slots:
         void collision();
