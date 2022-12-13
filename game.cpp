@@ -1,14 +1,8 @@
 #include "game.h"
 #include <QMouseEvent>
-#include "button.h"
+#include "audio.h"
 #include "player.h"
-//#include "bgdecks.h"
-//#include "bgdeckscontainer.h"
-//#include "bgdeckscruise.h"
-
-//#include "bullet.h"
-
-
+#include "audio.h"
 
 Game::Game(QWidget *parent)
 {
@@ -16,12 +10,6 @@ Game::Game(QWidget *parent)
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,1800,1000); // make the scene 800x600 instead of infinity by infinity (default)
     setBackgroundBrush(QBrush(QImage(":/gfx/gfx/bg52.png"))); //set background image
-
-    // HIER EEN GEHEUGEN ISSUE
-    // spawn boats
-//    QTimer * timerBoat = new QTimer();
-//    QObject::connect(timerBoat,SIGNAL(timeout()),player,SLOT(spawnBoat()));
-//    timerBoat->start(30000);
 
     // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
     // it can be used to visualize scenes)
@@ -38,25 +26,9 @@ Game::Game(QWidget *parent)
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);
 
-//    // boats on start screen
-//    BgDecks * container = new BgdecksContainer();
-//    container->setPos(400,600);
-//    scene->addItem(container);
-
-//    BgDecks * cruise = new BgdecksCruise();
-//    container->setPos(500,400);
-//    scene->addItem(cruise);
-
-
-    // play background music
-    QMediaPlayer * music = new QMediaPlayer();
-    QAudioOutput * audioOutput = new QAudioOutput();
-
-    music->setAudioOutput(audioOutput);
-    connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-    music->setSource(QUrl("qrc:/sounds/sounds/slow-travel.wav"));
-    audioOutput->setVolume(0.2);
-    music->play();
+    // play background sound
+    Audio* backgroundMusic = new Audio();
+    backgroundMusic->playBackgroundMusic();
 
     // connects player move signal
     QTimer * timer2 = new QTimer();

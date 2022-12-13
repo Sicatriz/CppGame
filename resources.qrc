@@ -12,6 +12,9 @@
         <file>sounds/cry_karen.wav</file>
         <file>sounds/gameOver_karen.wav</file>
         <file>sounds/shouting_karen.wav</file>
+        <file>sounds/death_1_ian.wav</file>
+        <file>sounds/death_5_sean.wav</file>
+        <file>sounds/death_8_sean.wav</file>
     </qresource>
     <qresource prefix="/gfx">
         <file>gfx/playerJet.png</file>
