@@ -13,12 +13,8 @@ class MovableObjects: public QObject, public QGraphicsPixmapItem
 public:
     MovableObjects(QGraphicsItem * parent);
 
-
 public slots:
     virtual void move()=0;
 };
-
-
-
 
 #endif // MOVABLEOBJECTS_H

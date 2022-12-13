@@ -11,6 +11,3 @@ MovableObjects::MovableObjects(QGraphicsItem * parent)
 {
 
 }
-
-
-

@@ -38,8 +38,6 @@ public slots:
         void collision();
        void spawnEnemy();
 
-    //Bullet * bullet;
-//gathers all information to make sure that the game runs
 };
 
 #endif // GAME_H

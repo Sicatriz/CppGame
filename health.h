@@ -10,7 +10,6 @@ class Health: public HP
 
     // 1 Health = 4 HP
 
-
 public:
     Health(QGraphicsItem * parent=0);
     void decrease();

@@ -18,8 +18,6 @@ class Player: public MovableObjects //public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     Player(QGraphicsItem*parent = 0);
-//    void keyPressEvent(QKeyEvent * event);
-
 
     Score* score;
     Health* health;
@@ -29,14 +27,10 @@ public:
 
     int playerWidth;
 
- //   void mousePressEvent(QMouseEvent *event);
-
-
 public slots:
-    // void spawn();
-    //void spawnBoat();
+
     void move();
-//    void collision();
+
 private:
     QMediaPlayer * bulletsound;
     int wannaBeX = 0;

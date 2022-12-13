@@ -5,7 +5,6 @@
 #include "enemy3.h"
 #include "audio.h"
 
-
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
 {
     setPixmap(QPixmap(":/gfx/gfx/laser.png")); //give bullet graphics

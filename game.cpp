@@ -11,7 +11,6 @@
 #include "enemy2.h"
 #include "enemy3.h"
 
-
 Game::Game(QWidget *)
 {
     // create the scene
@@ -35,7 +34,6 @@ Game::Game(QWidget *)
     QObject::connect(timerCollision,SIGNAL(timeout()),this,SLOT(collision()));
     timerCollision->start(10);
 
-
     // create the player
     player = new Player();
     addItem(player);
@@ -49,19 +47,12 @@ Game::Game(QWidget *)
     // add the player to the scene
     scene->addItem(player);
 
-
-
-
-
-
     // create the score/health
     score = new Score();
     scene->addItem(score);
     health = new Health();
     health->setPos(health->x(),health->y()+25);
     scene->addItem(health);
-
-
 
     // spawn enemies
     QTimer * timer = new QTimer();
@@ -71,12 +62,6 @@ Game::Game(QWidget *)
     // play background sound
     Audio* backgroundMusic = new Audio();
     backgroundMusic->playBackgroundMusic();
-
-//    // connects player move signal
-//    QTimer * timer2 = new QTimer();
-//    connect(timer2,SIGNAL(timeout()),move,SLOT(motion()));
-//    timer2->start(15);
-//    setMouseTracking(true);
 
     show();
 }
@@ -125,7 +110,6 @@ void Game::collision()
 
             }
 
-
             // remove them both
             scene->removeItem(colliding_items[i]);
             delete(colliding_items[i]);
@@ -147,32 +131,9 @@ void Game::addItem(MovableObjects * item)
 
 void Game::keyPressEvent(QKeyEvent *event)
 {
-    // move the player left and right
-//    if (event->key() == Qt::Key_Left){
-//        if (pos().x() > 0)
-//        setPos(x()-10,y());
-//    }
-//    else if (event->key() == Qt::Key_Right){
-//        if (pos().x() + 100 < 1920)
-//        setPos(x()+10,y());
-//    }
-//    // move the player up and down
-//    if (event->key() == Qt::Key_Up){
-//        if (pos().y() > 0)
-//        setPos(x(),y()-10);
-//    }
-//    else if (event->key() == Qt::Key_Down){
-//        if (pos().y() + 100 < 900)
-//        setPos(x(),y()+10);
-//    }
-//    // shoot with the spacebar
-//    else
     if (event->key() == Qt::Key_Space)
     {
         // create a bullet
-
-
-
         Bullet * bullet1 = new Bullet(20, 30, score);
         Bullet * bullet2 = new Bullet(70, 30, score);
 
@@ -203,8 +164,5 @@ void Game::spawnEnemy(){
         Enemy * enemy3 = new Enemy3(0, health);
         scene->addItem(enemy3);
     }
-
-
-
 }
 

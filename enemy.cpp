@@ -35,8 +35,6 @@ void Enemy::move(int speed)
         scene()->removeItem(this);
         this->deleteLater();
     }
-
-
 }
 
 void Enemy::hit(int dmg){

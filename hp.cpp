@@ -6,7 +6,6 @@ HP::HP(QGraphicsItem *parent): QGraphicsTextItem(parent)
     hp = 4;
 }
 
-
 void HP::decreaseHP()
 {
     // 1 HEALTH = 4 HP
