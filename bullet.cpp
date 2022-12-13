@@ -15,7 +15,6 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  /
     music->setAudioOutput(audioOutput);
     connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
     music->setSource(QUrl("qrc:/sounds/sounds/shoot1.wav"));
-    //audioOutput->setVolume(100);
     music->audioOutput()->setVolume(0.5);
     music->play();
     // connects
@@ -39,7 +38,7 @@ Bullet::Bullet(int xas, int yas, Score* scoore)
     QMediaPlayer * music = new QMediaPlayer(); //adding bullet sound
     QAudioOutput * audioOutput = new QAudioOutput();
     music->setAudioOutput(audioOutput);
-    connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
+    //connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
     music->setSource(QUrl("qrc:/sounds/sounds/shoot1.wav"));
     //audioOutput->setVolume(100);
     music->audioOutput()->setVolume(0.5);
@@ -71,16 +70,11 @@ void Bullet::move()
             Enemy* enemy = (Enemy*) colliding_items[i];
             enemy->hit(1);
 
-
-
-                //dit is een test lijn
-
-
             // play hit sound
             QMediaPlayer * music = new QMediaPlayer();
             QAudioOutput * audioOutput = new QAudioOutput();
             music->setAudioOutput(audioOutput);
-            connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
+            //connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
             music->setSource(QUrl("qrc:/sounds/sounds/Explosion.wav"));
             //audioOutput->setVolume(100);
             music->audioOutput()->setVolume(1);

@@ -59,7 +59,7 @@ void Player::keyPressEvent(QKeyEvent *event)
         QMediaPlayer * music = new QMediaPlayer();
         QAudioOutput * audioOutput = new QAudioOutput();
         music->setAudioOutput(audioOutput);
-        connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
+        //connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
 
         music->setSource(QUrl("qrc:/sounds/sounds/shoot1.wav"));
        // audioOutput->setVolume(0.8);
@@ -162,7 +162,7 @@ void Player::collision()
             QMediaPlayer * music = new QMediaPlayer();
             QAudioOutput * audioOutput = new QAudioOutput();
             music->setAudioOutput(audioOutput);
-            connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
+            //connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
             if(typeid(*(colliding_items[i])) == typeid(Enemy1))
             {
                 music->setSource(QUrl("qrc:/sounds/sounds/adios.wav"));
