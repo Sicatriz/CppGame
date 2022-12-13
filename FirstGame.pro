@@ -22,6 +22,11 @@ SOURCES += \
     health.cpp \
     hp.cpp \
     main.cpp \
+    meteor.cpp \
+    meteor1.cpp \
+    meteor2.cpp \
+    meteor3.cpp \
+    movableObjects.cpp \
     mainm.cpp \
     options.cpp \
     play.cpp \
@@ -37,6 +42,12 @@ HEADERS += \
     enemy3.h \
     game.h \
     health.h \
+    meteor.h \
+    meteor1.h \
+    meteor2.h \
+    meteor3.h \
+    hp.h \
+    movableObjects.h \
     mainm.h \
     options.h \
     play.h \

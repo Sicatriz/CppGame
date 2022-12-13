@@ -26,7 +26,6 @@ void Audio::playBulletHit()
 
 void Audio::playShipCollisionSound()
 {
-    srand(time(NULL));
     int ran = rand()%5;
 
     music->setAudioOutput(audioOutput);
@@ -58,8 +57,6 @@ void Audio::playShipCollisionSound()
 
     music->audioOutput()->setVolume(1);
     music->play();
-
-
 }
 
 // BACKGROUND SOUND

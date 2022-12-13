@@ -3,8 +3,11 @@
 #include "enemy1.h"
 #include "enemy2.h"
 #include "enemy3.h"
+#include "meteor.h"
+#include "meteor1.h"
+#include "meteor2.h"
+#include "meteor3.h"
 #include "audio.h"
-
 
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
 {
@@ -68,6 +71,10 @@ void Bullet::move()
 
             // free memory
             this->deleteLater();
+        }
+        if ((typeid(*(colliding_items[i])) == typeid(Meteor1) || (typeid(*(colliding_items[i])) == typeid(Meteor3)))){
+             scene()->removeItem(this);
+             this->deleteLater();
         }
     }
 

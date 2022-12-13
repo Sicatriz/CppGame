@@ -11,7 +11,6 @@ Enemy1::Enemy1(QGraphicsItem *, Health* h):Enemy()
     //gfx enemy type 2
     setPixmap(QPixmap(":/gfx/gfx/WingShip_Spider.png"));
 
-
     /***\
     Connects timer to public slot move .
     timer is there for bullet movement, this changes the speed of the bullet.
@@ -30,16 +29,9 @@ void Enemy1::move(int speed)
     // when enemy is out of screen, free memory
     if(pos().y() > this->pixmap().height() + this->scene()->height()){
 
-        //decrease the health
-        //game->health->decrease();
-
-
-
         scene()->removeItem(this);
         this->deleteLater();
     }
-
-
 }
 
 void Enemy1::hit(int dmg)

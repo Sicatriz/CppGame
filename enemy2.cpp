@@ -33,12 +33,9 @@ void Enemy2::move(int speed)
         //decrease the health
         health->decrease();
 
-
         scene()->removeItem(this);
         this->deleteLater();
     }
-
-
 }
 
 void Enemy2::hit(int dmg)

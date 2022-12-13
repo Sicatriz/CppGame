@@ -13,7 +13,6 @@ public slots:
     void hit(int dmg);
 
 private:
-   //int hp = 5;
 };
 
 #endif // ENEMY1_H
