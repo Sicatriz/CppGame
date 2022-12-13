@@ -103,23 +103,13 @@ void Player::collision()
         //checks if the player hit a enemy./*
         if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3))
         {
-
-            if(health->getHP() != 0 && health->getHealth() != 0)
-            {
-                // play shipcollision sound
-                Audio* shipCollision = new Audio();
-                shipCollision->playShipCollisionSound();
-            }else if (health->getHP() != 0 && health->getHealth() == 0)
+            health->decreaseHP();
+            if((health->getHP() != 0 && health->getHealth() != 0) || (health->getHP() == 0 && health->getHealth() != 0) || (health->getHP() != 0 && health->getHealth() == 0))
             {
                 // play shipcollision sound
                 Audio* shipCollision = new Audio();
                 shipCollision->playShipCollisionSound();
             }
-
-
-            // decrease HP
-            //score->increase();
-            health->decreaseHP();
 
             if(health->getHP() == 0 && health->getHealth() != 0)
             {

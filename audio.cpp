@@ -1,8 +1,4 @@
 #include "audio.h"
-#include "enemy.h"
-#include "enemy1.h"
-#include "enemy2.h"
-#include "enemy3.h"
 
 Audio::Audio(): QObject()
 {
