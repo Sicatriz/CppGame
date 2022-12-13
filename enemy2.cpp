@@ -28,8 +28,8 @@ void Enemy2::move(int speed)
     setPos(x(),y()+speed);
 
     // when enemy is out of screen, free memory
-    if(pos().y() > 1000){
 
+    if(pos().y() > this->pixmap().height() + this->scene()->height()){
         //decrease the health
         health->decrease();
 

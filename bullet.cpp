@@ -13,7 +13,6 @@ Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  /
 {
     setPixmap(QPixmap(":/gfx/gfx/laser.png")); //give bullet graphics
     QGraphicsPixmapItem::setOffset(2, 50);
-
     // connects
     QTimer * timer = new QTimer(this);
     /***\
@@ -32,6 +31,7 @@ Bullet::Bullet(int xas, int yas, Score* scoore)
 
     // Offset ship to mousecursor
     QGraphicsPixmapItem::setOffset(xas, yas);
+
 
     Audio* bulletSound = new Audio();
     bulletSound->playBullet();
@@ -58,10 +58,8 @@ void Bullet::move()
         {
             Enemy* enemy = (Enemy*) colliding_items[i];
             enemy->hit(1);
-
             Audio* bulletHitSound = new Audio();
             bulletHitSound->playBulletHit();
-
             // remove them both
             if(enemy->destroy()){
                scene()->removeItem(colliding_items[i]);
@@ -84,8 +82,8 @@ void Bullet::move()
     setPos(x(),y()-10);
 
      //when bullet is out of screen, free memory and remove bullet
-    if(pos().y() < -50)
-    {
+
+    if(pos().y() < - this->pixmap().height() )    {
         scene()->removeItem(this);
         this->deleteLater();
     }

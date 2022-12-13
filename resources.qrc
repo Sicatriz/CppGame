@@ -26,6 +26,12 @@
         <file>gfx/WingShip_Spider.png</file>
         <file>gfx/bg52.png</file>
         <file>gfx/bg55.png</file>
+        <file>gfx/StartPlay.png</file>
+        <file>gfx/StartPlayClick.png</file>
+        <file>gfx/StartPlayHov.png</file>
+        <file>gfx/options.png</file>
+        <file>gfx/optionshov.png</file>
+        <file>gfx/optionsclickk.png</file>
     </qresource>
     <qresource prefix="/">
         <file>gfx/sea.jpg</file>

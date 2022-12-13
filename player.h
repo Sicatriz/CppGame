@@ -18,13 +18,10 @@ class Player: public MovableObjects //public QObject, public QGraphicsPixmapItem
     Q_OBJECT
 public:
     Player(QGraphicsItem*parent = 0);
-
     Score* score;
     Health* health;
-
     void setWannaBeX(int x);
     void setWannaBeY(int y);
-
     int playerWidth;
 
 public slots:

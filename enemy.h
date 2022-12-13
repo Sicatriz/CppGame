@@ -8,7 +8,6 @@
 #include <QGraphicsScene>
 #include <QList>
 #include <stdlib.h>
-
 #include "health.h"
 #include <QTimer>
 

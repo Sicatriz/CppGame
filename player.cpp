@@ -4,9 +4,7 @@
 #include <QMediaPlayer>
 
 Player::Player(QGraphicsItem *parent): MovableObjects(parent)
-
 {
-
     this->QGraphicsPixmapItem::setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin
 }
 
@@ -24,9 +22,5 @@ void Player::move()
 {
     int coef = 19;
     setPos((wannaBeX*(20-coef)+pos().x()*coef)/20, (wannaBeY*(20-coef)+pos().y()*coef)/20 );
-
 }
-
-
-
 

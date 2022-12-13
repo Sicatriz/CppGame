@@ -1,4 +1,6 @@
 #include <QApplication>
+#include "mainm.h"
+
 #include "game.h"
 
 /************************************************************/
@@ -13,8 +15,8 @@ int main(int argc, char *argv[]){
     QApplication a(argc, argv);
     srand(time(NULL));
 
-    Game* game = new Game(); //open and show the game
-    game->show();
+    MainM* mainm = new MainM(0); //open and show the game
+    mainm->show();
 
     return a.exec();
 }
