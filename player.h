@@ -9,8 +9,6 @@
 #include <QGraphicsScene>
 #include <QKeyEvent>
 #include <QMouseEvent>
-
-#include "bullet.h"
 #include "score.h"
 #include "health.h"
 
