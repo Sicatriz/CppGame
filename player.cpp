@@ -9,6 +9,7 @@
 #include "meteor.h"
 #include "meteor1.h"
 #include "meteor2.h"
+#include "meteor3.h"
 #include "score.h"
 
 Player::Player(QGraphicsItem *parent, QGraphicsScene *sceene): QGraphicsPixmapItem(parent){
@@ -183,18 +184,24 @@ void Player::collision()
             delete colliding_items[i];
             this->deleteLater();
         }
+        if ((typeid(*(colliding_items[i])) == typeid(meteor1) || (typeid(*(colliding_items[i])) == typeid(meteor3)))){
+            scene->removeItem(colliding_items[i]);
+             delete colliding_items[i];
+        }
     }
 
 }
 
 void Player::spawn(){
-    srand(time(NULL));
+
     int ran = rand()%5;
 
     if(ran%5 == 0)
     {
         Enemy * enemy2 = new Enemy2(0, health);
+        meteor * Meteor3 = new meteor3(0);
         scene->addItem(enemy2);
+        scene->addItem(Meteor3);
     }
     // create an enemy
     else if(ran%2 == 0)
@@ -207,9 +214,9 @@ void Player::spawn(){
     else
     {
         Enemy * enemy3 = new Enemy3(0, health);
-        meteor * Meteor2 = new meteor2(0);
+        //meteor * Meteor2 = new meteor2(0);
         scene->addItem(enemy3);
-         scene->addItem(Meteor2);
+         //scene->addItem(Meteor2);
     }
 
 

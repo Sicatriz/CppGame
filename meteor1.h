@@ -10,6 +10,7 @@ public:
     meteor1(QGraphicsItem * parent=0);
 public slots:
     void move(int speed = 5);
+
 };
 
 #endif // METEOR1_H

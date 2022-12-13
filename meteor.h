@@ -20,6 +20,7 @@ public:
     meteor(QGraphicsItem * parent=0);
 public slots:
     virtual void move(int speed)=0;
+    void hit();
 };
 
 #endif // METEOR_H

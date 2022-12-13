@@ -39,3 +39,6 @@ void meteor::move(int speed)
 
 
 }
+void meteor::hit(){
+
+}
