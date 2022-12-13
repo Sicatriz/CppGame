@@ -1,4 +1,8 @@
 #include "audio.h"
+#include "enemy.h"
+#include "enemy1.h"
+#include "enemy2.h"
+#include "enemy3.h"
 
 Audio::Audio(): QObject()
 {
@@ -24,11 +28,59 @@ void Audio::playBulletHit()
     music->play();
 }
 
+void Audio::playShipCollisionSound()
+{
+    srand(time(NULL));
+    int ran = rand()%5;
+
+    music->setAudioOutput(audioOutput);
+
+    if(ran%5 == 0)
+    {
+        music->setSource(QUrl("qrc:/sounds/sounds/adios.wav"));
+    }
+    else if(ran%5 == 1)
+    {
+        music->setSource(QUrl("qrc:/sounds/sounds/shouting_karen.wav"));
+    }
+    else if(ran%5 == 2)
+    {
+        music->setSource(QUrl("qrc:/sounds/sounds/cry_karen.wav"));
+    }
+    else if(ran%5 == 3)
+    {
+        music->setSource(QUrl("qrc:/sounds/sounds/death_1_ian.wav"));
+    }
+    else if(ran%5 == 4)
+    {
+        music->setSource(QUrl("qrc:/sounds/sounds/death_5_sean.wav"));
+    }
+    else
+    {
+        music->setSource(QUrl("qrc:/sounds/sounds/death_8_sean.wav"));
+    }
+
+    music->audioOutput()->setVolume(1);
+    music->play();
+
+
+}
+
+// BACKGROUND SOUND
 void Audio::playBackgroundMusic()
 {
     music->setAudioOutput(audioOutput);
     music->setSource(QUrl("qrc:/sounds/sounds/slow-travel.wav"));
     audioOutput->setVolume(0.3);
+    music->play();
+}
+
+// GAME OVER
+void Audio::playGameOver()
+{
+    music->setAudioOutput(audioOutput);
+    music->setSource(QUrl("qrc:/sounds/sounds/gameOver_karen.wav"));
+    music->audioOutput()->setVolume(1);
     music->play();
 }
 

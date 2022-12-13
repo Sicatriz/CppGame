@@ -11,7 +11,9 @@ public:
     Audio();
     void playBullet();
     void playBulletHit();
+    void playShipCollisionSound();
     void playBackgroundMusic();
+    void playGameOver();
 
 
     QMediaPlayer * music;
