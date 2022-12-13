@@ -22,6 +22,7 @@ SOURCES += \
     health.cpp \
     hp.cpp \
     main.cpp \
+    movableObjects.cpp \
     player.cpp \
     score.cpp
 
@@ -35,6 +36,7 @@ HEADERS += \
     game.h \
     health.h \
     hp.h \
+    movableObjects.h \
     player.h \
     score.h
 
