@@ -14,11 +14,12 @@
 #include "score.h"
 #include "health.h"
 
-class Player:public QObject, public QGraphicsPixmapItem{
+class Player: public QObject, public QGraphicsPixmapItem
+{
     Q_OBJECT
 public:
     Player(QGraphicsItem * parent=0, QGraphicsScene *sceene=0);
-    void keyPressEvent(QKeyEvent * event) override;
+    void keyPressEvent(QKeyEvent * event);
 
 
     QGraphicsScene *scene;

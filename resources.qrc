@@ -11,6 +11,7 @@
         <file>sounds/adios.wav</file>
         <file>sounds/cry_karen.wav</file>
         <file>sounds/gameOver_karen.wav</file>
+        <file>sounds/shouting_karen.wav</file>
     </qresource>
     <qresource prefix="/gfx">
         <file>gfx/playerJet.png</file>
