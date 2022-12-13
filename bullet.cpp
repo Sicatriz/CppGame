@@ -3,20 +3,13 @@
 #include "enemy1.h"
 #include "enemy2.h"
 #include "enemy3.h"
+#include "audio.h"
 
 
 Bullet::Bullet(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
 {
     setPixmap(QPixmap(":/gfx/gfx/laser.png")); //give bullet graphics
     QGraphicsPixmapItem::setOffset(2, 50);
-
-    QMediaPlayer * music = new QMediaPlayer(); //adding bullet sound
-    QAudioOutput * audioOutput = new QAudioOutput();
-    music->setAudioOutput(audioOutput);
-    connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-    music->setSource(QUrl("qrc:/sounds/sounds/shoot1.wav"));
-    music->audioOutput()->setVolume(0.5);
-    music->play();
     // connects
     QTimer * timer = new QTimer(this);
     /***\
@@ -33,23 +26,18 @@ Bullet::Bullet(int xas, int yas, Score* scoore)
     setPixmap(QPixmap(":/gfx/gfx/laser.png")); //give bullet graphics
     score = scoore;
 
+    // Offset ship to mousecursor
     QGraphicsPixmapItem::setOffset(xas, yas);
 
-    QMediaPlayer * music = new QMediaPlayer(); //adding bullet sound
-    QAudioOutput * audioOutput = new QAudioOutput();
-    music->setAudioOutput(audioOutput);
-    //connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-    music->setSource(QUrl("qrc:/sounds/sounds/shoot1.wav"));
-    //audioOutput->setVolume(100);
-    music->audioOutput()->setVolume(0.5);
-    music->play();
+
+    Audio* bulletSound = new Audio();
+    bulletSound->playBullet();
 
     // connects
     QTimer * timer = new QTimer(this);
-    /***\
-    Connects timer to public slot move .
-    timer is there for bullet movement, this changes the speed of the bullet.
-    \***/
+
+//  Connects timer to public slot move .
+//  timer is there for bullet movement, this changes the speed of the bullet.
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(50);
 }
@@ -65,36 +53,21 @@ void Bullet::move()
         //checks if the bullet hit a enemy./*
         if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3))
         {
-            // increase the score
-
             Enemy* enemy = (Enemy*) colliding_items[i];
             enemy->hit(1);
-
-            // play hit sound
-            QMediaPlayer * music = new QMediaPlayer();
-            QAudioOutput * audioOutput = new QAudioOutput();
-            music->setAudioOutput(audioOutput);
-            //connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-            music->setSource(QUrl("qrc:/sounds/sounds/Explosion.wav"));
-            //audioOutput->setVolume(100);
-            music->audioOutput()->setVolume(1);
-            music->play();
-
-            // remove them both
-            //scene()->removeItem(colliding_items[i]);
+            Audio* bulletHitSound = new Audio();
+            bulletHitSound->playBulletHit();
+²            // remove them both
             if(enemy->destroy()){
                scene()->removeItem(colliding_items[i]);
                enemy->deleteLater();
                score->increase();
              }
-
+            //remove bullet
             scene()->removeItem(this);
-
 
             // free memory
             this->deleteLater();
-           // music->deleteLater();
-           // audioOutput->deleteLater();
         }
     }
 
@@ -106,6 +79,5 @@ void Bullet::move()
     if(pos().y() < - this->pixmap().height() )    {
         scene()->removeItem(this);
         this->deleteLater();
-
     }
 }

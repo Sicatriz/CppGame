@@ -1,6 +1,6 @@
 #include "health.h"
 
-Health::Health(QGraphicsItem *parent){
+Health::Health(QGraphicsItem *){
     // initialize the score to 0
     health =3;
 

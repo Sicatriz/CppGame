@@ -14,13 +14,14 @@
 #include "player.h"
 #include "score.h"
 #include "health.h"
+#include "bullet.h"
 #include <QMouseEvent>
 //#include "enemy.h"
 
 class Game: public QGraphicsView
 { Q_OBJECT
 public:
-    Game(QWidget *parent);
+    Game(QWidget * =0);
 
     void mouseMoveEvent(QMouseEvent * mouse) override;
 
