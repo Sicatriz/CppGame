@@ -36,7 +36,6 @@ HEADERS += \
     health.h \
     mainm.h \
     play.h \
-
     player.h \
     score.h
 

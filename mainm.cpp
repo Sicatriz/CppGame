@@ -1,4 +1,5 @@
 #include "mainm.h"
+#include "play.h"
 
 MainM::MainM(QWidget *parent)
 {
@@ -13,30 +14,21 @@ MainM::MainM(QWidget *parent)
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1800,1000);  //set the size of the window
-
-    // play background music
-    QMediaPlayer * music = new QMediaPlayer();
-    QAudioOutput * audioOutput = new QAudioOutput();
-
-    music->setAudioOutput(audioOutput);
-    //connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-    music->setSource(QUrl("qrc:/sounds/sounds/slow-travel.wav"));
-    audioOutput->setVolume(0.2);
-    music->play();
     show();
 
-    button = new Play(0, scene);
+    Play* button = new Play(0, scene);
     scene->addItem(button);
 
-/*
-    button = new Play(0, scene);
+    Play* button1 = new Play(0, scene);
+    button->setPixmap(QPixmap());
     scene->addItem(button);
 
 
-    button = new Play(0, scene);
-    scene->addItem(button);*/
+    scene->addItem(button1);
+    button->setPixmap(QPixmap());
 
-
+    Play* button2 = new Play(0, scene);
+    scene->addItem(button2);
 }
 
 void MainM::options()

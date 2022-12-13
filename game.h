@@ -21,7 +21,7 @@
 class Game: public QGraphicsView
 { Q_OBJECT
 public:
-    Game(QWidget * parent=0);
+    Game(QWidget *parent);
 
     void mouseMoveEvent(QMouseEvent * mouse) override;
 

@@ -9,18 +9,18 @@
 #include "score.h"
 #include "bullet.h"
 
-Player::Player(QGraphicsItem *parent, QGraphicsScene *sceene)
+Player::Player(QGraphicsItem *, QGraphicsScene *sceene)
 {
     scene = sceene;
 
-    this->QGraphicsPixmapItem::setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin
+    this->setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin
     this->setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin
     //startposition
-    this->QGraphicsPixmapItem::setScale(1);
+    this->setScale(1);
    // this->scale();
     this->setPos(1000, 1000);
     // make the player focusable and set it to be the current focus
-    this->setFlag(QGraphicsItem::ItemIsFocusable);
+    this->setFlag(ItemIsFocusable);
     this->setFocus();
     // add the player to the scene
     scene->addItem(this);

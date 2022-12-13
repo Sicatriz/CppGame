@@ -18,9 +18,9 @@
 class MainM: public QGraphicsView
 { Q_OBJECT
 public:
-    MainM(QWidget * parent=0);
+    MainM(QWidget *parent);
 
-    Play* button;
+    //Play* button;
     Game* gaame;
 
     QGraphicsScene * scene;

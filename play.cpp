@@ -13,15 +13,15 @@ Play::~Play()
 
 }
 
-void Play::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void Play::mousePressEvent(QGraphicsSceneMouseEvent *)
 {
     this->clicked();
 }
-void Play::hoverEnterEvent(QGraphicsSceneHoverEvent *event)
+void Play::hoverEnterEvent(QGraphicsSceneHoverEvent *)
 {
     this->setPixmap(QPixmap(":/gfx/gfx/StartPlayHov.png"));
 }
-void Play::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
+void Play::hoverLeaveEvent(QGraphicsSceneHoverEvent *)
 {
 
     this->setPixmap(QPixmap(":/gfx/gfx/StartPlay.png"));
@@ -29,7 +29,7 @@ void Play::hoverLeaveEvent(QGraphicsSceneHoverEvent *event)
 
 void Play::clicked()
 {
-    Game* game = new Game();
+    Game* game = new Game(0);
     game->show();
 }
 
