@@ -35,6 +35,7 @@ void Enemy1::move(int speed)
         //game->health->decrease();
 
 
+
         scene()->removeItem(this);
         this->deleteLater();
     }

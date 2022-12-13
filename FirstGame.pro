@@ -19,6 +19,7 @@ SOURCES += \
     enemy3.cpp \
     game.cpp \
     health.cpp \
+    hp.cpp \
     main.cpp \
     mainm.cpp \
     play.cpp \
@@ -35,6 +36,7 @@ HEADERS += \
     health.h \
     mainm.h \
     play.h \
+
     player.h \
     score.h
 

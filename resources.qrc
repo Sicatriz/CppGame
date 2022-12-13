@@ -11,6 +11,7 @@
         <file>sounds/adios.wav</file>
         <file>sounds/cry_karen.wav</file>
         <file>sounds/gameOver_karen.wav</file>
+        <file>sounds/shouting_karen.wav</file>
     </qresource>
     <qresource prefix="/gfx">
         <file>gfx/playerJet.png</file>
@@ -35,9 +36,11 @@
         <file>gfx/Scorpion.png</file>
         <file>gfx/WingShip_Spider.png</file>
         <file>gfx/bg52.png</file>
+        <file>gfx/bg55.png</file>
         <file>gfx/StartPlay.png</file>
         <file>gfx/StartPlayClick.png</file>
         <file>gfx/StartPlayHov.png</file>
+
     </qresource>
     <qresource prefix="/">
         <file>gfx/sea.jpg</file>
