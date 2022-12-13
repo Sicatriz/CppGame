@@ -12,9 +12,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    bgdecks.cpp \
-    bgdeckscontainer.cpp \
-    bgdeckscruise.cpp \
+    audio.cpp \
     bullet.cpp \
     enemy.cpp \
     enemy1.cpp \
@@ -28,9 +26,7 @@ SOURCES += \
     score.cpp
 
 HEADERS += \
-    bgdecks.h \
-    bgdeckscontainer.h \
-    bgdeckscruise.h \
+    audio.h \
     bullet.h \
     enemy.h \
     enemy1.h \

@@ -1,14 +1,6 @@
 #include "game.h"
 #include <QMouseEvent>
-#include "button.h"
 #include "player.h"
-//#include "bgdecks.h"
-//#include "bgdeckscontainer.h"
-//#include "bgdeckscruise.h"
-
-//#include "bullet.h"
-
-
 
 Game::Game(QWidget *parent)
 {
@@ -16,12 +8,6 @@ Game::Game(QWidget *parent)
     scene = new QGraphicsScene();
     scene->setSceneRect(0,0,1800,1000); // make the scene 800x600 instead of infinity by infinity (default)
     setBackgroundBrush(QBrush(QImage(":/gfx/gfx/bg52.png"))); //set background image
-
-    // HIER EEN GEHEUGEN ISSUE
-    // spawn boats
-//    QTimer * timerBoat = new QTimer();
-//    QObject::connect(timerBoat,SIGNAL(timeout()),player,SLOT(spawnBoat()));
-//    timerBoat->start(30000);
 
     // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
     // it can be used to visualize scenes)
@@ -37,16 +23,6 @@ Game::Game(QWidget *parent)
     QTimer * timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);
-
-//    // boats on start screen
-//    BgDecks * container = new BgdecksContainer();
-//    container->setPos(400,600);
-//    scene->addItem(container);
-
-//    BgDecks * cruise = new BgdecksCruise();
-//    container->setPos(500,400);
-//    scene->addItem(cruise);
-
 
     // play background music
     QMediaPlayer * music = new QMediaPlayer();
