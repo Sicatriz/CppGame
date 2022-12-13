@@ -12,7 +12,6 @@
 Player::Player(QGraphicsItem *parent, QGraphicsScene *sceene): QGraphicsPixmapItem(parent){
     scene = sceene;
     this->setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin
-
     //startposition
     this->setScale(1);
    // this->scale();
