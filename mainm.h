@@ -12,7 +12,6 @@
 #include <QImage>
 #include <QBrush>
 #include "game.h"
-#include "play.h"
 
 
 class MainM: public QGraphicsView
@@ -21,7 +20,7 @@ public:
     MainM(QWidget *parent);
 
     //Play* button;
-    Game* gaame;
+    Game* game;
 
     QGraphicsScene * scene;
 

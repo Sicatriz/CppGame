@@ -1,5 +1,5 @@
-#ifndef PLAY_H
-#define PLAY_H
+#ifndef OPTIONS_H
+#define OPTIONS_H
 
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsItem>
@@ -7,14 +7,14 @@
 #include <QGraphicsView>
 #include <QMouseEvent>
 
-class Play: public QGraphicsView, public QGraphicsPixmapItem
+class Options: public QGraphicsView, public QGraphicsPixmapItem
 {Q_OBJECT
 public:
-    Play(QGraphicsItem* parent=nullptr, QGraphicsScene* sceene=0);
-    ~Play();
+    Options(QGraphicsItem* parent=nullptr, QGraphicsScene* sceene=0);
+    ~Options();
 
     // public methods (events)
-    void mousePressEvent(QGraphicsSceneMouseEvent *);
+    void mousePressEvent(QGraphicsSceneMouseEvent *) override;
     void hoverEnterEvent(QGraphicsSceneHoverEvent *);
     void hoverLeaveEvent(QGraphicsSceneHoverEvent *);
 
@@ -23,4 +23,4 @@ public:
     void clicked();
 };
 
-#endif // PLAY_H
+#endif // OPTIONS_H

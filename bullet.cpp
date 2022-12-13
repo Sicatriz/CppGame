@@ -57,7 +57,7 @@ void Bullet::move()
             enemy->hit(1);
             Audio* bulletHitSound = new Audio();
             bulletHitSound->playBulletHit();
-²            // remove them both
+            // remove them both
             if(enemy->destroy()){
                scene()->removeItem(colliding_items[i]);
                enemy->deleteLater();

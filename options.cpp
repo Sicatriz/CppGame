@@ -1,7 +1,7 @@
-#include "play.h"
-#include "game.h"
+#include "options.h"
+#include "mainm.h"
 
-Play::Play(QGraphicsItem* parent, QGraphicsScene* sceene): QGraphicsPixmapItem(parent)
+Options::Options(QGraphicsItem* parent, QGraphicsScene* sceene): QGraphicsPixmapItem(parent)
 {
 
     scene = sceene;
@@ -10,28 +10,27 @@ Play::Play(QGraphicsItem* parent, QGraphicsScene* sceene): QGraphicsPixmapItem(p
     setAcceptHoverEvents(true);
 }
 
-Play::~Play()
+Options::~Options()
 {
 
 }
 
-void Play::mousePressEvent(QGraphicsSceneMouseEvent *)
+void Options::mousePressEvent(QGraphicsSceneMouseEvent *)
 {
     setPixmap(QPixmap(":/gfx/gfx/StartPlayClick.png"));
     clicked();
 }
-void Play::hoverEnterEvent(QGraphicsSceneHoverEvent *)
+void Options::hoverEnterEvent(QGraphicsSceneHoverEvent *)
 {
     setPixmap(QPixmap(":/gfx/gfx/StartPlayHov.png"));
 }
-void Play::hoverLeaveEvent(QGraphicsSceneHoverEvent *)
+void Options::hoverLeaveEvent(QGraphicsSceneHoverEvent *)
 {
     setPixmap(QPixmap(":/gfx/gfx/StartPlay.png"));
 }
 
-void Play::clicked()
+void Options::clicked()
 {
-    Game* game = new Game(0);
-    game->show();
+
 }
 

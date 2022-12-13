@@ -1,5 +1,6 @@
 #include "mainm.h"
 #include "play.h"
+#include "options.h"
 
 MainM::MainM(QWidget *parent)
 {
@@ -19,16 +20,13 @@ MainM::MainM(QWidget *parent)
     Play* button = new Play(0, scene);
     scene->addItem(button);
 
-    Play* button1 = new Play(0, scene);
-    button->setPixmap(QPixmap());
+    Options* button1 = new Options(0, scene);
+    button1->setPixmap(QPixmap());
     scene->addItem(button);
 
-
-    scene->addItem(button1);
-    button->setPixmap(QPixmap());
-
+    /*
     Play* button2 = new Play(0, scene);
-    scene->addItem(button2);
+    scene->addItem(button2);*/
 }
 
 void MainM::options()
@@ -38,5 +36,5 @@ void MainM::options()
 
 void MainM::exit()
 {
-
+    deleteLater();
 }
