@@ -139,7 +139,7 @@ void Player::collision()
                     QAudioOutput * audioOutput2 = new QAudioOutput();
                     music2->setAudioOutput(audioOutput2);
                     connect(music2, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-                    music2->setSource(QUrl("qrc:/sounds/sounds/gameOver.wav"));
+                    music2->setSource(QUrl("qrc:/sounds/sounds/gameOver_karen.wav"));
                     music2->audioOutput()->setVolume(1);
                     music2->play();
 

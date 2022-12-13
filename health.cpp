@@ -12,10 +12,10 @@ Health::Health(QGraphicsItem *parent){
 
 void Health::decrease(){
 
-    if(health>0){
+    //if(health>0){
     health--;
     setPlainText(QString("Health: ") + QString::number(health)); // Health gets reduced
-    }
+   // }
 }
 
 int Health::getHealth(){
