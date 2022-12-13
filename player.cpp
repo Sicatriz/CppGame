@@ -110,7 +110,7 @@ void Player::motion()
     collision();
 }
 
-void Player::collision()
+inline void Player::collision()
 {
     // get a list of all the items currently colliding with the player
     QList<QGraphicsItem * > colliding_items = collidingItems();
