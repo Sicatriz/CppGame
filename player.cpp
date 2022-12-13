@@ -8,8 +8,9 @@
 #include "enemy3.h"
 #include "score.h"
 #include "audio.h"
+#include "bullet.h"
 
-Player::Player(QGraphicsItem *parent, QGraphicsScene *sceene)
+Player::Player(QGraphicsItem *, QGraphicsScene *sceene)
 {
     scene = sceene;
     this->QGraphicsPixmapItem::setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin

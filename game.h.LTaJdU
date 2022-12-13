@@ -14,6 +14,7 @@
 #include "player.h"
 #include "score.h"
 #include "health.h"
+#include "bullet.h"
 #include <QMouseEvent>
 //#include "enemy.h"
 

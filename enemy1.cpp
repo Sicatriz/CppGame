@@ -2,7 +2,7 @@
 
 //extern game * game;
 //this is the base enemy
-Enemy1::Enemy1(QGraphicsItem *parent, Health* h):Enemy()
+Enemy1::Enemy1(QGraphicsItem *, Health* h):Enemy()
 {
     health = h;
     // set random start position
