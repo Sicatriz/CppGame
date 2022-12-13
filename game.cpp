@@ -3,8 +3,9 @@
 #include "audio.h"
 #include "player.h"
 #include "audio.h"
+//#include "bullet.h"
 
-Game::Game(QWidget *parent)
+Game::Game(QWidget *)
 {
     // create the scene
     scene = new QGraphicsScene();
