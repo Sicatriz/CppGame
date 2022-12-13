@@ -7,9 +7,10 @@
 #include "enemy2.h"
 #include "enemy3.h"
 #include "score.h"
+#include "audio.h"
 #include "bullet.h"
 
-Player::Player(QGraphicsItem *parent, QGraphicsScene *sceene)
+Player::Player(QGraphicsItem *, QGraphicsScene *sceene)
 {
     scene = sceene;
 
@@ -56,17 +57,6 @@ void Player::keyPressEvent(QKeyEvent *event)
     // shoot with the spacebar
     else if (event->key() == Qt::Key_Space)
     {
-        QMediaPlayer * music = new QMediaPlayer();
-        QAudioOutput * audioOutput = new QAudioOutput();
-        music->setAudioOutput(audioOutput);
-        //connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-
-        music->setSource(QUrl("qrc:/sounds/sounds/shoot1.wav"));
-       // audioOutput->setVolume(0.8);
-        music->audioOutput()->setVolume(0.7);
-
-        music->play();
-
         // create a bullet
 
         Bullet * bullet1 = new Bullet(20, 30, score);
@@ -76,15 +66,6 @@ void Player::keyPressEvent(QKeyEvent *event)
         bullet2->setPos(x(),y());
         scene->addItem(bullet1);
         scene->addItem(bullet2);
-        // play bulletsound
-        if (music->playbackState() == QMediaPlayer::PlayingState)
-        {
-            music->setPosition(0);
-        }
-        else if (music->playbackState() == QMediaPlayer::StoppedState)
-        {
-            music->play();
-        }
     }
 }
 
@@ -123,71 +104,42 @@ void Player::collision()
         //checks if the player hit a enemy./*
         if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3))
         {
-            // decrease HP
-            //score->increase();
             health->decreaseHP();
+            if((health->getHP() != 0 && health->getHealth() != 0) || (health->getHP() == 0 && health->getHealth() != 0) || (health->getHP() != 0 && health->getHealth() == 0))
+            {
+                // play shipcollision sound
+                Audio* shipCollision = new Audio();
+                shipCollision->playShipCollisionSound();
+            }
+
             if(health->getHP() == 0 && health->getHealth() != 0)
             {
+                //
                 health->decrease();
-
                 health->setHP();
             }
             else if(health->getHealth() == 0 && health->getHP() == 0)
             {
+                // play background sound
+                Audio* gameOverSound = new Audio();
+                gameOverSound->playGameOver();
 
-                    // GAME OVER
-                    // play hit sound
-                    QMediaPlayer * music2 = new QMediaPlayer();
-                    QAudioOutput * audioOutput2 = new QAudioOutput();
-                    music2->setAudioOutput(audioOutput2);
-                    connect(music2, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-                    music2->setSource(QUrl("qrc:/sounds/sounds/gameOver_karen.wav"));
-                    music2->audioOutput()->setVolume(1);
-                    music2->play();
+                // remove them both
+                scene->removeItem(colliding_items[i]);
+                scene->removeItem(this);
 
-                    // remove them both
-                    scene->removeItem(colliding_items[i]);
-                    scene->removeItem(this);
-
-                    // free memory
-                 //   delete colliding_items[i];
-                    this->deleteLater();
-                    this->score->deleteLater();
-                    this->health->deleteLater();
-                  //  delete this;
-
+                // free memory
+                //   delete colliding_items[i];
+                this->deleteLater();
+                this->score->deleteLater();
+                this->health->deleteLater();
+                //  delete this;
             }
 
-            // play hit sound
-            QMediaPlayer * music = new QMediaPlayer();
-            QAudioOutput * audioOutput = new QAudioOutput();
-            music->setAudioOutput(audioOutput);
-            //connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-            if(typeid(*(colliding_items[i])) == typeid(Enemy1))
-            {
-                music->setSource(QUrl("qrc:/sounds/sounds/adios.wav"));
-                music->audioOutput()->setVolume(1);
-                music->play();
-            }
-            else if (typeid(*(colliding_items[i])) == typeid(Enemy2))
-            {
-                music->setSource(QUrl("qrc:/sounds/sounds/shouting_karen.wav"));
-                music->audioOutput()->setVolume(1);
-                music->play();
-            }
-            else
-            {
-                music->setSource(QUrl("qrc:/sounds/sounds/cry_karen.wav"));
-                music->audioOutput()->setVolume(1);
-                music->play();
-            }
 
             // remove them both
             scene->removeItem(colliding_items[i]);
             delete(colliding_items[i]);
-            //music->deleteLater();
-            //audioOutput->deleteLater();
-
         }
     }
 }

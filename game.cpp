@@ -1,10 +1,9 @@
 #include "game.h"
 #include <QMouseEvent>
-//#include "button.h"
+#include "audio.h"
 #include "player.h"
-
-
-Game::Game(QWidget *parent)
+#include "audio.h"
+Game::Game(QWidget *)
 {
     scene = new QGraphicsScene();
     this->showMaximized(); // make the scene 800x600 instead of infinity by infinity (default)
@@ -31,6 +30,10 @@ Game::Game(QWidget *parent)
     QTimer * timer = new QTimer();
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);
+
+    // play background sound
+    Audio* backgroundMusic = new Audio();
+    backgroundMusic->playBackgroundMusic();
 
     // connects player move signal
     QTimer * timer2 = new QTimer();
