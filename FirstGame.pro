@@ -13,6 +13,7 @@ CONFIG += c++17
 
 SOURCES += \
     audio.cpp \
+    mainmenu \
     bullet.cpp \
     enemy.cpp \
     enemy1.cpp \
@@ -22,6 +23,8 @@ SOURCES += \
     health.cpp \
     hp.cpp \
     main.cpp \
+    mainm.cpp \
+    play.cpp \
     player.cpp \
     score.cpp
 
@@ -34,7 +37,9 @@ HEADERS += \
     enemy3.h \
     game.h \
     health.h \
-    hp.h \
+    mainm.h \
+    play.h \
+
     player.h \
     score.h
 

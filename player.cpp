@@ -13,12 +13,13 @@
 Player::Player(QGraphicsItem *, QGraphicsScene *sceene)
 {
     scene = sceene;
-    this->QGraphicsPixmapItem::setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin
 
+    this->QGraphicsPixmapItem::setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin
+    this->setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin
     //startposition
     this->QGraphicsPixmapItem::setScale(1);
    // this->scale();
-    this->setPos(scene->width()/2, scene->height()- 150);
+    this->setPos(1000, 1000);
     // make the player focusable and set it to be the current focus
     this->setFlag(QGraphicsItem::ItemIsFocusable);
     this->setFocus();
@@ -56,7 +57,6 @@ void Player::keyPressEvent(QKeyEvent *event)
     // shoot with the spacebar
     else if (event->key() == Qt::Key_Space)
     {
-
         // create a bullet
 
         Bullet * bullet1 = new Bullet(20, 30, score);
@@ -134,7 +134,6 @@ void Player::collision()
                 this->score->deleteLater();
                 this->health->deleteLater();
                 //  delete this;
-
             }
 
 
@@ -165,9 +164,6 @@ void Player::spawn(){
         Enemy * enemy3 = new Enemy3(0, health);
         scene->addItem(enemy3);
     }
-
-
-
 }
 
 

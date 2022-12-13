@@ -3,21 +3,25 @@
 #include "audio.h"
 #include "player.h"
 #include "audio.h"
-//#include "bullet.h"
-
 Game::Game(QWidget *)
 {
-    // create the scene
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,1800,1000); // make the scene 800x600 instead of infinity by infinity (default)
+    this->showMaximized(); // make the scene 800x600 instead of infinity by infinity (default)
+    scene->focusItem();
+    this->setAlignment(Qt::AlignTop|Qt::AlignLeft);
+    //scene->setSceneRect(0,0, this->width(),this->height());
+    //setFixedSize(this->width(), this->height());
     setBackgroundBrush(QBrush(QImage(":/gfx/gfx/bg52.png"))); //set background image
 
     // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
     // it can be used to visualize scenes)
     setScene(scene);
+    fitInView(scene->sceneRect());
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    setFixedSize(1800,1000);  //set the size of the window
+    scene->activePanel();
+    //showMaximized();
+    //set the size of the window
 
     // create the player
     player = new Player(0,scene);
@@ -36,8 +40,6 @@ Game::Game(QWidget *)
     connect(timer2,SIGNAL(timeout()),player,SLOT(motion()));
     timer2->start(15);
     setMouseTracking(true);
-
-    show();
 }
 
 void Game::mouseMoveEvent(QMouseEvent *mouse)

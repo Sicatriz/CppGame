@@ -16,7 +16,6 @@ Enemy::Enemy(QGraphicsItem *parent, Health* h): QObject(), QGraphicsPixmapItem(p
     timer is there for bullet movement, this changes the speed of the bullet.
     \***/
     QTimer * timer = new QTimer(this);
-   // connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(50);
 
 }
