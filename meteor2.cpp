@@ -7,7 +7,7 @@ meteor2::meteor2(QGraphicsItem *parent){
     setPos(random_number, 0);
 
     //gfx enemy type 1
-    setPixmap(QPixmap(":/gfx/gfx/WingShip_Spider.png"));
+    setPixmap(QPixmap(":/gfx/gfx/Stones2Filled_25.png"));
 
 
     /***\
