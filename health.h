@@ -14,6 +14,7 @@ class Health: public HP
 public:
     Health(QGraphicsItem * parent=0);
     void decrease();
+    void increase();
     int getHealth();    /***3 encapsulation ***/
 
 private:

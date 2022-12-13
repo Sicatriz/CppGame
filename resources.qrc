@@ -26,6 +26,7 @@
         <file>gfx/WingShip_Spider.png</file>
         <file>gfx/bg52.png</file>
         <file>gfx/bg55.png</file>
+        <file>gfx/Hp.png</file>
     </qresource>
     <qresource prefix="/">
         <file>gfx/sea.jpg</file>

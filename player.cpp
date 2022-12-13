@@ -6,6 +6,8 @@
 #include "enemy1.h"
 #include "enemy2.h"
 #include "enemy3.h"
+#include "Buff.h"
+#include "Buff1.h"
 #include "score.h"
 #include "audio.h"
 #include "bullet.h"
@@ -116,7 +118,7 @@ void Player::collision()
             {
                 //
                 health->decrease();
-                health->setHP();
+                health->setHP(4);
             }
             else if(health->getHealth() == 0 && health->getHP() == 0)
             {
@@ -142,6 +144,20 @@ void Player::collision()
             scene->removeItem(colliding_items[i]);
             delete(colliding_items[i]);
         }
+        if ((typeid(*(colliding_items[i])) == typeid(Buff1))){
+
+            if(health->getHP()== 4)
+            {
+
+            }else{
+                health->increaseHP();
+
+            }
+
+            scene->removeItem(colliding_items[i]);
+            delete(colliding_items[i]);
+
+        }
     }
 }
 
@@ -158,7 +174,9 @@ void Player::spawn(){
     else if(ran%2 == 0)
     {
         Enemy * enemy1 = new Enemy1(0, health);
+        Buff * buff1 = new Buff1(0);
         scene->addItem(enemy1);
+        scene->addItem(buff1);
     }
     else
     {
