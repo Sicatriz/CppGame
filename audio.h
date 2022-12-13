@@ -11,6 +11,9 @@ public:
     Audio();
     void playBullet();
     void playBulletHit();
+    void playBackgroundMusic();
+
+
     QMediaPlayer * music;
     QAudioOutput * audioOutput;
 };

@@ -1,6 +1,8 @@
 #include "game.h"
 #include <QMouseEvent>
+#include "audio.h"
 #include "player.h"
+#include "audio.h"
 
 Game::Game(QWidget *parent)
 {
@@ -24,15 +26,9 @@ Game::Game(QWidget *parent)
     QObject::connect(timer,SIGNAL(timeout()),player,SLOT(spawn()));
     timer->start(2000);
 
-    // play background music
-    QMediaPlayer * music = new QMediaPlayer();
-    QAudioOutput * audioOutput = new QAudioOutput();
-
-    music->setAudioOutput(audioOutput);
-    connect(music, SIGNAL(positionChanged(background)), this, SLOT(positionChanged(0)));
-    music->setSource(QUrl("qrc:/sounds/sounds/slow-travel.wav"));
-    audioOutput->setVolume(0.2);
-    music->play();
+    // play background sound
+    Audio* backgroundMusic = new Audio();
+    backgroundMusic->playBackgroundMusic();
 
     // connects player move signal
     QTimer * timer2 = new QTimer();

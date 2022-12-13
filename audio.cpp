@@ -24,3 +24,11 @@ void Audio::playBulletHit()
     music->play();
 }
 
+void Audio::playBackgroundMusic()
+{
+    music->setAudioOutput(audioOutput);
+    music->setSource(QUrl("qrc:/sounds/sounds/slow-travel.wav"));
+    audioOutput->setVolume(0.3);
+    music->play();
+}
+
