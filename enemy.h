@@ -20,6 +20,8 @@ public:
 
    Enemy(QGraphicsItem * parent=0);
    Health* health;
+//   float speed;
+//   double setSpeed();
 
 public slots:
     virtual void move();

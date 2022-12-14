@@ -11,6 +11,6 @@ public:
     int getScore();
 private:
     int score;
-    friend class Level;
+    friend class Enemy;
 };
 #endif // SCORE_H

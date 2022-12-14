@@ -1,7 +1,8 @@
 #include "enemy2.h"
+#include "bullet.h"
 
 //this is the fast enemy
-Enemy2::Enemy2(QGraphicsItem *parent, Health* h):Enemy()
+Enemy2::Enemy2(QGraphicsItem *, Health* h):Enemy()
 {
     health = h;
     // set random start position
@@ -16,8 +17,10 @@ Enemy2::Enemy2(QGraphicsItem *parent, Health* h):Enemy()
 
 void Enemy2::move()
 {
+    speed = getSpeed()+2;
+   // speed = getSpeed() + (Score().getScore());
     // move enemy down
-    setPos(x(),y()+1.5);
+    setPos(x(),y()+speed);
 
     // when enemy is out of screen, free memory
     if(pos().y() > 1000){

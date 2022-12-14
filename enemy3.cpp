@@ -1,7 +1,9 @@
 #include "enemy3.h"
+#include "score.h"
+#include "bullet.h"
 
 //this enemy is the small enemy
-Enemy3::Enemy3(QGraphicsItem *parent, Health* h):Enemy()
+Enemy3::Enemy3(QGraphicsItem *, Health* h):Enemy()
 {
     health = h;
     // set random start position
@@ -16,8 +18,13 @@ Enemy3::Enemy3(QGraphicsItem *parent, Health* h):Enemy()
 
 void Enemy3::move()
 {
+
+    speed = getSpeed()+0.5;
+
+    //speed = getSpeed() + (Score().getScore());
+
     // move enemy down
-    setPos(x(),y()+1);
+    setPos(x(),y()+speed);
 
     // when enemy is out of screen, free memory
     if(pos().y() > 1000){

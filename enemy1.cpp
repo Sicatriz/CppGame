@@ -1,4 +1,6 @@
 #include "enemy1.h"
+#include "bullet.h"
+
 
 //this is the base enemy
 Enemy1::Enemy1(QGraphicsItem *, Health* h):Enemy()
@@ -16,8 +18,12 @@ Enemy1::Enemy1(QGraphicsItem *, Health* h):Enemy()
 
 void Enemy1::move()
 {
+
+    speed = getSpeed();
+    //speed = getSpeed() + (Score().getScore());
+
     // move enemy down
-    setPos(x(),y()+1);
+    setPos(x(),y()+speed);
 
     // when enemy is out of screen, free memory
     if(pos().y() > 1000){
