@@ -8,21 +8,23 @@
 #include <QGraphicsScene>
 #include <QList>
 #include <stdlib.h>
-
+#include "movableObjects.h"
 #include "health.h"
 #include <QTimer>
 
-class Enemy: public QObject, public QGraphicsPixmapItem /***8 abstract base class***/
+class Enemy: public MovableObjects /***8 abstract base class***/
 {
    Q_OBJECT    // enemy needs to be an Qobject for movement
 
 public:
 
-   Enemy(QGraphicsItem * parent=0, Health* h=0);
+   Enemy(QGraphicsItem * parent=0);
    Health* health;
+//   float speed;
+//   double setSpeed();
 
 public slots:
-    virtual void move(int speed)=0;
+    virtual void move();
     void hit(int dmg); /***9 virtual function***/
     bool destroy();
 protected:

@@ -9,7 +9,7 @@ class Enemy3: public Enemy{
 public:
     Enemy3(QGraphicsItem * parent=0, Health* h=0);
 public slots:
-    void move(int speed = 5/*, Game* game*/);
+    void move();
     void hit(int dmg);
 
 private:

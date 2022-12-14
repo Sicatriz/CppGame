@@ -9,7 +9,7 @@ class Enemy1: public Enemy{    /***7 usefull and correct base class ***/
 public:
     Enemy1(QGraphicsItem * parent=0, Health* h=0);
 public slots:
-    void move(int speed = 5);
+    void move();
     void hit(int dmg);
 
 private:

@@ -8,7 +8,7 @@ class Enemy2: public Enemy{ /***4 inheritance***/
 public:
     Enemy2(QGraphicsItem * parent=0, Health* h=0);
 public slots:
-    void move(int speed = 5);
+    void move();
     void hit(int dmg);
 
 private:

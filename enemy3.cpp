@@ -1,7 +1,9 @@
 #include "enemy3.h"
+#include "score.h"
+#include "bullet.h"
 
 //this enemy is the small enemy
-Enemy3::Enemy3(QGraphicsItem *parent, Health* h):Enemy()
+Enemy3::Enemy3(QGraphicsItem *, Health* h):Enemy()
 {
     health = h;
     // set random start position
@@ -11,18 +13,16 @@ Enemy3::Enemy3(QGraphicsItem *parent, Health* h):Enemy()
     //gfx enemy type 2
     setPixmap(QPixmap(":/gfx/gfx/Scorpion.png"));
 
-    /***\
-    Connects timer to public slot move .
-    timer is there for bullet movement, this changes the speed of the bullet.
-    \***/
-    QTimer * timer = new QTimer(this);
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-    timer->start(250);
     hp = 1;
 }
 
-void Enemy3::move(int speed/*, Game* game*/)
+void Enemy3::move()
 {
+
+    speed = getSpeed()+0.5;
+
+    //speed = getSpeed() + (Score().getScore());
+
     // move enemy down
     setPos(x(),y()+speed);
 

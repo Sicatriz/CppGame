@@ -9,7 +9,7 @@ class Meteor3: public Meteor{
 public:
     Meteor3(QGraphicsItem * parent=0);
 public slots:
-    void move(int speed = 5);
+    void move();
    private:
     int i = 0;
     int ranused = 0;

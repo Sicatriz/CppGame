@@ -1,4 +1,6 @@
 #include "enemy1.h"
+#include "bullet.h"
+
 
 //this is the base enemy
 Enemy1::Enemy1(QGraphicsItem *, Health* h):Enemy()
@@ -11,18 +13,15 @@ Enemy1::Enemy1(QGraphicsItem *, Health* h):Enemy()
     //gfx enemy type 2
     setPixmap(QPixmap(":/gfx/gfx/WingShip_Spider.png"));
 
-    /***\
-    Connects timer to public slot move .
-    timer is there for bullet movement, this changes the speed of the bullet.
-    \***/
-    QTimer * timer = new QTimer(this);
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-    timer->start(200);
     hp = 5;
 }
 
-void Enemy1::move(int speed)
+void Enemy1::move()
 {
+
+    speed = getSpeed();
+    //speed = getSpeed() + (Score().getScore());
+
     // move enemy down
     setPos(x(),y()+speed);
 

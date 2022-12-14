@@ -3,7 +3,7 @@
 #include "enemy1.h"
 #include "enemy2.h"
 #include "enemy3.h"
-#include "meteor.h"
+//#include "meteor.h"
 #include "meteor1.h"
 #include "meteor2.h"
 #include "meteor3.h"

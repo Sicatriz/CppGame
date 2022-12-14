@@ -1,7 +1,10 @@
-            #include "enemy2.h"
+
+#include "enemy2.h"
+#include "bullet.h"
+
 
 //this is the fast enemy
-Enemy2::Enemy2(QGraphicsItem *parent, Health* h):Enemy()
+Enemy2::Enemy2(QGraphicsItem *, Health* h):Enemy()
 {
     health = h;
     // set random start position
@@ -11,19 +14,13 @@ Enemy2::Enemy2(QGraphicsItem *parent, Health* h):Enemy()
     //gfx enemy type 2
     setPixmap(QPixmap(":/gfx/gfx/Buggy_LightPurple.png"));
 
-
-    /***\
-    Connects timer to public slot move .
-    timer is there for bullet movement, this changes the speed of the bullet.
-    \***/
-    QTimer * timer = new QTimer(this);
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-    timer->start(50);
     hp = 2;
 }
 
-void Enemy2::move(int speed)
+void Enemy2::move()
 {
+    speed = getSpeed()+2;
+   // speed = getSpeed() + (Score().getScore());
     // move enemy down
     setPos(x(),y()+speed);
 
