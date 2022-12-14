@@ -13,27 +13,6 @@ Enemy::Enemy(QGraphicsItem *parent): MovableObjects(parent) //With Qobject you s
 
 }
 
-//double Enemy::setSpeed()
-//{
-//    if(Score().getScore() < 50 )
-//    {
-//        speed = 0.1;
-//    }
-//    else if(Score().getScore() >49 && Score().getScore() < 100)
-//    {
-//        speed = 0.3;
-//    }
-//    else if(Score().getScore() >99 && Score().getScore() < 150)
-//    {
-//        speed = 0.5;
-//    }
-//    else if(Score().getScore() >100)
-//    {
-//        speed = 0.3;
-//    }
-//    return speed;
-//}
-
 void Enemy::move()
 {
     // move enemy down

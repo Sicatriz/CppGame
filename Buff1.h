@@ -1,10 +1,8 @@
 #ifndef BUFF1_H
 #define BUFF1_H
 
-
 #include <stdlib.h>
 #include "Buff.h"
-
 
 class Buff1: public Buff /***8 abstract base class***/
 {

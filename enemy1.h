@@ -2,7 +2,6 @@
 #define ENEMY1_H
 
 #include <enemy.h>
-//#include "game.h"
 
 class Enemy1: public Enemy{    /***7 usefull and correct base class ***/
     Q_OBJECT

@@ -74,10 +74,10 @@ void Bullet::move()
             // free memory
             this->deleteLater();
         }
-        else if ((typeid(*(colliding_items[i])) == typeid(Meteor1) || (typeid(*(colliding_items[i])) == typeid(Meteor3)))){
-             scene()->removeItem(this);
-             this->deleteLater();
-        }
+//        else if ((typeid(*(colliding_items[i])) == typeid(Meteor1) || (typeid(*(colliding_items[i])) == typeid(Meteor3)))){
+//             scene()->removeItem(this);
+//             this->deleteLater();
+//        }
     }
 
     // move bullet up by pixels
@@ -86,7 +86,7 @@ void Bullet::move()
      //when bullet is out of screen, free memory and remove bullet
     if(pos().y() < -50)
     {
-        scene()->removeItem(this);
+         scene()->removeItem(this);
         this->deleteLater();
     }
 }

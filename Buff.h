@@ -10,7 +10,6 @@
 #include <QList>
 #include <stdlib.h>
 #include "movableObjects.h"
-
 #include <QTimer>
 
 class Buff: public MovableObjects /***8 abstract base class***/
@@ -20,7 +19,6 @@ class Buff: public MovableObjects /***8 abstract base class***/
 public:
 
    Buff(QGraphicsItem * parent=0);
-
 
 public slots:
     void move();

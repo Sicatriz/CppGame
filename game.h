@@ -14,6 +14,7 @@
 #include "health.h"
 #include <QMouseEvent>
 #include "movableObjects.h"
+
 //#include "enemy.h"
 
 class Game: public QGraphicsView
@@ -25,9 +26,11 @@ public:
     void keyPressEvent(QKeyEvent * event) override;
     void motion();
     void addItem(MovableObjects *);
+    void getLevel();
 
     Health* health;
     Score* score;
+    int level;
 
     QTimer * moveTimer;
     QGraphicsScene * scene;
@@ -39,7 +42,6 @@ public slots:
        void spawnEnemy();
        void spawnMeteor();
        void spawnBuff();
-
 };
 
 #endif // GAME_H
