@@ -12,6 +12,7 @@ Enemy1::Enemy1(QGraphicsItem *, Health* h):Enemy()
 
     //gfx enemy type 2
     setPixmap(QPixmap(":/gfx/gfx/WingShip_Spider.png"));
+    setRotation(180);
 
     hp = 5;
 }

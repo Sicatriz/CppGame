@@ -3,7 +3,7 @@
 #include "game.h"
 
 //extern game * game;
-Buff::Buff(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
+Buff::Buff(QGraphicsItem *parent): MovableObjects(parent) //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
 {
 
     // set random start position

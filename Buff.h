@@ -9,10 +9,11 @@
 #include <QGraphicsScene>
 #include <QList>
 #include <stdlib.h>
+#include "movableObjects.h"
 
 #include <QTimer>
 
-class Buff: public QObject, public QGraphicsPixmapItem /***8 abstract base class***/
+class Buff: public MovableObjects /***8 abstract base class***/
 {
    Q_OBJECT    // enemy needs to be an Qobject for movement
 

@@ -73,7 +73,7 @@ Game::Game(QWidget *)
     // spawn buff
     QTimer * timerBuff = new QTimer();
     QObject::connect(timerBuff,SIGNAL(timeout()),this,SLOT(spawnBuff()));
-    timerBuff->start(15000);
+    timerBuff->start(12000);
 
     // play background sound
     Audio* backgroundMusic = new Audio();
@@ -216,7 +216,7 @@ void Game::spawnBuff(){
             if(ran%5 == 0)
             {
                 Buff * buff = new Buff1(0);
-                scene->addItem(buff);
+                this->addItem(buff);
          }
 
 }
