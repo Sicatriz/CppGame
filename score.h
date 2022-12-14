@@ -12,5 +12,6 @@ public:
 private:
     int score;
     friend class Enemy;
+    friend class MovableObjects;
 };
 #endif // SCORE_H

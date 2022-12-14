@@ -19,7 +19,7 @@ Enemy3::Enemy3(QGraphicsItem *, Health* h):Enemy()
 void Enemy3::move()
 {
 
-    speed = getSpeed()+0.5;
+    speed = getSpeed()+0.1;
 
     //speed = getSpeed() + (Score().getScore());
 

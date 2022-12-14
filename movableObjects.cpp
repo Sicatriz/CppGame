@@ -16,11 +16,11 @@ double MovableObjects::getSpeed()
 {
    // speed = arg;
 
-    if(Score().getScore() < 50 )
+    if(Score().getScore() < 15 )
     {
         speed = 1;
     }
-    else if(Score().getScore() >49 && Score().getScore() < 100)
+    else if(Score().getScore() >14 && Score().getScore() < 100)
     {
         speed = 15;
     }

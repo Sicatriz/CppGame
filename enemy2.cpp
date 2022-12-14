@@ -17,7 +17,7 @@ Enemy2::Enemy2(QGraphicsItem *, Health* h):Enemy()
 
 void Enemy2::move()
 {
-    speed = getSpeed()+2;
+    speed = getSpeed()+1.5;
    // speed = getSpeed() + (Score().getScore());
     // move enemy down
     setPos(x(),y()+speed);
