@@ -13,15 +13,6 @@ Buff1::Buff1(QGraphicsItem *parent): Buff() //With Qobject you say this Enemy is
     //gfx enemy type 1
     setPixmap(QPixmap(":/gfx/gfx/Hp.png"));
 
-
-    /***\
-    Connects timer to public slot move .
-    timer is there for bullet movement, this changes the speed of the bullet.
-    \***/
-    QTimer * timer = new QTimer(this);
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-    timer->start(50);
-
 }
 
 

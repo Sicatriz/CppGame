@@ -70,6 +70,11 @@ Game::Game(QWidget *)
     QObject::connect(timerMeteor,SIGNAL(timeout()),this,SLOT(spawnMeteor()));
     timerMeteor->start(8000);
 
+    // spawn buff
+    QTimer * timerBuff = new QTimer();
+    QObject::connect(timerBuff,SIGNAL(timeout()),this,SLOT(spawnBuff()));
+    timerBuff->start(15000);
+
     // play background sound
     Audio* backgroundMusic = new Audio();
     backgroundMusic->playBackgroundMusic();
@@ -118,14 +123,17 @@ void Game::collision()
                 this->score->deleteLater();
                 this->health->deleteLater();
                 //  delete this;
-
             }
 
             // remove them both
             scene->removeItem(colliding_items[i]);
             delete(colliding_items[i]);
         }
-
+        else if ((typeid(*(colliding_items[i])) == typeid(Buff1) ) ){
+            health->increaseHP();
+            scene->removeItem(colliding_items[i]);
+            delete(colliding_items[i]);
+        }
     }
 }
 
