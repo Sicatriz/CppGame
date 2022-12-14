@@ -1,15 +1,17 @@
-            #include "enemy2.h"
+#include "Buff.h"
+#include "bullet.h"
+#include "game.h"
 
-//this is the fast enemy
-Enemy2::Enemy2(QGraphicsItem *parent, Health* h):Enemy()
+//extern game * game;
+Buff::Buff(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
 {
-    health = h;
+
     // set random start position
-    int random_number = rand() % 1700;
+    int random_number = rand() % 1750;
     setPos(random_number, 0);
 
-    //gfx enemy type 2
-    setPixmap(QPixmap(":/gfx/gfx/Buggy_LightPurple.png"));
+    //gfx enemy type 1
+    setPixmap(QPixmap(":/gfx/gfx/Hp.png"));
 
 
     /***\
@@ -19,30 +21,22 @@ Enemy2::Enemy2(QGraphicsItem *parent, Health* h):Enemy()
     QTimer * timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(move()));
     timer->start(50);
-    hp = 2;
+
 }
 
-void Enemy2::move(int speed)
+void Buff::move()
 {
     // move enemy down
-    setPos(x(),y()+speed);
+    setPos(x(),y()+5);
 
     // when enemy is out of screen, free memory
-    if(pos().y() > 1000){
+    if(pos().y() > this->scene()->height()+this->pixmap().height()){
 
-        //decrease the health
-        health->decrease();
+
 
         scene()->removeItem(this);
         this->deleteLater();
     }
+
+
 }
-
-void Enemy2::hit(int dmg)
-{
-    hp = hp - dmg;
-}
-
-
-
-

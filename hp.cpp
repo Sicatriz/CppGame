@@ -12,14 +12,17 @@ void HP::decreaseHP()
 
     hp--;
 }
+void HP::increaseHP(){
+    hp++;
+}
 
 int HP::getHP()
 {
     return hp;
 }
 
-void HP::setHP()
+void HP::setHP(int i)
 {
-    hp = 4;
+    hp += i;
 
 }

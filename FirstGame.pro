@@ -12,6 +12,8 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Buff.cpp \
+    Buff1.cpp \
     audio.cpp \
     bullet.cpp \
     enemy.cpp \
@@ -31,6 +33,8 @@ SOURCES += \
     score.cpp
 
 HEADERS += \
+    Buff.h \
+    Buff1.h \
     audio.h \
     bullet.h \
     enemy.h \
