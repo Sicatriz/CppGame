@@ -1,16 +1,10 @@
 #ifndef BUFF1_H
 #define BUFF1_H
 
-//#include <QGraphicsRectItem>
-#include <QObject>
-#include <QGraphicsItem>
-#include <QGraphicsPixmapItem>
-#include <QTimer>
-#include <QGraphicsScene>
-#include <QList>
+
 #include <stdlib.h>
 #include "Buff.h"
-#include <QTimer>
+
 
 class Buff1: public Buff /***8 abstract base class***/
 {

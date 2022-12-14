@@ -38,6 +38,7 @@ public slots:
         void collision();
        void spawnEnemy();
        void spawnMeteor();
+       void spawnBuff();
 
 };
 

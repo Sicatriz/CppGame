@@ -14,7 +14,8 @@
 #include "meteor1.h"
 //#include "meteor2.h"
 #include "meteor3.h"
-
+#include "Buff.h"
+#include "Buff1.h"
 Game::Game(QWidget *)
 {
     // create the scene
@@ -98,7 +99,7 @@ void Game::collision()
             {
                 //
                 health->decrease();
-                health->setHP();
+                health->setHP(-1);
             }
             else if(health->getHealth() == 0 && health->getHP() == 0)
             {
@@ -190,9 +191,18 @@ void Game::spawnMeteor(){
         Meteor * meteor1 = new Meteor1(0);
         scene->addItem(meteor1);
     }
-//    else
-//    {
-//        Meteor * Meteor2 = new Meteor2(0);
-//        scene->addItem(Meteor2);
-//    }
+
+
+}
+
+void Game::spawnBuff(){
+
+            int ran =  rand()%5;
+
+            if(ran%5 == 0)
+            {
+                Buff * buff = new Buff1(0);
+                scene->addItem(buff);
+         }
+
 }
