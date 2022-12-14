@@ -100,7 +100,7 @@ void Game::collision()
             {
                 //
                 health->decrease();
-                health->setHP(1);  //er is een fout ongv + wnnr hp 0 is gaat de game nie naar gameover.
+                health->setHP(4);
             }
             else if(health->getHealth() == 0 && health->getHP() == 0)
             {
