@@ -19,7 +19,6 @@ public:
     Meteor(QGraphicsItem * parent=0);
 public slots:
     void move();
-    //void hit();
 
 };
 

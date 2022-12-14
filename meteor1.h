@@ -11,6 +11,7 @@ public:
 public slots:
     void move();
 
+
 };
 
 #endif // METEOR1_H

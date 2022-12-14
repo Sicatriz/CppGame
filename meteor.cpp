@@ -24,7 +24,4 @@ void Meteor::move()
         this->deleteLater();
     }
 }
-/*void Meteor::hit(){
 
-}
-*/

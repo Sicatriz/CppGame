@@ -86,7 +86,7 @@ void Game::collision()
     for (int i = 0, n= colliding_items.size(); i < n; ++i)
     {
         //checks if the player hit a enemy./*
-        if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3))
+        if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3) || typeid(*(colliding_items[i])) == typeid(Meteor1) || typeid(*(colliding_items[i])) == typeid(Meteor3) )
         {
             health->decreaseHP();
             if((health->getHP() != 0 && health->getHealth() != 0) || (health->getHP() == 0 && health->getHealth() != 0) || (health->getHP() != 0 && health->getHealth() == 0))
@@ -100,7 +100,7 @@ void Game::collision()
             {
                 //
                 health->decrease();
-                health->setHP(-1);
+                health->setHP(1);  //er is een fout ongv + wnnr hp 0 is gaat de game nie naar gameover.
             }
             else if(health->getHealth() == 0 && health->getHP() == 0)
             {
@@ -125,6 +125,7 @@ void Game::collision()
             scene->removeItem(colliding_items[i]);
             delete(colliding_items[i]);
         }
+
     }
 }
 
