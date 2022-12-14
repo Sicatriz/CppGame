@@ -12,8 +12,8 @@ MovableObjects::MovableObjects(QGraphicsItem * parent)
 
 }
 
-int MovableObjects::setSpeed()
+int MovableObjects::setSpeed(int arg)
 {
-    speed = 5;
+    speed = arg;
     return speed;
 }

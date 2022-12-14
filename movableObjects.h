@@ -12,7 +12,7 @@ class MovableObjects: public QObject, public QGraphicsPixmapItem
 { Q_OBJECT
 public:
     MovableObjects(QGraphicsItem * parent);
-    int setSpeed();
+    int setSpeed(int arg);
     int speed;
 
 public slots:

@@ -11,5 +11,6 @@ public:
     int getScore();
 private:
     int score;
+    friend class Level;
 };
 #endif // SCORE_H
