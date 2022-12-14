@@ -33,6 +33,7 @@ Game::Game(QWidget *)
     moveTimer = new QTimer();
     moveTimer->start(10);
 
+
     // check player collision
     QTimer * timerCollision = new QTimer();
     QObject::connect(timerCollision,SIGNAL(timeout()),this,SLOT(collision()));
@@ -160,18 +161,22 @@ void Game::spawnEnemy(){
     if(ran%5 == 0)
     {
         Enemy * enemy2 = new Enemy2(0, health);
-        scene->addItem(enemy2);
+       // scene->addItem(enemy2);
+        this->addItem(enemy2);
     }
     // create an enemy
     else if(ran%2 == 0)
     {
         Enemy * enemy1 = new Enemy1(0, health);
-        scene->addItem(enemy1);
+       // scene->addItem(enemy1);
+        this->addItem(enemy1);
     }
     else
     {
         Enemy * enemy3 = new Enemy3(0, health);
-        scene->addItem(enemy3);
+       // scene->addItem(enemy3);
+        this->addItem(enemy3);
+
     }
 }
 
@@ -182,13 +187,13 @@ void Game::spawnMeteor(){
     if(ran%5 == 0)
     {
         Meteor * meteor3 = new Meteor3(0);
-        scene->addItem(meteor3);
+        this->addItem(meteor3);
     }
     // create an Meteor
     else if(ran%2 == 0)
     {
         Meteor * meteor1 = new Meteor1(0);
-        scene->addItem(meteor1);
+        this->addItem(meteor1);
     }
 //    else
 //    {

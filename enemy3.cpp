@@ -11,20 +11,13 @@ Enemy3::Enemy3(QGraphicsItem *parent, Health* h):Enemy()
     //gfx enemy type 2
     setPixmap(QPixmap(":/gfx/gfx/Scorpion.png"));
 
-    /***\
-    Connects timer to public slot move .
-    timer is there for bullet movement, this changes the speed of the bullet.
-    \***/
-    QTimer * timer = new QTimer(this);
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-    timer->start(250);
     hp = 1;
 }
 
-void Enemy3::move(int speed/*, Game* game*/)
+void Enemy3::move()
 {
     // move enemy down
-    setPos(x(),y()+speed);
+    setPos(x(),y()+1);
 
     // when enemy is out of screen, free memory
     if(pos().y() > 1000){

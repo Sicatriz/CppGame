@@ -12,6 +12,8 @@ class MovableObjects: public QObject, public QGraphicsPixmapItem
 { Q_OBJECT
 public:
     MovableObjects(QGraphicsItem * parent);
+    int setSpeed();
+    int speed;
 
 public slots:
     virtual void move()=0;

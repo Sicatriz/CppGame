@@ -10,15 +10,16 @@
 #include <stdlib.h>
 
 #include <QTimer>
+#include "movableObjects.h"
 
-class Meteor: public QObject, public QGraphicsPixmapItem
+class Meteor: public MovableObjects
 {
      Q_OBJECT
 public:
     Meteor(QGraphicsItem * parent=0);
 public slots:
-    virtual void move(int speed)=0;
-    void hit();
+    void move();
+    //void hit();
 
 };
 
