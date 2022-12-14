@@ -14,7 +14,6 @@ MovableObjects::MovableObjects(QGraphicsItem * )
 
 double MovableObjects::getSpeed()
 {
-   // speed = arg;
 
     if(Score().getScore() < 50 )
     {
