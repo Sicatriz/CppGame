@@ -24,10 +24,10 @@ void Buff::move()
     // when enemy is out of screen, free memory
     if(pos().y() > this->scene()->height()+this->pixmap().height()){
 
-
-
-        scene()->removeItem(this);
-        this->deleteLater();
+        //TODO
+        Game().delItem(this);
+//        scene()->removeItem(this);
+//        this->deleteLater();
     }
 
 

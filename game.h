@@ -26,6 +26,7 @@ public:
     void keyPressEvent(QKeyEvent * event) override;
     void motion();
     void addItem(MovableObjects *);
+    void delItem(MovableObjects *);
     void getLevel();
 
     Health* health;
@@ -42,6 +43,7 @@ public slots:
        void spawnEnemy();
        void spawnMeteor();
        void spawnBuff();
+       friend class MovableObjects;
 };
 
 #endif // GAME_H

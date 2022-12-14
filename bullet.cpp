@@ -86,7 +86,8 @@ void Bullet::move()
      //when bullet is out of screen, free memory and remove bullet
     if(pos().y() < -50)
     {
+        // Game().delItem(this);
          scene()->removeItem(this);
-        this->deleteLater();
+         this->deleteLater();
     }
 }

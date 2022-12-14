@@ -151,6 +151,12 @@ void Game::addItem(MovableObjects * item)
     QObject::connect(moveTimer,SIGNAL(timeout()),item,SLOT(move()));
 }
 
+void Game::delItem(MovableObjects * item)
+{
+    scene->removeItem(item);
+    item->deleteLater();
+}
+
 void Game::getLevel()
 {
         if( score->getScore() < 10)
