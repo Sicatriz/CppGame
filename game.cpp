@@ -73,7 +73,7 @@ Game::Game(QWidget *)
     // spawn buffs
     QTimer * timerBuff = new QTimer();
     QObject::connect(timerBuff,SIGNAL(timeout()),this,SLOT(spawnBuff()));
-    timerMeteor->start(15000);
+    timerBuff->start(15000);
 
     // play background sound
     Audio* backgroundMusic = new Audio();
