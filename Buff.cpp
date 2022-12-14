@@ -3,7 +3,7 @@
 #include "game.h"
 
 //extern game * game;
-Buff::Buff(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
+Buff::Buff(QGraphicsItem *parent):  MovableObjects(parent) //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
 {
 
     // set random start position
@@ -12,15 +12,6 @@ Buff::Buff(QGraphicsItem *parent): QObject(), QGraphicsPixmapItem(parent) //With
 
     //gfx enemy type 1
     setPixmap(QPixmap(":/gfx/gfx/Hp.png"));
-
-
-    /***\
-    Connects timer to public slot move .
-    timer is there for bullet movement, this changes the speed of the bullet.
-    \***/
-    QTimer * timer = new QTimer(this);
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-    timer->start(50);
 
 }
 
@@ -32,11 +23,7 @@ void Buff::move()
     // when enemy is out of screen, free memory
     if(pos().y() > this->scene()->height()+this->pixmap().height()){
 
-
-
         scene()->removeItem(this);
         this->deleteLater();
     }
-
-
 }

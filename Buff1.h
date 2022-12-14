@@ -13,6 +13,7 @@ class Buff1: public Buff /***8 abstract base class***/
 public:
 
    Buff1(QGraphicsItem * parent=0);
+   void move();
 
 };
 

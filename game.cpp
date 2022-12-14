@@ -70,6 +70,11 @@ Game::Game(QWidget *)
     QObject::connect(timerMeteor,SIGNAL(timeout()),this,SLOT(spawnMeteor()));
     timerMeteor->start(8000);
 
+    // spawn buffs
+    QTimer * timerBuff = new QTimer();
+    QObject::connect(timerBuff,SIGNAL(timeout()),this,SLOT(spawnBuff()));
+    timerMeteor->start(15000);
+
     // play background sound
     Audio* backgroundMusic = new Audio();
     backgroundMusic->playBackgroundMusic();
@@ -207,8 +212,7 @@ void Game::spawnBuff(){
 
             if(ran%5 == 0)
             {
-                Buff * buff = new Buff1(0);
-                scene->addItem(buff);
+                Buff * buff1 = new Buff1(0);
+                this->addItem(buff1);
          }
-
 }
