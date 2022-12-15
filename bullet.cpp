@@ -9,21 +9,21 @@
 #include "meteor3.h"
 #include "audio.h"
 
-Bullet::Bullet(QGraphicsItem *parent): MovableObjects(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
-{
-    setPixmap(QPixmap(":/gfx/gfx/laser.png")); //give bullet graphics
-    QGraphicsPixmapItem::setOffset(2, 50);
+//Bullet::Bullet(QGraphicsItem *parent): MovableObjects(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
+//{
+  //  setPixmap(QPixmap(":/gfx/gfx/laser.png")); //give bullet graphics
+    //QGraphicsPixmapItem::setOffset(2, 50);
 
     // connects
-    QTimer * timer = new QTimer(this);
+    //QTimer * timer = new QTimer(this);
     /***\
     Connects timer to public slot move .
     timer is there for bullet movement, this changes the speed of the bullet.
     \***/
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-    timer->start(50);
+    //connect(timer,SIGNAL(timeout()),this,SLOT(move()));
+    //timer->start(50);
 
-}
+//}
 
 Bullet::Bullet(QGraphicsItem* parent, int xas, int yas, Score* scoore): MovableObjects(parent)
 {
@@ -74,9 +74,9 @@ void Bullet::move()
             // free memory
             this->deleteLater();
         }
-//        else if ((typeid(*(colliding_items[i])) == typeid(Meteor1) || (typeid(*(colliding_items[i])) == typeid(Meteor3)))){
-//             scene()->removeItem(this);
-//             this->deleteLater();
+//      else if ((typeid(*(colliding_items[i])) == typeid(Meteor1) || (typeid(*(colliding_items[i])) == typeid(Meteor3)))){
+//            scene()->removeItem(this);
+//            this->deleteLater();
 //        }
     }
 
@@ -87,7 +87,9 @@ void Bullet::move()
     if(pos().y() < 0)
     {
         // Game().delItem(this);
+
          //scene()->removeItem(this);
+
          this->deleteLater();
     }
 }

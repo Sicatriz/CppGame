@@ -14,6 +14,7 @@ CONFIG += c++17
 SOURCES += \
     Buff.cpp \
     Buff1.cpp \
+    Buff2.cpp \
     audio.cpp \
     bullet.cpp \
     enemy.cpp \
@@ -35,6 +36,7 @@ SOURCES += \
 HEADERS += \
     Buff.h \
     Buff1.h \
+    Buff2.h \
     audio.h \
     bullet.h \
     enemy.h \
