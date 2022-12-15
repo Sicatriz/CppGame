@@ -7,11 +7,12 @@ Enemy1::Enemy1(QGraphicsItem *, Health* h):Enemy()
 {
     health = h;
     // set random start position
-    int random_number = rand() % 1700;
+    int random_number = rand() % 1600;
     setPos(random_number, 0);
 
     //gfx enemy type 2
     setPixmap(QPixmap(":/gfx/gfx/WingShip_Spider.png"));
+    setRotation(180);
 
     hp = 5;
 }

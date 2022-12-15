@@ -14,15 +14,14 @@ MovableObjects::MovableObjects(QGraphicsItem * )
 
 double MovableObjects::getSpeed()
 {
-   // speed = arg;
 
     if(Score().getScore() < 50 )
     {
-        speed = 1;
+        speed = 0.5;
     }
     else if(Score().getScore() >49 && Score().getScore() < 100)
     {
-        speed = 15;
+        speed = 2;
     }
     else if(Score().getScore() >99 && Score().getScore() < 150)
     {

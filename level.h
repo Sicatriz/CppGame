@@ -1,11 +1,15 @@
 #ifndef LEVEL_H
 #define LEVEL_H
+#include "score.h"
 
 
-class Level
+class Level: public Score
 {
 public:
-    Level();
+    Level(int score);
+private:
+    int level;
+    friend class Game;
 };
 
 #endif // LEVEL_H

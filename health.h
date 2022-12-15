@@ -15,6 +15,9 @@ public:
     void decrease();
     void increase();
     int getHealth();    /***3 encapsulation ***/
+    void increaseHP();
+    void decreaseHP();
+    void printhealth();
 
 private:
     int health;

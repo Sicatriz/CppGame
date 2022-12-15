@@ -27,6 +27,7 @@
         <file>gfx/bg52.png</file>
         <file>gfx/bg55.png</file>
         <file>gfx/Hp.png</file>
+        <file>gfx/Health.png</file>
     </qresource>
     <qresource prefix="/">
         <file>gfx/sea.jpg</file>

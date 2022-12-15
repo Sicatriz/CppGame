@@ -11,10 +11,11 @@ class HP: public QGraphicsTextItem{
 
 public:
     HP(QGraphicsItem * parent=0);
-    void decreaseHP();
-    void increaseHP();
+    virtual void decreaseHP();
+    virtual void increaseHP();
     int getHP();    /***3 encapsulation ***/
     void setHP(int i);
+    void printhp();
 
 private:
     int hp;
