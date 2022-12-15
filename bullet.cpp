@@ -87,7 +87,7 @@ void Bullet::move()
     if(pos().y() < -50)
     {
         // Game().delItem(this);
-         scene()->removeItem(this);
+      //   scene()->removeItem(this);
          this->deleteLater();
     }
 }
