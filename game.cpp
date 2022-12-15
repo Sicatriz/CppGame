@@ -17,6 +17,7 @@
 #include "Buff.h"
 #include "Buff1.h"
 #include "score.h"
+#include "hp.h"
 
 Game::Game(QWidget *)
 {
@@ -59,8 +60,11 @@ Game::Game(QWidget *)
     score = new Score();
     scene->addItem(score);
     health = new Health();
-    health->setPos(health->x(),health->y()+25);
+    health->setPos(health->x(),health->y()+30);
     scene->addItem(health);
+    hp = new HP();
+    hp->setPos(hp->x(),hp->y()+60);
+    scene->addItem(hp);
 
     // spawn enemies
     QTimer * timerEnemy = new QTimer();

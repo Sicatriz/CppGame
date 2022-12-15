@@ -12,6 +12,7 @@
 #include "player.h"
 #include "score.h"
 #include "health.h"
+#include "hp.h"
 #include <QMouseEvent>
 #include "movableObjects.h"
 
@@ -31,6 +32,7 @@ public:
 
     Health* health;
     Score* score;
+    HP* hp;
     int level;
 
     QTimer * moveTimer;
