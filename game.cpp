@@ -163,17 +163,41 @@ void Game::getLevel()
         {
             level = 1;
         }
-        else if(score->getScore() > 9 && score->getScore() < 30)
+        else if(score->getScore() > 9 && score->getScore() < 20)
         {
             level = 2;
         }
-        else if(score->getScore() >29 && score->getScore() < 50)
+        else if(score->getScore() >19 && score->getScore() < 30)
         {
             level = 3;
         }
-        else
+        else if(score->getScore() >29 && score->getScore() < 40)
         {
             level = 4;
+        }
+        else if(score->getScore() >39 && score->getScore() < 50)
+        {
+            level = 5;
+        }
+        else if(score->getScore() >49 && score->getScore() < 60)
+        {
+            level = 6;
+        }
+        else if(score->getScore() >59 && score->getScore() < 70)
+        {
+            level = 7;
+        }
+        else if(score->getScore() >69 && score->getScore() < 80)
+        {
+            level = 8;
+        }
+        else if(score->getScore() >79 && score->getScore() < 90)
+        {
+            level = 9;
+        }
+        else
+        {
+            level = 10;
         }
 }
 
@@ -200,14 +224,14 @@ void Game::spawnEnemy(){
 
     switch (level) {
     case 1:
-        if(ran%5 == 0)
+        if(ran%8 == 0)
         {
             Enemy * enemy2 = new Enemy2(0, health);
            // scene->addItem(enemy2);
             this->addItem(enemy2);
         }
         // create an enemy
-        else if(ran%2 == 0)
+        else if(ran%5 == 1)
         {
             Enemy * enemy1 = new Enemy1(0, health);
            // scene->addItem(enemy1);
@@ -222,14 +246,14 @@ void Game::spawnEnemy(){
         }
         break;
     case 2:
-        if(ran%5 == 0)
+        if(ran%8 == 0)
         {
             Enemy * enemy2 = new Enemy2(0, health);
            // scene->addItem(enemy2);
             this->addItem(enemy2);
         }
         // create an enemy
-        else if(ran%2 == 0)
+        else if(ran%5 == 1)
         {
             Enemy * enemy1 = new Enemy1(0, health);
            // scene->addItem(enemy1);
@@ -247,14 +271,14 @@ void Game::spawnEnemy(){
 
         break;
     case 3:
-        if(ran%5 == 0 || ran%5 == 2)
+        if(ran%8 == 0 || ran%8 == 2)
         {
             Enemy * enemy2 = new Enemy2(0, health);
            // scene->addItem(enemy2);
             this->addItem(enemy2);
         }
         // create an enemy
-        else if(ran%2 == 0)
+        else if(ran%5 == 1)
         {
             Enemy * enemy1 = new Enemy1(0, health);
            // scene->addItem(enemy1);
@@ -272,7 +296,7 @@ void Game::spawnEnemy(){
 
         break;
     case 4:
-        if(ran%5 == 0 || ran%5 == 2)
+        if(ran%8 == 0 || ran%8 == 2)
         {
             Enemy * enemy2 = new Enemy2(0, health);
            // scene->addItem(enemy2);
@@ -280,12 +304,9 @@ void Game::spawnEnemy(){
             Enemy * enemy1 = new Enemy1(0, health);
            // scene->addItem(enemy1);
             this->addItem(enemy1);
-            Enemy * enemy3 = new Enemy3(0, health);
-           // scene->addItem(enemy3);
-            this->addItem(enemy3);
         }
         // create an enemy
-        else if(ran%2 == 0)
+        else if(ran%5 == 1 || ran%5 == 3)
         {
             Enemy * enemy1 = new Enemy1(0, health);
            // scene->addItem(enemy1);
@@ -301,6 +322,213 @@ void Game::spawnEnemy(){
             this->addItem(enemy3);
         }
         break;
+    case 5:
+        if(ran%8 == 0 || ran%8 == 2)
+        {
+            Enemy * enemy2 = new Enemy2(0, health);
+           // scene->addItem(enemy2);
+            this->addItem(enemy2);
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+        }
+        // create an enemy
+        else if(ran%5 == 1 || ran%5 == 3)
+        {
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+        }
+        else
+        {
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+        }
+        break;
+    case 6:
+        if(ran%8 == 0 || ran%8 == 2)
+        {
+            Enemy * enemy2 = new Enemy2(0, health);
+           // scene->addItem(enemy2);
+            this->addItem(enemy2);
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+        }
+        // create an enemy
+        else if(ran%5 == 1 || ran%5 == 3)
+        {
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+        }
+        else
+        {
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+        }
+        break;
+    case 7:
+        if(ran%8 == 0 || ran%8 == 2 || ran%8 == 7)
+        {
+            Enemy * enemy2 = new Enemy2(0, health);
+           // scene->addItem(enemy2);
+            this->addItem(enemy2);
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+        }
+        // create an enemy
+        else if(ran%5 == 1 || ran%5 == 3)
+        {
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+        }
+        else
+        {
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+        }
+        break;
+    case 8:
+        if(ran%8 == 0 || ran%8 == 2 || ran%8 == 7)
+        {
+            Enemy * enemy2 = new Enemy2(0, health);
+           // scene->addItem(enemy2);
+            this->addItem(enemy2);
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+        }
+        // create an enemy
+        else if(ran%5 == 1 || ran%5 == 3)
+        {
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+        }
+        else
+        {
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+            Enemy * enemy2 = new Enemy2(0, health);
+           // scene->addItem(enemy2);
+            this->addItem(enemy2);
+        }
+        break;
+        break;
+    case 9:
+        if(ran%8 == 0 || ran%8 == 2 || ran%8 == 7)
+        {
+            Enemy * enemy2 = new Enemy2(0, health);
+           // scene->addItem(enemy2);
+            this->addItem(enemy2);
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+        }
+        // create an enemy
+        else if(ran%5 == 1 || ran%5 == 3 || ran%5 == 5)
+        {
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+        }
+        else
+        {
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+            Enemy * enemy2 = new Enemy2(0, health);
+           // scene->addItem(enemy2);
+            this->addItem(enemy2);
+        }
+        break;
+    case 10:
+        if(ran%8 == 0 || ran%8 == 2 || ran%8 == 7)
+        {
+            Enemy * enemy2 = new Enemy2(0, health);
+           // scene->addItem(enemy2);
+            this->addItem(enemy2);
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+        }
+        // create an enemy
+        else if(ran%5 == 1 || ran%5 == 3 || ran%5 == 5)
+        {
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+            Enemy * enemy2 = new Enemy2(0, health);
+           // scene->addItem(enemy2);
+            this->addItem(enemy2);
+        }
+        else
+        {
+            Enemy * enemy3 = new Enemy3(0, health);
+           // scene->addItem(enemy3);
+            this->addItem(enemy3);
+            Enemy * enemy1 = new Enemy1(0, health);
+           // scene->addItem(enemy1);
+            this->addItem(enemy1);
+            Enemy * enemy2 = new Enemy2(0, health);
+           // scene->addItem(enemy2);
+            this->addItem(enemy2);
+        }
     default:
         if(ran%5 == 0)
         {
@@ -324,8 +552,6 @@ void Game::spawnEnemy(){
         }
         break;
     }
-
-
 }
 
 void Game::spawnMeteor(){
