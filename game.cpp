@@ -54,17 +54,14 @@ Game::Game(QWidget *)
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     this->setFocus();
     // add the player to the scene
-    scene->addItem(player);
+    //scene->addItem(player);
 
     // create the score/health
     score = new Score();
     scene->addItem(score);
     health = new Health();
-    health->setPos(health->x(),health->y()+30);
     scene->addItem(health);
-    hp = new HP();
-    hp->setPos(hp->x(),hp->y()+60);
-    scene->addItem(hp);
+
 
     // spawn enemies
     QTimer * timerEnemy = new QTimer();
@@ -109,7 +106,6 @@ void Game::collision()
 
             if(health->getHP() == 0 && health->getHealth() != 0)
             {
-                //
                 health->decrease();
                 health->setHP(4);
             }
@@ -210,13 +206,13 @@ void Game::keyPressEvent(QKeyEvent *event)
     if (event->key() == Qt::Key_Space)
     {
         // create a bullet
-        Bullet * bullet1 = new Bullet(20, 30, score);
-        Bullet * bullet2 = new Bullet(70, 30, score);
+        Bullet * bullet1 = new Bullet(0, 20, 30, score);
+        Bullet * bullet2 = new Bullet(0,70, 30, score);
 
         bullet1->setPos(player->x(),player->y());
         bullet2->setPos(player->x(),player->y());
-        scene->addItem(bullet1);
-        scene->addItem(bullet2);
+        this->addItem(bullet1);
+        this->addItem(bullet2);
     }
 }
 
@@ -533,6 +529,7 @@ void Game::spawnEnemy(){
            // scene->addItem(enemy2);
             this->addItem(enemy2);
         }
+        break;
     default:
         if(ran%5 == 0)
         {

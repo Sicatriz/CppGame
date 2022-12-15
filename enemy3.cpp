@@ -1,6 +1,4 @@
 #include "enemy3.h"
-#include "score.h"
-#include "bullet.h"
 
 //this enemy is the small enemy
 Enemy3::Enemy3(QGraphicsItem *, Health* h):Enemy()
