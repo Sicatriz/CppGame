@@ -16,9 +16,10 @@
 #include "meteor3.h"
 #include "Buff.h"
 #include "Buff1.h"
+#include "Buff2.h"
 #include "score.h"
 #include "hp.h"
-
+#include "health.h"
 Game::Game(QWidget *)
 {
     // create the scene
@@ -137,6 +138,11 @@ void Game::collision()
         }
         else if ((typeid(*(colliding_items[i])) == typeid(Buff1) ) ){
             health->increaseHP();
+            scene->removeItem(colliding_items[i]);
+            delete(colliding_items[i]);
+        }
+        else if ((typeid(*(colliding_items[i])) == typeid(Buff2) ) ){
+            health->increase();
             scene->removeItem(colliding_items[i]);
             delete(colliding_items[i]);
         }
@@ -586,5 +592,9 @@ void Game::spawnBuff(){
                 Buff * buff = new Buff1(0);
                 this->addItem(buff);
          }
+         else if(ran%2 == 0){
+                Buff * buff2 = new Buff2(0);
+                this->addItem(buff2);
+            }
 
 }
