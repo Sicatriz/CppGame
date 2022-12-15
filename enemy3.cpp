@@ -30,7 +30,7 @@ void Enemy3::move()
         //decrease the health
         health->decrease();
 
-        scene()->removeItem(this);
+       // scene()->removeItem(this);
         this->deleteLater();
     }
 }
