@@ -9,22 +9,6 @@
 #include "meteor3.h"
 #include "audio.h"
 
-//Bullet::Bullet(QGraphicsItem *parent): MovableObjects(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
-//{
-  //  setPixmap(QPixmap(":/gfx/gfx/laser.png")); //give bullet graphics
-    //QGraphicsPixmapItem::setOffset(2, 50);
-
-    // connects
-    //QTimer * timer = new QTimer(this);
-    /***\
-    Connects timer to public slot move .
-    timer is there for bullet movement, this changes the speed of the bullet.
-    \***/
-    //connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-    //timer->start(50);
-
-//}
-
 Bullet::Bullet(QGraphicsItem* parent, int xas, int yas, Score* scoore): MovableObjects(parent)
 {
     setPixmap(QPixmap(":/gfx/gfx/laser.png")); //give bullet graphics
@@ -37,12 +21,12 @@ Bullet::Bullet(QGraphicsItem* parent, int xas, int yas, Score* scoore): MovableO
     bulletSound->playBullet();
 
     // connects
-    QTimer * timer = new QTimer(this);
+//    QTimer * timer = new QTimer(this);
 
-//  Connects timer to public slot move .
-//  timer is there for bullet movement, this changes the speed of the bullet.
-    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
-    timer->start(50);
+////  Connects timer to public slot move .
+////  timer is there for bullet movement, this changes the speed of the bullet.
+//    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
+//    timer->start(50);
 }
 
 void Bullet::move()

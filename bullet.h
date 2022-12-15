@@ -18,7 +18,7 @@ class Bullet: public MovableObjects  /****1 usefull and correct class ****/
    Q_OBJECT    // bullet needs to be an Qobject for movement and this makes it a object.
 public:
 
-    Bullet(QGraphicsItem * parent=0);  /*** argumented constructor ****/
+  //  Bullet(QGraphicsItem * parent=0);  /*** argumented constructor ****/
     Bullet(QGraphicsItem * parent=0, int xas =0, int yas=0, Score* scoore = 0);
     Score* score;
 
