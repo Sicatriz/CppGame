@@ -7,7 +7,7 @@ Buff::Buff(QGraphicsItem *parent): MovableObjects(parent) //With Qobject you say
 {
 
     // set random start position
-    int random_number = rand() % 1750;
+    int random_number = rand() % 1600;
     setPos(random_number, 0);
 
     //gfx enemy type 1
@@ -19,7 +19,7 @@ Buff::Buff(QGraphicsItem *parent): MovableObjects(parent) //With Qobject you say
 void Buff::move()
 {
     // move enemy down
-    setPos(x(),y()+1.5);
+    setPos(x(),y()+1);
 
     // when enemy is out of screen, free memory
     if(pos().y() > this->scene()->height()+this->pixmap().height()){

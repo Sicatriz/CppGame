@@ -5,7 +5,7 @@ Buff1::Buff1(QGraphicsItem *): Buff() //With Qobject you say this Enemy is a obj
 {
 
     // set random start position
-    int random_number = rand() % 1750;
+    int random_number = rand() % 1600;
     setPos(random_number, 0);
 
     //gfx enemy type 1
