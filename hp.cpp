@@ -34,7 +34,7 @@ void HP::setHP(int i)
 
 void HP::printhp()
 {
-    setPos(x()+10,y()+20);
+    setPos(x(),60);
     setPlainText(QString("Hit points: ") + QString::number(hp));
 }
 

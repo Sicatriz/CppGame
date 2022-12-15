@@ -19,7 +19,7 @@ Buff::Buff(QGraphicsItem *parent): MovableObjects(parent) //With Qobject you say
 void Buff::move()
 {
     // move enemy down
-    setPos(x(),y()+5);
+    setPos(x(),y()+1.5);
 
     // when enemy is out of screen, free memory
     if(pos().y() > this->scene()->height()+this->pixmap().height()){

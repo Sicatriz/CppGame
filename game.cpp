@@ -88,31 +88,30 @@ Game::Game(QWidget *)
 void Game::collision()
 {
     // get a list of all the items currently colliding with the player
-    QList<QGraphicsItem * > colliding_items = player->collidingItems();
-
-    // if one of the colliding items is an Enemy, destroy both the player and the enemy
-    for (int i = 0, n= colliding_items.size(); i < n; ++i)
+    QList<QGraphicsItem *> colliding_items = player->collidingItems();
+    for (int i = 0, n = colliding_items.size(); i < n; ++i)
     {
-        //checks if the player hit a enemy./*
-        if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3) || typeid(*(colliding_items[i])) == typeid(Meteor1) || typeid(*(colliding_items[i])) == typeid(Meteor3) )
+        // if one of the colliding items is an Enemy, destroy both the player and the enemy
+        // checks if the player hit a enemy./*
+        if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3) || typeid(*(colliding_items[i])) == typeid(Meteor1) || typeid(*(colliding_items[i])) == typeid(Meteor3))
         {
             health->decreaseHP();
-            if((health->getHP() != 0 && health->getHealth() != 0) || (health->getHP() == 0 && health->getHealth() != 0) || (health->getHP() != 0 && health->getHealth() == 0))
+            if ((health->getHP() != 0 && health->getHealth() != 0) || (health->getHP() == 0 && health->getHealth() != 0) || (health->getHP() != 0 && health->getHealth() == 0))
             {
                 // play shipcollision sound
-                Audio* shipCollision = new Audio();
+                Audio *shipCollision = new Audio();
                 shipCollision->playShipCollisionSound();
             }
 
-            if(health->getHP() == 0 && health->getHealth() != 0)
+            if (health->getHP() == 0 && health->getHealth() != 0)
             {
                 health->decrease();
                 health->setHP(4);
             }
-            else if(health->getHealth() == 0 && health->getHP() == 0)
+            else if (health->getHealth() == 0 && health->getHP() == 0)
             {
                 // play background sound
-                Audio* gameOverSound = new Audio();
+                Audio *gameOverSound = new Audio();
                 gameOverSound->playGameOver();
 
                 // remove them both
@@ -129,12 +128,56 @@ void Game::collision()
 
             // remove them both
             scene->removeItem(colliding_items[i]);
-            delete(colliding_items[i]);
+            delete (colliding_items[i]);
         }
-        else if ((typeid(*(colliding_items[i])) == typeid(Buff1) ) ){
+
+        else if ((typeid(*(colliding_items[i])) == typeid(Buff1)))
+        {
             health->increaseHP();
             scene->removeItem(colliding_items[i]);
-            delete(colliding_items[i]);
+            delete (colliding_items[i]);
+        }
+    }
+
+    //qDeleteAll(colliding_items);
+    QList<QGraphicsItem *> Items = scene->items();
+
+    for (int i = 0, n = Items.size(); i < n; ++i)
+    {
+        // checks if the bullet.
+        if (typeid(*(Items[i])) == typeid(Bullet))
+        {
+            QList<QGraphicsItem *> bullcol = Items[i]->collidingItems();
+
+            for (int j = 0, n = bullcol.size(); j < n; ++j)
+            {
+                if ((typeid(*(bullcol[j])) == typeid(Enemy1) || typeid(*(bullcol[j])) == typeid(Enemy2)) || typeid(*(bullcol[j])) == typeid(Enemy3))
+                {
+                    Enemy *enemy = (Enemy *)bullcol[j];
+                    enemy->hit(1);
+
+                    Audio *bulletHitSound = new Audio();
+                    bulletHitSound->playBulletHit();
+
+                    // remove them both
+                    if (enemy->destroy())
+                    {
+                        scene->removeItem(bullcol[j]);
+                        enemy->deleteLater();
+                        score->increase();
+                    }
+                    // remove bullet
+                    scene->removeItem(Items[i]);
+                    delete Items[i];
+
+                    // free memory
+                    //Items[i]->deleteLater();
+                }
+                else if ((typeid(*(bullcol[j])) == typeid(Meteor1) || (typeid(*(bullcol[j])) == typeid(Meteor3))))
+                {
+                    scene->removeItem(Items[i]);
+                }
+            }
         }
     }
 }
@@ -205,7 +248,7 @@ void Game::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Space)
     {
-        // create a bullet
+        // create a bullet      
         Bullet * bullet1 = new Bullet(0, 20, 30, score);
         Bullet * bullet2 = new Bullet(0,70, 30, score);
 

@@ -1,9 +1,7 @@
 #include "Buff1.h"
-#include "bullet.h"
-#include "game.h"
 
 //extern game * game;
-Buff1::Buff1(QGraphicsItem *parent): Buff() //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
+Buff1::Buff1(QGraphicsItem *): Buff() //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
 {
 
     // set random start position
