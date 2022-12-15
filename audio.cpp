@@ -7,7 +7,7 @@ Audio::Audio(): QObject()
 }
 
 // FIRE BULLET SOUND
-void Audio::playBullet()
+void Audio::playBullet() const
 {
         music->setAudioOutput(audioOutput);
         music->setSource(QUrl("qrc:/sounds/sounds/shoot1.wav"));
@@ -16,7 +16,7 @@ void Audio::playBullet()
 }
 
 // BULLET IMPACT SOUND
-void Audio::playBulletHit()
+void Audio::playBulletHit() const
 {
     music->setAudioOutput(audioOutput);
     music->setSource(QUrl("qrc:/sounds/sounds/Explosion.wav"));
@@ -60,7 +60,7 @@ void Audio::playShipCollisionSound()
 }
 
 // BACKGROUND SOUND
-void Audio::playBackgroundMusic()
+void Audio::playBackgroundMusic() const
 {
     music->setAudioOutput(audioOutput);
     music->setSource(QUrl("qrc:/sounds/sounds/slow-travel.wav"));
@@ -69,11 +69,19 @@ void Audio::playBackgroundMusic()
 }
 
 // GAME OVER
-void Audio::playGameOver()
+void Audio::playGameOver() const
 {
     music->setAudioOutput(audioOutput);
     music->setSource(QUrl("qrc:/sounds/sounds/gameOver_karen.wav"));
     music->audioOutput()->setVolume(1);
+    music->play();
+}
+
+void Audio::playBuffsound() const
+{
+    music->setAudioOutput(audioOutput);
+    music->setSource(QUrl("qrc:/sounds/sounds/buffPickup.wav"));
+    music->audioOutput()->setVolume(0.5);
     music->play();
 }
 

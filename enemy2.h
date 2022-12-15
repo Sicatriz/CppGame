@@ -11,7 +11,7 @@ public slots:
     void move();
     void hit(int dmg);
 
-private:
+
 };
 
 #endif // ENEMY2_H

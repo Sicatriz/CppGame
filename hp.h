@@ -13,12 +13,12 @@ public:
     HP(QGraphicsItem * parent=0);
     virtual void decreaseHP();
     virtual void increaseHP();
-    int getHP();    /***3 encapsulation ***/
+    int getHP() const;    /***3 encapsulation ***/
     void setHP(int i);
     void printhp();
 
 private:
-    int hp;
+    short int hp;
 };
 
 #endif // HP_H

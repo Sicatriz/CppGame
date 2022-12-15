@@ -16,6 +16,6 @@ void Score::increase(){
     setPlainText(QString("Score: ") + QString::number(score)); // Score gets increased by 1
 }
 
-int Score::getScore(){
+int Score::getScore() const{
     return score;
 }

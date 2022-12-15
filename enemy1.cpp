@@ -16,7 +16,6 @@ Enemy1::Enemy1(QGraphicsItem *, Health* h):Enemy()
 
     hp = 5;
 }
-
 void Enemy1::move()
 {
 

@@ -26,7 +26,6 @@ Bullet::Bullet(QGraphicsItem* parent, int xas, int yas, Score* scoore): MovableO
     Audio* bulletSound = new Audio();
     bulletSound->playBullet();
 
-
 }
 
 void Bullet::move()
@@ -40,7 +39,9 @@ void Bullet::move()
     if(pos().y() < 0)
     {
         // Game().delItem(this);
+
          //scene()->removeItem(this);
+
          this->deleteLater();
     }
 }
