@@ -17,6 +17,7 @@
 #include "Buff.h"
 #include "Buff1.h"
 #include "Buff2.h"
+#include "Buff3.h"
 #include "score.h"
 #include "hp.h"
 #include "health.h"
@@ -141,6 +142,13 @@ void Game::collision()
         }
         else if ((typeid(*(colliding_items[i])) == typeid(Buff2) ) ){
             health->increase();
+            Audio* playBuffsound = new Audio();
+            playBuffsound->playBuffsound();
+            scene->removeItem(colliding_items[i]);
+            delete(colliding_items[i]);
+        }
+        else if ((typeid(*(colliding_items[i])) == typeid(Buff3) ) ){
+
             Audio* playBuffsound = new Audio();
             playBuffsound->playBuffsound();
             scene->removeItem(colliding_items[i]);

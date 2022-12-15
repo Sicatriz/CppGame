@@ -20,7 +20,7 @@ public:
     void printhealth();
 
 private:
-    int health;
+    short int health;
 };
 
 #endif // HEALTH_H

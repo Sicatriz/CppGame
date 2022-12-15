@@ -18,7 +18,7 @@ public:
     void printhp();
 
 private:
-    int hp;
+    short int hp;
 };
 
 #endif // HP_H
