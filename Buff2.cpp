@@ -11,7 +11,7 @@ Buff2::Buff2(QGraphicsItem *parent): Buff() //With Qobject you say this Enemy is
     setPos(random_number, 0);
 
     //gfx enemy type 1
-    setPixmap(QPixmap(":/gfx/gfx/Hp.png"));
+    setPixmap(QPixmap(":/gfx/gfx/Health.png"));
 
 }
 
