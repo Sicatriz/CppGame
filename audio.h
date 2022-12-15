@@ -9,11 +9,12 @@ class Audio: public QObject
 { Q_OBJECT
 public:
     Audio();
-    void playBullet();
-    void playBulletHit();
+    void playBullet() const;
+    void playBulletHit() const;
     void playShipCollisionSound();
-    void playBackgroundMusic();
-    void playGameOver();
+    void playBackgroundMusic() const;
+    void playGameOver() const;
+    void playBuffsound() const;
 
 
     QMediaPlayer * music;

@@ -24,6 +24,7 @@ public:
 
 public slots:  //slots let's you connect signals to your function.
     void move();
+    //bool cooldown();
 
 };
 

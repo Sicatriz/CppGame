@@ -134,11 +134,15 @@ void Game::collision()
         }
         else if ((typeid(*(colliding_items[i])) == typeid(Buff1) ) ){
             health->increaseHP();
+            Audio* playBuffsound = new Audio();
+            playBuffsound->playBuffsound();
             scene->removeItem(colliding_items[i]);
             delete(colliding_items[i]);
         }
         else if ((typeid(*(colliding_items[i])) == typeid(Buff2) ) ){
             health->increase();
+            Audio* playBuffsound = new Audio();
+            playBuffsound->playBuffsound();
             scene->removeItem(colliding_items[i]);
             delete(colliding_items[i]);
         }

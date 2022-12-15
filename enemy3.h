@@ -12,7 +12,6 @@ public slots:
     void move();
     void hit(int dmg);
 
-private:
 
 };
 

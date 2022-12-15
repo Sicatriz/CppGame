@@ -27,7 +27,7 @@ void Health::increase(){
     printhp();
 }
 
-int Health::getHealth(){
+int Health::getHealth() const{
     return health;
 }
 

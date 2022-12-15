@@ -8,7 +8,7 @@ class Score: public QGraphicsTextItem{
 public:
     Score(QGraphicsItem * parent=0);
     void increase();
-    int getScore();
+    int getScore() const;
 private:
     int score;
     friend class Game;

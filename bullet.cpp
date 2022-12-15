@@ -93,3 +93,7 @@ void Bullet::move()
          this->deleteLater();
     }
 }
+
+//bool Bullet::cooldown(){
+
+//}
