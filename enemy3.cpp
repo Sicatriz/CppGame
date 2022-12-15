@@ -7,7 +7,7 @@ Enemy3::Enemy3(QGraphicsItem *, Health* h):Enemy()
 {
     health = h;
     // set random start position
-    int random_number = rand() % 1700;
+    int random_number = rand() % 1600;
     setPos(random_number, 0);
 
     //gfx enemy type 2
