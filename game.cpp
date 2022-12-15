@@ -20,18 +20,18 @@ Game::Game(QWidget *)
 {
     scene = new QGraphicsScene();
     this->showMaximized(); // make the scene 800x600 instead of infinity by infinity (default)
-    scene->focusItem();
+   // scene->focusItem();
     this->setAlignment(Qt::AlignTop|Qt::AlignLeft);
     //scene->setSceneRect(0,0, this->width(),this->height());
     //setFixedSize(this->width(), this->height());
     setBackgroundBrush(QBrush(QImage(":/gfx/gfx/bg52.png"))); //set background image
 
-    // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
+    // make the newly created scene the scene to visualize (since Game is a QGraphicsView,
     // it can be used to visualize scenes)
-    setScene(scene);
     fitInView(scene->sceneRect());
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setScene(scene);
     scene->activePanel();
     //showMaximized();
     //set the size of the window
@@ -102,7 +102,7 @@ void Game::collision()
 
             if(health->getHP() == 0 && health->getHealth() != 0)
             {
-                //
+                //decrease health, set hp to 4
                 health->decrease();
                 health->setHP();
             }
@@ -122,9 +122,7 @@ void Game::collision()
                 this->score->deleteLater();
                 this->health->deleteLater();
                 //  delete this;
-
             }
-
             // remove them both
             scene->removeItem(colliding_items[i]);
             delete(colliding_items[i]);

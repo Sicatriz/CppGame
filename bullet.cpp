@@ -3,7 +3,6 @@
 #include "enemy1.h"
 #include "enemy2.h"
 #include "enemy3.h"
-#include "meteor.h"
 #include "meteor1.h"
 #include "meteor2.h"
 #include "meteor3.h"
@@ -83,7 +82,7 @@ void Bullet::move()
 
      //when bullet is out of screen, free memory and remove bullet
 
-    if(pos().y() < - this->pixmap().height() )    {
+    if( pos().y() < - this->pixmap().height() )    {
         scene()->removeItem(this);
         this->deleteLater();
     }

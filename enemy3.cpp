@@ -1,7 +1,7 @@
 #include "enemy3.h"
 
 //this enemy is the small enemy
-Enemy3::Enemy3(QGraphicsItem *parent, Health* h):Enemy()
+Enemy3::Enemy3(QGraphicsItem *, Health* h):Enemy()
 {
     health = h;
     // set random start position

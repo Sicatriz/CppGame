@@ -6,6 +6,8 @@
 Player::Player(QGraphicsItem *parent): MovableObjects(parent)
 {
     this->QGraphicsPixmapItem::setPixmap(QPixmap(":/gfx/gfx/Starship_C.png")); //playerskin
+    setOffset(0,pixmap().width()/2);
+
 }
 
 void Player::setWannaBeX(int x)

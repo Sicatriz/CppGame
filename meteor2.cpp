@@ -10,10 +10,10 @@
 //    setPixmap(QPixmap(":/gfx/gfx/Stones2Filled_25.png"));
 
 
-//    /***\
+    /*
 //    Connects timer to public slot move .
 //    timer is there for bullet movement, this changes the speed of the bullet.
-//    \***/
+    */
 //    QTimer * timer = new QTimer(this);
 //    connect(timer,SIGNAL(timeout()),this,SLOT(move()));
 //    timer->start(50);

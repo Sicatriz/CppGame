@@ -1,6 +1,6 @@
 #include "meteor1.h"
 
-Meteor1::Meteor1(QGraphicsItem *parent){
+Meteor1::Meteor1(QGraphicsItem *){
     int random_number = rand() % 1750;
     setPos(random_number, 0);
 

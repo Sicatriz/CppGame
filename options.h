@@ -14,7 +14,7 @@ public:
     ~Options();
 
     // public methods (events)
-    void mousePressEvent(QGraphicsSceneMouseEvent *) override;
+    void mousePressEvent(QGraphicsSceneMouseEvent *);
     void hoverEnterEvent(QGraphicsSceneHoverEvent *);
     void hoverLeaveEvent(QGraphicsSceneHoverEvent *);
 

@@ -1,7 +1,7 @@
 #include "enemy2.h"
 
 //this is the fast enemy
-Enemy2::Enemy2(QGraphicsItem *parent, Health* h):Enemy()
+Enemy2::Enemy2(QGraphicsItem *, Health* h):Enemy()
 {
     health = h;
     // set random start position

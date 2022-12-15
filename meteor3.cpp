@@ -1,6 +1,6 @@
 #include "meteor3.h"
 
-Meteor3::Meteor3(QGraphicsItem *parent){
+Meteor3::Meteor3(QGraphicsItem *){
     int random_number = rand() % 1750;
     setPos(random_number, 0);
 
@@ -19,10 +19,6 @@ Meteor3::Meteor3(QGraphicsItem *parent){
 
 void Meteor3::move(int speed)
 {
-
-
-
-
     if (i == 0){
         int select = rand()%2;
         int ran = rand()%7;
@@ -40,10 +36,8 @@ void Meteor3::move(int speed)
     if(pos().y() > 1100){
 
     //decrease the health
-
-
     scene()->removeItem(this);
     this->deleteLater();
-}
+    }
 }
 

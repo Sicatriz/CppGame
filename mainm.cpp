@@ -2,7 +2,7 @@
 #include "play.h"
 #include "options.h"
 
-MainM::MainM(QWidget *parent)
+MainM::MainM(QWidget *)
 {
     // create the scene
     scene = new QGraphicsScene();

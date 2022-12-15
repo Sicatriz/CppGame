@@ -11,16 +11,12 @@
 #include <QFont>
 #include <QImage>
 #include <QBrush>
-#include "game.h"
 
 
 class MainM: public QGraphicsView
 { Q_OBJECT
 public:
     MainM(QWidget *parent);
-
-    //Play* button;
-    Game* game;
 
     QGraphicsScene * scene;
 
