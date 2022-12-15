@@ -5,7 +5,7 @@ Enemy::Enemy(QGraphicsItem *parent): MovableObjects(parent) //With Qobject you s
 {
   //  health = h;
     // set random start position
-    int random_number = rand() % 1750;
+    int random_number = rand() % 1600;
     setPos(random_number, 0);
 
     //gfx enemy type 1

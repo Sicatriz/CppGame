@@ -1,7 +1,7 @@
 #include "meteor3.h"
 
 Meteor3::Meteor3(QGraphicsItem *){
-    int random_number = rand() % 1750;
+    int random_number = rand() % 1600;
     setPos(random_number, 0);
 
     //gfx enemy type 1

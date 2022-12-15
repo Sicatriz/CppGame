@@ -5,11 +5,11 @@ Health::Health(QGraphicsItem *){
     health =3;
 
     // draw the text
-    setPlainText(QString("Health: ") + QString::number(health)); // Health gets set to 3
+    //setPlainText(QString("Health: ") + QString::number(health)); // Health gets set to 3
+    printhealth();
     printhp();
-    setDefaultTextColor(Qt::red);
-    setFont(QFont("times",24));
-    setPos(10,30);
+    //setDefaultTextColor(Qt::red);
+
 }
 
 void Health::decrease(){
@@ -47,7 +47,7 @@ void Health::decreaseHP()
 
 void Health::printhealth()
 {
-    setPos(0,20);
+    setPos(0,30);
     setPlainText(QString("Health: ") + QString::number(health));
 }
 
