@@ -159,39 +159,39 @@ void Game::delItem(MovableObjects * item)
 
 void Game::getLevel()
 {
-        if( score->getScore() < 10)
+        if( score->getScore() < 20)
         {
             level = 1;
         }
-        else if(score->getScore() > 9 && score->getScore() < 20)
+        else if(score->getScore() > 19 && score->getScore() < 40)
         {
             level = 2;
         }
-        else if(score->getScore() >19 && score->getScore() < 30)
+        else if(score->getScore() >39 && score->getScore() < 60)
         {
             level = 3;
         }
-        else if(score->getScore() >29 && score->getScore() < 40)
+        else if(score->getScore() >59 && score->getScore() < 80)
         {
             level = 4;
         }
-        else if(score->getScore() >39 && score->getScore() < 50)
+        else if(score->getScore() >79 && score->getScore() < 100)
         {
             level = 5;
         }
-        else if(score->getScore() >49 && score->getScore() < 60)
+        else if(score->getScore() >99 && score->getScore() < 120)
         {
             level = 6;
         }
-        else if(score->getScore() >59 && score->getScore() < 70)
+        else if(score->getScore() >119 && score->getScore() < 140)
         {
             level = 7;
         }
-        else if(score->getScore() >69 && score->getScore() < 80)
+        else if(score->getScore() >139 && score->getScore() < 160)
         {
             level = 8;
         }
-        else if(score->getScore() >79 && score->getScore() < 90)
+        else if(score->getScore() >159 && score->getScore() < 180)
         {
             level = 9;
         }
