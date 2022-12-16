@@ -14,13 +14,13 @@ public:
     Health(QGraphicsItem * parent=0);
     void decrease();
     void increase();
-    int getHealth();    /***3 encapsulation ***/
+    int getHealth() const;    /***3 encapsulation ***/
     void increaseHP();
     void decreaseHP();
     void printhealth();
 
 private:
-    int health;
+   short int health;
 };
 
 #endif // HEALTH_H

@@ -16,6 +16,7 @@
 #include "meteor3.h"
 #include "Buff.h"
 #include "Buff1.h"
+#include "Buff2.h"
 #include "score.h"
 #include "hp.h"
 
@@ -134,6 +135,16 @@ void Game::collision()
         else if ((typeid(*(colliding_items[i])) == typeid(Buff1)))
         {
             health->increaseHP();
+            Audio *playBuff = new Audio();
+            playBuff->playBuffSound();
+            scene->removeItem(colliding_items[i]);
+            delete (colliding_items[i]);
+        }
+        else if ((typeid(*(colliding_items[i])) == typeid(Buff2)))
+        {
+            health->increase();
+            Audio *playBuff = new Audio();
+            playBuff->playBuffSound();
             scene->removeItem(colliding_items[i]);
             delete (colliding_items[i]);
         }

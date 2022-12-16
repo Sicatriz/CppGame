@@ -22,7 +22,7 @@ void HP::increaseHP(){
     hp++;
 }
 
-int HP::getHP()
+int HP::getHP() const
 {
     return hp;
 }
