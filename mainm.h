@@ -11,6 +11,9 @@
 #include <QFont>
 #include <QImage>
 #include <QBrush>
+#include "play.h"
+#include "options.h"
+#include "back.h"
 
 
 class MainM: public QGraphicsView
@@ -19,10 +22,13 @@ public:
     MainM(QWidget *parent);
 
     QGraphicsScene * scene;
-
+    Options* button1;
+    Play* button;
+    Back* back;
     void start();
     void options();
     void exit();
+    void startup();
 };
 
 #endif // MAINM_H

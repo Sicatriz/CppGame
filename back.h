@@ -1,5 +1,5 @@
-#ifndef OPTIONS_H
-#define OPTIONS_H
+#ifndef BACK_H
+#define BACK_H
 
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsItem>
@@ -7,12 +7,11 @@
 #include <QGraphicsView>
 #include <QMouseEvent>
 
-class Options: public QGraphicsView, public QGraphicsPixmapItem
+class Back: public QGraphicsView, public QGraphicsPixmapItem
 {Q_OBJECT
 public:
-    Options(QGraphicsItem* parent=nullptr);
-    ~Options();
-
+    Back(QGraphicsItem* parent=0);
+    ~Back();
     // public methods (events)
     void mousePressEvent(QGraphicsSceneMouseEvent *);
     void hoverEnterEvent(QGraphicsSceneHoverEvent *);
@@ -20,4 +19,4 @@ public:
     void clicked();
 };
 
-#endif // OPTIONS_H
+#endif // BACK_H

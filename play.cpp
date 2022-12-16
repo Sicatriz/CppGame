@@ -1,11 +1,10 @@
 #include "play.h"
 #include "game.h"
 
-Play::Play(QGraphicsItem* parent, QGraphicsScene* sceene): QGraphicsPixmapItem(parent)
+Play::Play(QGraphicsItem* parent): QGraphicsPixmapItem(parent)
 {
-
-    scene = sceene;
-    setPos(sceene->width()/2 - 200, sceene->height()/2 - 50);
+    setPos(30,50);
+    //setPos(scene()->width()/2 - 200, scene()->height()/2 - 50);
     setPixmap(QPixmap(":/gfx/gfx/StartPlay.png"));
     setAcceptHoverEvents(true);
 }

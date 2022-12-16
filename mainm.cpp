@@ -4,33 +4,37 @@
 
 MainM::MainM(QWidget *)
 {
-    // create the scene
     scene = new QGraphicsScene();
-    scene->setSceneRect(0,0,1800,1000); // make the scene 800x600 instead of infinity by infinity (default)
-    setBackgroundBrush(QBrush(QImage(":/gfx/gfx/bg52.png"))); //set background image
-
-    // make the newly created scene the scene to visualize (since Game is a QGraphicsView Widget,
-    // it can be used to visualize scenes)
+    scene->setSceneRect(0,0,1800,1000);
+    setBackgroundBrush(QBrush(QImage(":/gfx/gfx/bg52.png")));
     setScene(scene);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(1800,1000);  //set the size of the window
     show();
+    startup();
+}
 
-    Play* button = new Play(0, scene);
+void MainM::startup()
+{
+    button = new Play();
     scene->addItem(button);
 
-    Options* button1 = new Options(0, scene);
-    button1->setPixmap(QPixmap());
-    scene->addItem(button);
-
-    /*
-    Play* button2 = new Play(0, scene);
-    scene->addItem(button2);*/
+    button1 = new Options();
+    scene->addItem(button1);
 }
 
 void MainM::options()
 {
+    scene->removeItem(button);
+    scene->removeItem(button1);
+    //zet hier de options
+    back = new Back();
+    scene->addItem(back);
+
+
+
+
 
 }
 
