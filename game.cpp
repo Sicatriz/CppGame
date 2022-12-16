@@ -507,7 +507,7 @@ void Game::spawnEnemy(){
            // scene->addItem(enemy2);
             this->addItem(enemy2);
         }
-        break;
+
         break;
     case 9:
         if(ran%8 == 0 || ran%8 == 2 || ran%8 == 7)
@@ -605,7 +605,7 @@ void Game::spawnEnemy(){
             this->addItem(enemy3);
 
         }
-        break;
+
     }
 }
 
