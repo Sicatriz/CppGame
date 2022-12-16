@@ -7,24 +7,24 @@ Audio::Audio(): QObject()
 }
 
 // FIRE BULLET SOUND
-void Audio::playBullet() const
+void Audio::playBullet(float bulletVolume) const
 {
         music->setAudioOutput(audioOutput);
         music->setSource(QUrl("qrc:/sounds/sounds/shoot1.wav"));
-        music->audioOutput()->setVolume(0.5);
+        music->audioOutput()->setVolume(bulletVolume);
         music->play();
 }
 
 // BULLET IMPACT SOUND
-void Audio::playBulletHit() const
+void Audio::playBulletHit(int volume) const
 {
     music->setAudioOutput(audioOutput);
     music->setSource(QUrl("qrc:/sounds/sounds/Explosion.wav"));
-    music->audioOutput()->setVolume(1);
+    music->audioOutput()->setVolume(volume);
     music->play();
 }
 
-void Audio::playShipCollisionSound()
+void Audio::playShipCollisionSound(float crashVolume)
 {
     int ran = rand()%5;
 
@@ -55,32 +55,32 @@ void Audio::playShipCollisionSound()
         music->setSource(QUrl("qrc:/sounds/sounds/death_8_sean.wav"));
     }
 
-    music->audioOutput()->setVolume(1);
+    music->audioOutput()->setVolume(crashVolume);
     music->play();
 }
 
 // BACKGROUND SOUND
-void Audio::playBackgroundMusic() const
+void Audio::playBackgroundMusic(float backgroundVolume) const
 {
     music->setAudioOutput(audioOutput);
     music->setSource(QUrl("qrc:/sounds/sounds/slow-travel.wav"));
-    audioOutput->setVolume(0.3);
+    audioOutput->setVolume(backgroundVolume);
     music->play();
 }
 
 // GAME OVER
-void Audio::playGameOver() const
+void Audio::playGameOver(int volume) const
 {
     music->setAudioOutput(audioOutput);
     music->setSource(QUrl("qrc:/sounds/sounds/gameOver_karen.wav"));
-    music->audioOutput()->setVolume(1);
+    music->audioOutput()->setVolume(volume);
     music->play();
 }
 
-void Audio::playBuffSound() const{
+void Audio::playBuffSound(int volume) const{
     music->setAudioOutput(audioOutput);
     music->setSource(QUrl("qrc:/sounds/sounds/buffPickup.wav"));
-    music->audioOutput()->setVolume(1);
+    music->audioOutput()->setVolume(volume);
     music->play();
 }
 

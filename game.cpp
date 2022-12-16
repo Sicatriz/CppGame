@@ -81,7 +81,7 @@ Game::Game(QWidget *)
 
     // play background sound
     Audio* backgroundMusic = new Audio();
-    backgroundMusic->playBackgroundMusic();
+    backgroundMusic->playBackgroundMusic(0.3);
 
     show();
 }
@@ -101,7 +101,7 @@ void Game::collision()
             {
                 // play shipcollision sound
                 Audio *shipCollision = new Audio();
-                shipCollision->playShipCollisionSound();
+                shipCollision->playShipCollisionSound(0.7);
             }
 
             if (health->getHP() == 0 && health->getHealth() != 0)
@@ -113,7 +113,7 @@ void Game::collision()
             {
                 // play background sound
                 Audio *gameOverSound = new Audio();
-                gameOverSound->playGameOver();
+                gameOverSound->playGameOver(1);
 
                 // remove them both
                 scene->removeItem(colliding_items[i]);
@@ -136,7 +136,7 @@ void Game::collision()
         {
             health->increaseHP();
             Audio *playBuff = new Audio();
-            playBuff->playBuffSound();
+            playBuff->playBuffSound(1);
             scene->removeItem(colliding_items[i]);
             delete (colliding_items[i]);
         }
@@ -144,7 +144,7 @@ void Game::collision()
         {
             health->increase();
             Audio *playBuff = new Audio();
-            playBuff->playBuffSound();
+            playBuff->playBuffSound(1);
             scene->removeItem(colliding_items[i]);
             delete (colliding_items[i]);
         }
@@ -168,7 +168,7 @@ void Game::collision()
                     enemy->hit(1);
 
                     Audio *bulletHitSound = new Audio();
-                    bulletHitSound->playBulletHit();
+                    bulletHitSound->playBulletHit(1);
 
                     // remove them both
                     if (enemy->destroy())

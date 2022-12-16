@@ -22,8 +22,8 @@ public:
     Score* score;
     Health* health;
 
-    void setWannaBeX(int x);
-    void setWannaBeY(int y);
+    void setWannaBeX( int x);
+    void setWannaBeY( int y);
 
     int playerWidth;
 
@@ -33,8 +33,8 @@ public slots:
 
 private:
     QMediaPlayer * bulletsound;
-    int wannaBeX = 0;
-    int wannaBeY = 0;
+   int wannaBeX = 0;
+   int wannaBeY = 0;
 
 };
 #endif // PLAYER_H

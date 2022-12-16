@@ -28,7 +28,7 @@ public slots:
     void hit(int dmg); /***9 virtual function***/
     bool destroy();
 protected:
-    int hp = 1;
+   int hp = 1;
 
 };
 

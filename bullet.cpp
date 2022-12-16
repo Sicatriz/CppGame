@@ -24,7 +24,7 @@ Bullet::Bullet(QGraphicsItem* parent, int xas, int yas, Score* scoore): MovableO
     QGraphicsPixmapItem::setOffset(xas, yas);
 
     Audio* bulletSound = new Audio();
-    bulletSound->playBullet();
+    bulletSound->playBullet(0.5);
 
 
 }
