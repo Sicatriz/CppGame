@@ -59,7 +59,7 @@ Game::Game(QWidget *)
     scene->addItem(player);
 
     // create the score/health
-    score = new Score();
+    score = new Score(0);
     scene->addItem(score);
     health = new Health();
     health->setPos(health->x(),health->y()+25);

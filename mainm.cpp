@@ -31,11 +31,6 @@ void MainM::options()
     //zet hier de options
     back = new Back();
     scene->addItem(back);
-
-
-
-
-
 }
 
 void MainM::exit()
