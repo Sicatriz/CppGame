@@ -1,6 +1,6 @@
-
 #include "enemy2.h"
-#include "bullet.h"
+
+using namespace insemi;
 
 //this is the fast enemy
 Enemy2::Enemy2(QGraphicsItem *, Health* h):Enemy()

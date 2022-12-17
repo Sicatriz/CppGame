@@ -1,5 +1,7 @@
 #include "meteor3.h"
 
+using namespace insemi;
+
 // meteor random spawnposition and sprite
 Meteor3::Meteor3(QGraphicsItem *){
     int random_number = rand() % 1600;

@@ -1,5 +1,7 @@
 #include "health.h"
 
+using namespace insemi;
+
 // print health and hp
 Health::Health(QGraphicsItem *){
     // initialize the score to 0

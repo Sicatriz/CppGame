@@ -1,5 +1,7 @@
 #include "meteor.h"
 
+using namespace insemi;
+
 // meteor random spawnposition and sprite
 Meteor::Meteor(QGraphicsItem *parent): MovableObjects(parent)
 {

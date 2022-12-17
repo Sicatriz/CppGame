@@ -16,7 +16,8 @@
 /**********  ENEMY ABSTRACT CLASS  *********/
 /*******************************************/
 /*******************************************/
-
+namespace insemi
+{
 class Meteor: public MovableObjects
 {
      Q_OBJECT
@@ -26,5 +27,5 @@ public slots:
     void move();
 
 };
-
+}
 #endif // METEOR_H

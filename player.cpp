@@ -1,9 +1,10 @@
 #include "player.h"
-#include "game.h"
 
 #include <QMouseEvent>
 #include <qvideowidget.h>
 #include <QMediaPlayer>
+
+using namespace insemi;
 
 // Ship sprite
 Player::Player(QGraphicsItem *parent): MovableObjects(parent)

@@ -9,7 +9,8 @@
 /***************  HP FUNCTION  *************/
 /*******************************************/
 /*******************************************/
-
+namespace insemi
+{
 class HP: public QGraphicsTextItem{
 
     /*******************/
@@ -27,5 +28,6 @@ public:
 private:
    short int hp;
 };
+}
 
 #endif // HP_H

@@ -9,7 +9,8 @@
 /**************  SCORE CLASS  **************/
 /*******************************************/
 /*******************************************/
-
+namespace insemi
+{
 class Score: public QGraphicsTextItem{
 public:
     Score(QGraphicsItem * parent=0);
@@ -20,4 +21,5 @@ private:
     friend class Game;
     friend class Enemy;
 };
+}
 #endif // SCORE_H

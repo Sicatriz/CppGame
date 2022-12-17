@@ -1,5 +1,7 @@
 #include "Buff2.h"
 
+using namespace insemi;
+
 Buff2::Buff2(QGraphicsItem *): Buff() //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
 {
     // set random start position

@@ -1,6 +1,8 @@
 #include "play.h"
 #include "game.h"
 
+using namespace insemi;
+
 // play button sprite and position
 Play::Play(QGraphicsItem* parent): QGraphicsPixmapItem(parent)
 {

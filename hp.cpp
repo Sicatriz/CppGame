@@ -1,5 +1,6 @@
 #include "hp.h"
-#include "health.h"
+
+using namespace insemi;
 
 // standard HP value
 HP::HP(QGraphicsItem *parent): QGraphicsTextItem(parent)

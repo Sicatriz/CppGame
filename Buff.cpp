@@ -1,7 +1,7 @@
 #include "Buff.h"
-#include "bullet.h"
 #include "game.h"
 
+using namespace insemi;
 
 Buff::Buff(QGraphicsItem *parent): MovableObjects(parent) //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
 {

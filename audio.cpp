@@ -1,5 +1,7 @@
 #include "audio.h"
 
+using namespace insemi;
+
 // MUSIC AND OUTPUT INSTANCE
 Audio::Audio(): QObject()
 {
