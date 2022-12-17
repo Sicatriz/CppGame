@@ -27,11 +27,12 @@ SOURCES += \
     main.cpp \
     meteor.cpp \
     meteor1.cpp \
-    meteor2.cpp \
     meteor3.cpp \
     movableObjects.cpp \
     player.cpp \
-    score.cpp
+    score.cpp \
+    play.cpp \
+    mainm.cpp
 
 HEADERS += \
     Buff.h \
@@ -47,12 +48,13 @@ HEADERS += \
     health.h \
     meteor.h \
     meteor1.h \
-    meteor2.h \
     meteor3.h \
     hp.h \
     movableObjects.h \
     player.h \
-    score.h
+    score.h\
+    play.h \
+    mainm.h
 
 FORMS +=
 
