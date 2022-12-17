@@ -1,6 +1,6 @@
 #include "enemy3.h"
 
-//this enemy is the small enemy
+//this enemy is the standard enemy
 Enemy3::Enemy3(QGraphicsItem *, Health* h):Enemy()
 {
     health = h;
@@ -16,10 +16,7 @@ Enemy3::Enemy3(QGraphicsItem *, Health* h):Enemy()
 
 void Enemy3::move()
 {
-
     speed = getSpeed()+0.5;
-
-    //speed = getSpeed() + (Score().getScore());
 
     // move enemy down
     setPos(x(),y()+speed);

@@ -12,7 +12,6 @@
 #include "enemy3.h"
 #include "meteor.h"
 #include "meteor1.h"
-//#include "meteor2.h"
 #include "meteor3.h"
 #include "Buff.h"
 #include "Buff1.h"
@@ -38,7 +37,6 @@ Game::Game(QWidget *)
     moveTimer = new QTimer();
     moveTimer->start(10);
 
-
     // check player collision
     QTimer * timerCollision = new QTimer();
     QObject::connect(timerCollision,SIGNAL(timeout()),this,SLOT(collision()));
@@ -54,15 +52,12 @@ Game::Game(QWidget *)
     // make the player focusable and set it to be the current focus
     player->setFlag(QGraphicsItem::ItemIsFocusable);
     this->setFocus();
-    // add the player to the scene
-    //scene->addItem(player);
 
     // create the score/health
     score = new Score();
     scene->addItem(score);
     health = new Health();
     scene->addItem(health);
-
 
     // spawn enemies
     QTimer * timerEnemy = new QTimer();
@@ -86,6 +81,7 @@ Game::Game(QWidget *)
     show();
 }
 
+// checks collision in the game
 void Game::collision()
 {
     // get a list of all the items currently colliding with the player
@@ -97,6 +93,8 @@ void Game::collision()
         if ((typeid(*(colliding_items[i])) == typeid(Enemy1) || typeid(*(colliding_items[i])) == typeid(Enemy2)) || typeid(*(colliding_items[i])) == typeid(Enemy3) || typeid(*(colliding_items[i])) == typeid(Meteor1) || typeid(*(colliding_items[i])) == typeid(Meteor3))
         {
             health->decreaseHP();
+
+            // play sound when ship collision happens
             if ((health->getHP() != 0 && health->getHealth() != 0) || (health->getHP() == 0 && health->getHealth() != 0) || (health->getHP() != 0 && health->getHealth() == 0))
             {
                 // play shipcollision sound
@@ -104,11 +102,13 @@ void Game::collision()
                 shipCollision->playShipCollisionSound(0.7);
             }
 
+            // decrease 1 health
             if (health->getHP() == 0 && health->getHealth() != 0)
             {
                 health->decrease();
                 health->setHP(4);
             }
+            // player dies => game over
             else if (health->getHealth() == 0 && health->getHP() == 0)
             {
                 // play background sound
@@ -120,11 +120,9 @@ void Game::collision()
                 scene->removeItem(player);
 
                 // free memory
-                //   delete colliding_items[i];
                 this->deleteLater();
                 this->score->deleteLater();
                 this->health->deleteLater();
-                //  delete this;
             }
 
             // remove them both
@@ -132,6 +130,7 @@ void Game::collision()
             delete (colliding_items[i]);
         }
 
+        // buff 1 pickup (increase 1 HP)
         else if ((typeid(*(colliding_items[i])) == typeid(Buff1)))
         {
             health->increaseHP();
@@ -140,6 +139,7 @@ void Game::collision()
             scene->removeItem(colliding_items[i]);
             delete (colliding_items[i]);
         }
+        // buff 2 pickup (increase 1 Health)
         else if ((typeid(*(colliding_items[i])) == typeid(Buff2)))
         {
             health->increase();
@@ -153,6 +153,7 @@ void Game::collision()
     //qDeleteAll(colliding_items);
     QList<QGraphicsItem *> Items = scene->items();
 
+    // bullet collision checks
     for (int i = 0, n = Items.size(); i < n; ++i)
     {
         // checks if the bullet.
@@ -162,6 +163,7 @@ void Game::collision()
 
             for (int j = 0, n = bullcol.size(); j < n; ++j)
             {
+                // bullet hits an enemy
                 if ((typeid(*(bullcol[j])) == typeid(Enemy1) || typeid(*(bullcol[j])) == typeid(Enemy2)) || typeid(*(bullcol[j])) == typeid(Enemy3))
                 {
                     Enemy *enemy = (Enemy *)bullcol[j];
@@ -193,24 +195,28 @@ void Game::collision()
     }
 }
 
+// go to goal position (cursor position)
 void Game::mouseMoveEvent(QMouseEvent *mouse)
 {
     player->setWannaBeX(mouse->pos().x()-50);
     player->setWannaBeY(mouse->pos().y()-25);
 }
 
+// add an item to scene
 void Game::addItem(MovableObjects * item)
 {
     scene->addItem(item);
     QObject::connect(moveTimer,SIGNAL(timeout()),item,SLOT(move()));
 }
 
+// delete an item from scene
 void Game::delItem(MovableObjects * item)
 {
     scene->removeItem(item);
     item->deleteLater();
 }
 
+// level checker
 void Game::getLevel()
 {
         if( score->getScore() < 20)
@@ -255,6 +261,7 @@ void Game::getLevel()
         }
 }
 
+// fire bullets
 void Game::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Space)
@@ -270,6 +277,7 @@ void Game::keyPressEvent(QKeyEvent *event)
     }
 }
 
+// spawn enemies depending on level
 void Game::spawnEnemy(){
 
     int ran = rand()%5;
@@ -609,6 +617,7 @@ void Game::spawnEnemy(){
     }
 }
 
+// spawn meteors
 void Game::spawnMeteor(){
 
     int ran = rand()%5;
@@ -624,10 +633,9 @@ void Game::spawnMeteor(){
         Meteor * meteor1 = new Meteor1(0);
         this->addItem(meteor1);
     }
-
-
 }
 
+// spawn buffs
 void Game::spawnBuff(){
 
             int ran =  rand()%5;
@@ -637,5 +645,4 @@ void Game::spawnBuff(){
                 Buff * buff = new Buff1(0);
                 this->addItem(buff);
          }
-
 }

@@ -8,6 +8,12 @@
 #include <QMouseEvent>
 #include <QGraphicsItem>
 
+/*******************************************/
+/*******************************************/
+/*****  MOVABLE OBJECTS ABSTRACT CLASS *****/
+/*******************************************/
+/*******************************************/
+
 class MovableObjects: public QObject, public QGraphicsPixmapItem
 { Q_OBJECT
 public:

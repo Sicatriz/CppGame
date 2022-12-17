@@ -1,5 +1,6 @@
 #include "meteor3.h"
 
+// meteor random spawnposition and sprite
 Meteor3::Meteor3(QGraphicsItem *){
     int random_number = rand() % 1600;
     setPos(random_number, 0);
@@ -8,6 +9,7 @@ Meteor3::Meteor3(QGraphicsItem *){
     setPixmap(QPixmap(":/gfx/gfx/Stones2Filled_25.png"));
 }
 
+// meteor movement and deletion
 void Meteor3::move()
 {
     if (i == 0){

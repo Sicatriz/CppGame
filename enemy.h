@@ -12,6 +12,12 @@
 #include "health.h"
 #include <QTimer>
 
+/*******************************************/
+/*******************************************/
+/**********  ENEMY ABSTRACT CLASS  *********/
+/*******************************************/
+/*******************************************/
+
 class Enemy: public MovableObjects /***8 abstract base class***/
 {
    Q_OBJECT    // enemy needs to be an Qobject for movement
@@ -20,10 +26,9 @@ public:
 
    Enemy(QGraphicsItem * parent=0);
    Health* health;
-//   float speed;
-//   double setSpeed();
 
 public slots:
+   // virtual movement class
     virtual void move();
     void hit(int dmg); /***9 virtual function***/
     bool destroy();

@@ -4,6 +4,12 @@
 #include <stdlib.h>
 #include "Buff.h"
 
+/*******************************************/
+/*******************************************/
+/**********   BUFF 1: HP BUFF   ************/
+/*******************************************/
+/*******************************************/
+
 class Buff1: public Buff /***8 abstract base class***/
 {
    Q_OBJECT    // enemy needs to be an Qobject for movement

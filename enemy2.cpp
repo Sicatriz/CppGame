@@ -2,7 +2,6 @@
 #include "enemy2.h"
 #include "bullet.h"
 
-
 //this is the fast enemy
 Enemy2::Enemy2(QGraphicsItem *, Health* h):Enemy()
 {
@@ -20,7 +19,7 @@ Enemy2::Enemy2(QGraphicsItem *, Health* h):Enemy()
 void Enemy2::move()
 {
     speed = getSpeed()+1.5;
-   // speed = getSpeed() + (Score().getScore());
+
     // move enemy down
     setPos(x(),y()+speed);
 
@@ -30,11 +29,13 @@ void Enemy2::move()
         //decrease the health
         health->decrease();
 
+        // clear memory
         scene()->removeItem(this);
         this->deleteLater();
     }
 }
 
+// enemy HP decrease
 void Enemy2::hit(int dmg)
 {
     hp = hp - dmg;

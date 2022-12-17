@@ -4,6 +4,12 @@
 #include <QGraphicsTextItem>
 #include <QFont>
 
+/*******************************************/
+/*******************************************/
+/**************  SCORE CLASS  **************/
+/*******************************************/
+/*******************************************/
+
 class Score: public QGraphicsTextItem{
 public:
     Score(QGraphicsItem * parent=0);

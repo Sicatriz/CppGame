@@ -1,5 +1,6 @@
 #include "audio.h"
 
+// MUSIC AND OUTPUT INSTANCE
 Audio::Audio(): QObject()
 {
     music = new QMediaPlayer();
@@ -24,6 +25,7 @@ void Audio::playBulletHit(int volume) const
     music->play();
 }
 
+// SHIP COLLISION SOUND RANDOMISED
 void Audio::playShipCollisionSound(float crashVolume)
 {
     int ran = rand()%5;
@@ -77,6 +79,7 @@ void Audio::playGameOver(int volume) const
     music->play();
 }
 
+// BUFF PICKUP SOUND
 void Audio::playBuffSound(int volume) const{
     music->setAudioOutput(audioOutput);
     music->setSource(QUrl("qrc:/sounds/sounds/buffPickup.wav"));

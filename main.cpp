@@ -7,13 +7,13 @@
 /****  credits: Indy Penders, Sebbe Gerits, Miguel Nunez ****/
 /************************************************************/
 
-  // global object
 
 int main(int argc, char *argv[]){
     QApplication a(argc, argv);
     srand(time(NULL));
 
-    MainM* game = new MainM(0); //open and show the game
+    // show start menu
+    MainM* game = new MainM(0);
     game->show();
 
     return a.exec();

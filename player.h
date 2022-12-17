@@ -13,6 +13,12 @@
 #include "health.h"
 #include "movableObjects.h"
 
+/*******************************************/
+/*******************************************/
+/****************  PLAYER  *****************/
+/*******************************************/
+/*******************************************/
+
 class Player: public MovableObjects //public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
@@ -22,6 +28,7 @@ public:
     Score* score;
     Health* health;
 
+    // goal position ship
     void setWannaBeX( int x);
     void setWannaBeY( int y);
 

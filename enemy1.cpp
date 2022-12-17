@@ -1,8 +1,7 @@
 #include "enemy1.h"
 #include "bullet.h"
 
-
-//this is the base enemy
+// 5 HP enemy
 Enemy1::Enemy1(QGraphicsItem *, Health* h):Enemy()
 {
     health = h;
@@ -17,11 +16,10 @@ Enemy1::Enemy1(QGraphicsItem *, Health* h):Enemy()
     hp = 5;
 }
 
+// enemy movement
 void Enemy1::move()
 {
-
     speed = getSpeed();
-    //speed = getSpeed() + (Score().getScore());
 
     // move enemy down
     setPos(x(),y()+speed);
@@ -34,6 +32,7 @@ void Enemy1::move()
     }
 }
 
+// enemy hp decrease
 void Enemy1::hit(int dmg)
 {
     hp = hp - dmg;

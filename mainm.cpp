@@ -1,6 +1,7 @@
 #include "mainm.h"
 #include "play.h"
 
+// main menu with play button
 MainM::MainM(QWidget *)
 {
     scene = new QGraphicsScene();
@@ -14,6 +15,7 @@ MainM::MainM(QWidget *)
     startup();
 }
 
+// start game
 void MainM::startup()
 {
     button = new Play();

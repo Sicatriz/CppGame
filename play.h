@@ -7,6 +7,12 @@
 #include <QGraphicsView>
 #include <QMouseEvent>
 
+/*******************************************/
+/*******************************************/
+/**************  PLAY BUTTON  **************/
+/*******************************************/
+/*******************************************/
+
 class Play: public QGraphicsView, public QGraphicsPixmapItem
 {Q_OBJECT
 public:

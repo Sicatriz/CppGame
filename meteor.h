@@ -8,9 +8,14 @@
 #include <QGraphicsScene>
 #include <QList>
 #include <stdlib.h>
-
 #include <QTimer>
 #include "movableObjects.h"
+
+/*******************************************/
+/*******************************************/
+/**********  ENEMY ABSTRACT CLASS  *********/
+/*******************************************/
+/*******************************************/
 
 class Meteor: public MovableObjects
 {

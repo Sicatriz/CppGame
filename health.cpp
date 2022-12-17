@@ -1,38 +1,33 @@
 #include "health.h"
 
+// print health and hp
 Health::Health(QGraphicsItem *){
     // initialize the score to 0
     health =3;
 
-    // draw the text
-    //setPlainText(QString("Health: ") + QString::number(health)); // Health gets set to 3
     printhealth();
     printhp();
-    //setDefaultTextColor(Qt::red);
-
 }
 
+// decrease health
 void Health::decrease(){
 
-    //if(health>0){
     health--;
     printhealth();
-    //(QString("hp: ") + QString::number(getHP()));
-  //  HP().printhp();
- //   printhp();
 }
 
+// increase health
 void Health::increase(){
     health++;
     printhealth();
-   // HP().printhp();
-   // printhp();
 }
 
+// get health value
 int Health::getHealth() const{
     return health;
 }
 
+// increase HP
 void Health::increaseHP()
 {
     setHP(1);
@@ -40,6 +35,7 @@ void Health::increaseHP()
     printhp();
 }
 
+// decrease HP
 void Health::decreaseHP()
 {
     setHP(-1);
@@ -47,6 +43,7 @@ void Health::decreaseHP()
     printhp();
 }
 
+// print health on screen
 void Health::printhealth()
 {
     setPos(0,30);

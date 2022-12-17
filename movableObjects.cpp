@@ -7,11 +7,13 @@
 #include <QImage>
 #include "bullet.h"
 
+// standard constructor
 MovableObjects::MovableObjects(QGraphicsItem * )
 {
 
 }
 
+// get speed by level
 double MovableObjects::getSpeed()
 {
 

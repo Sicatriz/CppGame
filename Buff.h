@@ -1,7 +1,6 @@
 #ifndef BUFF_H
 #define BUFF_H
 
-//#include <QGraphicsRectItem>
 #include <QObject>
 #include <QGraphicsItem>
 #include <QGraphicsPixmapItem>
@@ -11,6 +10,12 @@
 #include <stdlib.h>
 #include "movableObjects.h"
 #include <QTimer>
+
+/*******************************************/
+/*******************************************/
+/*********  BUFF ABSTRACT CLASS  ***********/
+/*******************************************/
+/*******************************************/
 
 class Buff: public MovableObjects /***8 abstract base class***/
 {
@@ -22,8 +27,6 @@ public:
 
 public slots:
     void move();
-
-
 };
 
 #endif // BUFF_H
