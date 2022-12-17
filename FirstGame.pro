@@ -27,7 +27,6 @@ SOURCES += \
     main.cpp \
     meteor.cpp \
     meteor1.cpp \
-    meteor2.cpp \
     meteor3.cpp \
     movableObjects.cpp \
     player.cpp \
@@ -47,7 +46,6 @@ HEADERS += \
     health.h \
     meteor.h \
     meteor1.h \
-    meteor2.h \
     meteor3.h \
     hp.h \
     movableObjects.h \

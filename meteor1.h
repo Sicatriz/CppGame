@@ -2,6 +2,10 @@
 #define METEOR1_H
 
 #include "meteor.h"
+using namespace std;
+
+namespace insemi
+{
 
 class Meteor1: public Meteor{
 
@@ -13,5 +17,6 @@ public slots:
 
 
 };
+}
 
 #endif // METEOR1_H

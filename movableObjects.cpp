@@ -6,6 +6,10 @@
 #include <QGraphicsTextItem>
 #include <QImage>
 #include "bullet.h"
+using namespace std;
+
+namespace insemi
+{
 
 MovableObjects::MovableObjects(QGraphicsItem * )
 {
@@ -32,4 +36,5 @@ double MovableObjects::getSpeed()
         speed = 8;
     }
     return speed;
+}
 }

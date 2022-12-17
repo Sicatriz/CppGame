@@ -2,7 +2,10 @@
 #include "enemy2.h"
 #include "bullet.h"
 
+using namespace std;
 
+namespace insemi
+{
 //this is the fast enemy
 Enemy2::Enemy2(QGraphicsItem *, Health* h):Enemy()
 {
@@ -41,5 +44,5 @@ void Enemy2::hit(int dmg)
 }
 
 
-
+}
 

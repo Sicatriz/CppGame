@@ -1,5 +1,9 @@
 #include "score.h"
 
+using namespace std;
+
+namespace insemi
+{
 Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent){
     // initialize the score to 0
     score = 0;
@@ -18,4 +22,5 @@ void Score::increase(){
 
 int Score::getScore(){
     return score;
+}
 }

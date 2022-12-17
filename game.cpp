@@ -20,6 +20,11 @@
 #include "score.h"
 #include "hp.h"
 
+using namespace std;
+
+namespace insemi
+{
+
 Game::Game(QWidget *)
 {
     // create the scene
@@ -638,4 +643,5 @@ void Game::spawnBuff(){
                 this->addItem(buff);
          }
 
+}
 }

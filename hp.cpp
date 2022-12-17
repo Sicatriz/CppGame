@@ -1,6 +1,10 @@
 #include "hp.h"
 #include "health.h"
 
+using namespace std;
+
+namespace insemi
+{
 HP::HP(QGraphicsItem *parent): QGraphicsTextItem(parent)
 {
     // initialize the score to 0
@@ -41,4 +45,4 @@ void HP::printhp()
     setPlainText(QString("Hit points: ") + QString::number(hp));
 }
 
-
+}

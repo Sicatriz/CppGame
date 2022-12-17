@@ -12,6 +12,11 @@
 #include "health.h"
 #include <QTimer>
 
+using namespace std;
+
+namespace insemi
+{
+
 class Enemy: public MovableObjects /***8 abstract base class***/
 {
    Q_OBJECT    // enemy needs to be an Qobject for movement
@@ -31,5 +36,7 @@ protected:
    int hp = 1;
 
 };
+
+}
 
 #endif // ENEMY_H

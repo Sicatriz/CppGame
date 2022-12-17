@@ -12,6 +12,11 @@
 #include <qmediaplayer.h>
 #include <QAudioOutput>
 
+using namespace std;
+
+namespace insemi
+{
+
 
 class Bullet: public MovableObjects  /****1 usefull and correct class ****/
 {
@@ -27,4 +32,5 @@ public slots:  //slots let's you connect signals to your function.
 
 };
 
+}
 #endif // BULLET_H

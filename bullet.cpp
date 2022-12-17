@@ -9,6 +9,11 @@
 #include "meteor3.h"
 #include "audio.h"
 
+using namespace std;
+
+namespace insemi
+{
+
 Bullet::Bullet(QGraphicsItem *parent): MovableObjects(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
 {
     setPixmap(QPixmap(":/gfx/gfx/laser.png")); //give bullet graphics
@@ -43,4 +48,5 @@ void Bullet::move()
          //scene()->removeItem(this);
          this->deleteLater();
     }
+}
 }

@@ -8,9 +8,13 @@
 #include <QGraphicsScene>
 #include <QList>
 #include <stdlib.h>
-
 #include <QTimer>
 #include "movableObjects.h"
+
+using namespace std;
+
+namespace insemi
+{
 
 class Meteor: public MovableObjects
 {
@@ -21,5 +25,7 @@ public slots:
     void move();
 
 };
+
+}
 
 #endif // METEOR_H

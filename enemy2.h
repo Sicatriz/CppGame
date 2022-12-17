@@ -3,6 +3,11 @@
 
 #include "enemy.h"
 
+using namespace std;
+
+namespace insemi
+{
+
 class Enemy2: public Enemy{ /***4 inheritance***/
     Q_OBJECT
 public:
@@ -13,5 +18,6 @@ public slots:
 
 private:
 };
+}
 
 #endif // ENEMY2_H

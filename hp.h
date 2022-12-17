@@ -5,6 +5,11 @@
 #include <QFont>
 //#include "health.h"
 
+using namespace std;
+
+namespace insemi
+{
+
 class HP: public QGraphicsTextItem{
 
     // 1 Health = 4 HP
@@ -20,5 +25,7 @@ public:
 private:
    short int hp;
 };
+}
+
 
 #endif // HP_H

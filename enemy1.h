@@ -3,6 +3,12 @@
 
 #include <enemy.h>
 
+using namespace std;
+
+namespace insemi
+{
+
+
 class Enemy1: public Enemy{    /***7 usefull and correct base class ***/
     Q_OBJECT
 public:
@@ -13,5 +19,6 @@ public slots:
 
 private:
 };
+}
 
 #endif // ENEMY1_H

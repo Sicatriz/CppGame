@@ -1,5 +1,8 @@
 #include "meteor.h"
+using namespace std;
 
+namespace insemi
+{
 Meteor::Meteor(QGraphicsItem *parent): MovableObjects(parent)
 {
 
@@ -25,3 +28,4 @@ void Meteor::move()
     }
 }
 
+}

@@ -1,5 +1,10 @@
 #include "health.h"
 
+using namespace std;
+
+namespace insemi
+{
+
 Health::Health(QGraphicsItem *){
     // initialize the score to 0
     health =3;
@@ -55,5 +60,5 @@ void Health::printhealth()
     setPlainText(QString("Health: ") + QString::number(health));
 }
 
-
+}
 

@@ -5,6 +5,11 @@
 #include <QFont>
 #include "hp.h"
 
+using namespace std;
+
+namespace insemi
+{
+
 class Health: public HP
 {
 
@@ -22,5 +27,6 @@ public:
 private:
    short int health;
 };
+}
 
 #endif // HEALTH_H

@@ -17,6 +17,10 @@
 #include "movableObjects.h"
 
 //#include "enemy.h"
+using namespace std;
+
+namespace insemi
+{
 
 class Game: public QGraphicsView
 { Q_OBJECT
@@ -47,5 +51,6 @@ public slots:
        void spawnBuff();
        friend class MovableObjects;
 };
+}
 
 #endif // GAME_H

@@ -1,5 +1,9 @@
 #include "enemy3.h"
 
+using namespace std;
+
+namespace insemi
+{
 //this enemy is the small enemy
 Enemy3::Enemy3(QGraphicsItem *, Health* h):Enemy()
 {
@@ -39,6 +43,6 @@ void Enemy3::hit(int dmg)
 {
     hp = hp - dmg;
 }
-
+}
 
 

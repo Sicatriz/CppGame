@@ -12,6 +12,11 @@
 #include "movableObjects.h"
 #include <QTimer>
 
+using namespace std;
+
+namespace insemi
+{
+
 class Buff: public MovableObjects /***8 abstract base class***/
 {
    Q_OBJECT    // enemy needs to be an Qobject for movement
@@ -26,4 +31,5 @@ public slots:
 
 };
 
+}
 #endif // BUFF_H

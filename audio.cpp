@@ -1,5 +1,10 @@
 #include "audio.h"
 
+using namespace std;
+
+namespace insemi
+{
+
 Audio::Audio(): QObject()
 {
     music = new QMediaPlayer();
@@ -83,4 +88,4 @@ void Audio::playBuffSound(int volume) const{
     music->audioOutput()->setVolume(volume);
     music->play();
 }
-
+}
