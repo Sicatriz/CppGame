@@ -1,4 +1,5 @@
 #include "hp.h"
+#include "health.h"
 
 HP::HP(QGraphicsItem *parent): QGraphicsTextItem(parent)
 {
@@ -35,6 +36,8 @@ void HP::setHP(int i)
 void HP::printhp()
 {
     setPos(x(),60);
+    setDefaultTextColor(Qt::red);
+    setFont(QFont("times",24));
     setPlainText(QString("Hit points: ") + QString::number(hp));
 }
 
