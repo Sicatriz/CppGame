@@ -5,10 +5,19 @@
 #include <QAudioOutput>
 #include <QObject>
 
+/**************************************/
+/**************************************/
+/*********  AUDIO FUNCTIONS  **********/
+/**************************************/
+/**************************************/
+
+
 class Audio: public QObject
 { Q_OBJECT
 public:
     Audio();
+
+    // play audio functions
     void playBullet(float bulletVolume) const;
     void playBulletHit(int volume) const;
     void playShipCollisionSound(float crashVolume);
@@ -16,10 +25,12 @@ public:
     void playGameOver(int volume) const;
     void playBuffSound(int volume) const;
 
-
+    // mediaplayer instances
     QMediaPlayer * music;
     QAudioOutput * audioOutput;
 private:
+
+    // volume setting by audiotype  ( 1 for 100% volume and 0 for volume off)
     const short int volume = 1;
     const  float backgroundVolume = 0.3;
     const  float bulletVolume = 0.5;
