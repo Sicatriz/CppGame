@@ -18,13 +18,15 @@ void Health::decrease(){
     health--;
     printhealth();
     //(QString("hp: ") + QString::number(getHP()));
-    printhp();
+  //  HP().printhp();
+ //   printhp();
 }
 
 void Health::increase(){
     health++;
     printhealth();
-    printhp();
+   // HP().printhp();
+   // printhp();
 }
 
 int Health::getHealth() const{
@@ -48,6 +50,8 @@ void Health::decreaseHP()
 void Health::printhealth()
 {
     setPos(0,30);
+    setFont(QFont("times",24));
+    setDefaultTextColor(Qt::red);
     setPlainText(QString("Health: ") + QString::number(health));
 }
 
