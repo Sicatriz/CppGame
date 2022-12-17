@@ -1,5 +1,5 @@
 #include <QApplication>
-#include "game.h"
+#include "mainm.h"
 
 /************************************************************/
 /*********  C++ taak Elektronica-ICT 2de jaar  **************/
@@ -13,7 +13,7 @@ int main(int argc, char *argv[]){
     QApplication a(argc, argv);
     srand(time(NULL));
 
-    Game* game = new Game(); //open and show the game
+    MainM* game = new MainM(0); //open and show the game
     game->show();
 
     return a.exec();
