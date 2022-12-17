@@ -1,10 +1,7 @@
 #include "enemy.h"
 #include "bullet.h"
 
-using namespace std;
-
-namespace insemi
-{
+using namespace insemi;
 
 Enemy::Enemy(QGraphicsItem *parent): MovableObjects(parent) //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
 {
@@ -44,6 +41,4 @@ bool Enemy::destroy(){
         return true;
     }
     return false;
-}
-
 }

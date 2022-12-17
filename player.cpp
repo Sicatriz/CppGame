@@ -5,10 +5,7 @@
 #include <qvideowidget.h>
 #include <QMediaPlayer>
 
-using namespace std;
-
-namespace insemi
-{
+using namespace insemi;
 
 Player::Player(QGraphicsItem *parent): MovableObjects(parent)
 
@@ -32,11 +29,5 @@ void Player::move()
     int coef = 19;
     setPos((wannaBeX*(20-coef)+pos().x()*coef)/20, (wannaBeY*(20-coef)+pos().y()*coef)/20 );
 }
-
-}
-
-
-
-
 
 

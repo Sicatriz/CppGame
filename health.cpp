@@ -1,9 +1,6 @@
 #include "health.h"
 
-using namespace std;
-
-namespace insemi
-{
+using namespace insemi;
 
 Health::Health(QGraphicsItem *){
     // initialize the score to 0
@@ -58,7 +55,5 @@ void Health::printhealth()
     setFont(QFont("times",24));
     setDefaultTextColor(Qt::red);
     setPlainText(QString("Health: ") + QString::number(health));
-}
-
 }
 

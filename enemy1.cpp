@@ -1,10 +1,9 @@
 #include "enemy1.h"
 #include "bullet.h"
 
-using namespace std;
+using namespace insemi;
 
-namespace insemi
-{
+
 //this is the base enemy
 Enemy1::Enemy1(QGraphicsItem *, Health* h):Enemy()
 {
@@ -42,6 +41,5 @@ void Enemy1::hit(int dmg)
     hp = hp - dmg;
 }
 
-}
 
 

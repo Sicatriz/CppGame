@@ -9,10 +9,8 @@
 
   // global object
 
-using namespace std;
+using namespace insemi;
 
-namespace insemi
-{
 int main(int argc, char *argv[]){
     QApplication a(argc, argv);
     srand(time(NULL));
@@ -21,5 +19,4 @@ int main(int argc, char *argv[]){
     game->show();
 
     return a.exec();
-}
 }

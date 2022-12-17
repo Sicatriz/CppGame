@@ -1,8 +1,6 @@
 #include "meteor3.h"
-using namespace std;
+using namespace insemi;
 
-namespace insemi
-{
 Meteor3::Meteor3(QGraphicsItem *){
     int random_number = rand() % 1600;
     setPos(random_number, 0);
@@ -31,7 +29,5 @@ void Meteor3::move()
 
     scene()->removeItem(this);
     this->deleteLater();
-}
-}
-
+    }
 }

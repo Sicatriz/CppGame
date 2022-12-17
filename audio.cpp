@@ -1,9 +1,6 @@
 #include "audio.h"
 
-using namespace std;
-
-namespace insemi
-{
+using namespace insemi;
 
 Audio::Audio(): QObject()
 {
@@ -88,4 +85,4 @@ void Audio::playBuffSound(int volume) const{
     music->audioOutput()->setVolume(volume);
     music->play();
 }
-}
+

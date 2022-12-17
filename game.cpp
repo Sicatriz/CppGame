@@ -20,10 +20,8 @@
 #include "score.h"
 #include "hp.h"
 
-using namespace std;
+using namespace insemi;
 
-namespace insemi
-{
 
 Game::Game(QWidget *)
 {
@@ -642,6 +640,4 @@ void Game::spawnBuff(){
                 Buff * buff = new Buff1(0);
                 this->addItem(buff);
          }
-
-}
 }

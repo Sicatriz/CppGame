@@ -1,8 +1,7 @@
 #include "Buff1.h"
-using namespace std;
+using namespace insemi;
 
-namespace insemi
-{
+
 
 //extern game * game;
 Buff1::Buff1(QGraphicsItem *): Buff() //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
@@ -17,6 +16,6 @@ Buff1::Buff1(QGraphicsItem *): Buff() //With Qobject you say this Enemy is a obj
 
 }
 
-}
+
 
 
