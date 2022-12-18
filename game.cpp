@@ -19,6 +19,7 @@
 #include "score.h"
 #include "hp.h"
 
+// main game function
 Game::Game(QWidget *)
 {
     // create the scene
@@ -150,6 +151,8 @@ void Game::collision()
         }
     }
 
+
+
     //qDeleteAll(colliding_items);
     QList<QGraphicsItem *> Items = scene->items();
 
@@ -258,6 +261,25 @@ void Game::getLevel()
         else
         {
             level = 10;
+        }
+}
+
+void Game::missedEnemy()
+{
+    if (health->getHealth() == 0 && health->getHP() == 0)
+        {
+            // play background sound
+            Audio *gameOverSound = new Audio();
+            gameOverSound->playGameOver(1);
+
+            // remove them both
+          //  scene->removeItem(colliding_items[i]);
+            scene->removeItem(player);
+
+            // free memory
+            this->deleteLater();
+            this->score->deleteLater();
+            this->health->deleteLater();
         }
 }
 

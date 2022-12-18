@@ -39,6 +39,8 @@ public:
     // returns level
     void getLevel();
 
+    void missedEnemy();
+
     Health* health;
     Score* score;
     HP* hp;
