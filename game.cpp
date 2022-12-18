@@ -19,7 +19,8 @@
 #include "score.h"
 #include "hp.h"
 
-// main game function
+using namespace insemi;
+
 Game::Game(QWidget *)
 {
     // create the scene

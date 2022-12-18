@@ -1,5 +1,7 @@
 #include "score.h"
 
+using namespace insemi;
+
 // score print on screen
 Score::Score(QGraphicsItem *parent): QGraphicsTextItem(parent){
     // initialize the score to 0

@@ -21,7 +21,8 @@
 /***** GAME CLASS for game managment *******/
 /*******************************************/
 /*******************************************/
-
+namespace insemi
+{
 class Game: public QGraphicsView
 { Q_OBJECT
 public:
@@ -60,5 +61,6 @@ public slots:
        void spawnBuff();
        friend class MovableObjects;
 };
+}
 
 #endif // GAME_H

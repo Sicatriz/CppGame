@@ -18,7 +18,8 @@
 /****************  PLAYER  *****************/
 /*******************************************/
 /*******************************************/
-
+namespace insemi
+{
 class Player: public MovableObjects //public QObject, public QGraphicsPixmapItem
 {
     Q_OBJECT
@@ -44,4 +45,5 @@ private:
    int wannaBeY = 0;
 
 };
+}
 #endif // PLAYER_H

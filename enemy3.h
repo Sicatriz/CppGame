@@ -8,7 +8,8 @@
 /*********  ENEMY3: standard enemy  ********/
 /*******************************************/
 /*******************************************/
-
+namespace insemi
+{
 class Enemy3: public Enemy{
     Q_OBJECT
 public:
@@ -20,5 +21,5 @@ public slots:
 private:
 
 };
-
+}
 #endif // ENEMY3_H

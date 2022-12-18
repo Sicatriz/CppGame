@@ -1,5 +1,6 @@
 #include "enemy1.h"
-#include "bullet.h"
+
+using namespace insemi;
 
 // 5 HP enemy
 Enemy1::Enemy1(QGraphicsItem *, Health* h):Enemy()

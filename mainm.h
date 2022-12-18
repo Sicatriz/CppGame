@@ -18,12 +18,13 @@
 /***************  MAIN: START  *************/
 /*******************************************/
 /*******************************************/
-
+namespace insemi
+{
 class MainM: public QGraphicsView
 { Q_OBJECT
 public:
     MainM(QWidget *parent);
-
+    ~MainM();
     QGraphicsScene * scene;
     Play* button;
     void start();
@@ -31,5 +32,5 @@ public:
     void exit();
     void startup();
 };
-
+}
 #endif // MAINM_H

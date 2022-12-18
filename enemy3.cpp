@@ -1,5 +1,7 @@
 #include "enemy3.h"
 
+using namespace insemi;
+
 //this enemy is the standard enemy
 Enemy3::Enemy3(QGraphicsItem *, Health* h):Enemy()
 {

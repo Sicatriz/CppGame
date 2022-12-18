@@ -1,6 +1,8 @@
 #include "mainm.h"
 #include "play.h"
 
+using namespace insemi;
+
 // main menu with play button
 MainM::MainM(QWidget *)
 {
@@ -13,6 +15,11 @@ MainM::MainM(QWidget *)
     setFixedSize(1800,1000);  //set the size of the window
     show();
     startup();
+}
+
+MainM::~MainM()
+{
+
 }
 
 // start game

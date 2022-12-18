@@ -18,7 +18,8 @@
 /*******************************************/
 /*******************************************/
 
-
+namespace insemi
+{
 class Bullet: public MovableObjects  /****1 usefull and correct class ****/
 {
    Q_OBJECT    // is a Q object / movable object
@@ -36,5 +37,6 @@ public slots:  //slots let's you connect signals to your function.
     void move();
 
 };
+}
 
 #endif // BULLET_H

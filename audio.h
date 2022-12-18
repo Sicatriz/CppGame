@@ -11,7 +11,8 @@
 /**************************************/
 /**************************************/
 
-
+namespace insemi
+{
 class Audio: public QObject
 { Q_OBJECT
 public:
@@ -36,5 +37,6 @@ private:
     const  float bulletVolume = 0.5;
     const float crashVolume = 0.7;
 };
+}
 
 #endif // AUDIO_H

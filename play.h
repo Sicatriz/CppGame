@@ -12,7 +12,8 @@
 /**************  PLAY BUTTON  **************/
 /*******************************************/
 /*******************************************/
-
+namespace insemi
+{
 class Play: public QGraphicsView, public QGraphicsPixmapItem
 {Q_OBJECT
 public:
@@ -24,5 +25,5 @@ public:
     void hoverLeaveEvent(QGraphicsSceneHoverEvent *);
     void clicked();
 };
-
+}
 #endif // PLAY_H

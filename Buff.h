@@ -16,7 +16,8 @@
 /*********  BUFF ABSTRACT CLASS  ***********/
 /*******************************************/
 /*******************************************/
-
+namespace insemi
+{
 class Buff: public MovableObjects /***8 abstract base class***/
 {
    Q_OBJECT    // enemy needs to be an Qobject for movement
@@ -28,5 +29,5 @@ public:
 public slots:
     void move();
 };
-
+}
 #endif // BUFF_H

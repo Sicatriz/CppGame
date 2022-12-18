@@ -7,6 +7,8 @@
 #include <QImage>
 #include "bullet.h"
 
+using namespace insemi;
+
 // standard constructor
 MovableObjects::MovableObjects(QGraphicsItem * )
 {

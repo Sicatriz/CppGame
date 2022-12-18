@@ -7,6 +7,8 @@
 /****  credits: Indy Penders, Sebbe Gerits, Miguel Nunez ****/
 /************************************************************/
 
+using namespace insemi;
+
 
 int main(int argc, char *argv[]){
     QApplication a(argc, argv);

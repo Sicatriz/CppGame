@@ -10,7 +10,8 @@
 /************  HEALTH FUNCTION  ************/
 /*******************************************/
 /*******************************************/
-
+namespace insemi
+{
 class Health: public HP
 {
     /*******************/
@@ -29,5 +30,5 @@ public:
 private:
    short int health;
 };
-
+}
 #endif // HEALTH_H

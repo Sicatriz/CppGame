@@ -8,7 +8,8 @@
 /*************  METEOR TYPE 1  *************/
 /*******************************************/
 /*******************************************/
-
+namespace insemi
+{
 class Meteor1: public Meteor{
 
      Q_OBJECT
@@ -19,5 +20,5 @@ public slots:
 
 
 };
-
+}
 #endif // METEOR1_H

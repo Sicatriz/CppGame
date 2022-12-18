@@ -8,7 +8,8 @@
 /*************  METEOR TYPE 2  *************/
 /*******************************************/
 /*******************************************/
-
+namespace insemi
+{
 class Meteor3: public Meteor{
 
      Q_OBJECT
@@ -21,5 +22,5 @@ public slots:
     int ranused = 0;
     int selectused = 0;
 };
-
+}
 #endif // METEOR3_H

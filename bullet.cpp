@@ -7,6 +7,8 @@
 #include "meteor3.h"
 #include "audio.h"
 
+using namespace insemi;
+
 Bullet::Bullet(QGraphicsItem *parent): MovableObjects(parent)  //With Qobject you say this Bullet is a object, Qgraphics gives the bullet a size.
 {
     setPixmap(QPixmap(":/gfx/gfx/laser.png")); //give bullet graphics
