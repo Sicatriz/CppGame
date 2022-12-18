@@ -18,7 +18,6 @@
 #include "Buff2.h"
 #include "score.h"
 #include "hp.h"
-#include "mainm.h"
 
 // main game function
 Game::Game(QWidget *)
@@ -40,14 +39,7 @@ Game::Game(QWidget *)
     moveTimer->start(10);
 
     // check player collision
-  //  QTimer * timerCollision = new QTimer();
     QObject::connect(moveTimer,SIGNAL(timeout()),this,SLOT(collision()));
-   // timerCollision->start(20);
-
-    // check enemy out of screen
-  //  QTimer * timerMissedEnemy = new QTimer();
-    QObject::connect(moveTimer,SIGNAL(timeout()),this,SLOT(MissedEnemy()));
- //   timerMissedEnemy->start(20);
 
     // create the player
     player = new Player();
@@ -109,14 +101,8 @@ void Game::collision()
                 shipCollision->playShipCollisionSound(0.7);
             }
 
-            // decrease 1 health
-            if (health->getHP() == 0 && health->getHealth() != 0)
-            {
-                health->decrease();
-                health->setHP(4);
-            }
             // player dies => game over
-            else if (health->getHealth() <= 0 && health->getHP() <= 0)
+            if (health->getHealth() <= 0 && health->getHP() <= 0)
             {
                 // play background sound
                 Audio *gameOverSound = new Audio();
@@ -130,6 +116,12 @@ void Game::collision()
                 this->deleteLater();
                 this->score->deleteLater();
                 this->health->deleteLater();
+            }
+            // decrease 1 health
+            else if (health->getHP() == 0 && health->getHealth() != 0)
+            {
+                health->decrease();
+                health->setHP(4);
             }
 
             // remove them both
@@ -265,26 +257,6 @@ void Game::getLevel()
         else
         {
             level = 10;
-        }
-}
-
-void Game::missedEnemy()
-{
-    if (health->getHealth() == -1)
-        {
-            // play background sound
-            Audio *gameOverSound = new Audio();
-            gameOverSound->playGameOver(1);
-
-            // remove them both
-            // scene->removeItem(colliding_items[i]);
-            scene->removeItem(player);
-
-            // free memory
-            scene->deleteLater();
-            this->deleteLater();
-            this->score->deleteLater();
-            this->health->deleteLater();
         }
 }
 

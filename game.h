@@ -58,7 +58,6 @@ public slots:
        void spawnEnemy();
        void spawnMeteor();
        void spawnBuff();
-       void missedEnemy();
        friend class MovableObjects;
 };
 

@@ -1,6 +1,5 @@
 #include "enemy.h"
 #include "bullet.h"
-#include "game.h"
 
 Enemy::Enemy(QGraphicsItem *parent): MovableObjects(parent) //With Qobject you say this Enemy is a object, Qgraphics gives the enemy a size.
 {
@@ -24,7 +23,6 @@ void Enemy::move()
 
         //decrease the health
         health->decrease();
-        Game().missedEnemy();
         scene()->removeItem(this);
         this->deleteLater();
     }
