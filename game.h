@@ -39,8 +39,6 @@ public:
     // returns level
     void getLevel();
 
-    void missedEnemy();
-
     Health* health;
     Score* score;
     HP* hp;
@@ -60,6 +58,7 @@ public slots:
        void spawnEnemy();
        void spawnMeteor();
        void spawnBuff();
+       void missedEnemy();
        friend class MovableObjects;
 };
 
