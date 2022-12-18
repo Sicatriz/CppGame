@@ -40,9 +40,7 @@ Game::Game(QWidget *)
     moveTimer->start(10);
 
     // check player collision
-    QTimer * timerCollision = new QTimer();
-    QObject::connect(timerCollision,SIGNAL(timeout()),this,SLOT(collision()));
-    timerCollision->start(10);
+    QObject::connect(moveTimer,SIGNAL(timeout()),this,SLOT(collision()));
 
     // create the player
     player = new Player();
@@ -104,14 +102,8 @@ void Game::collision()
                 shipCollision->playShipCollisionSound(0.7);
             }
 
-            // decrease 1 health
-            if (health->getHP() == 0 && health->getHealth() != 0)
-            {
-                health->decrease();
-                health->setHP(4);
-            }
             // player dies => game over
-            else if (health->getHealth() == 0 && health->getHP() == 0)
+            if (health->getHealth() <= 0 && health->getHP() <= 0)
             {
                 // play background sound
                 Audio *gameOverSound = new Audio();
@@ -125,6 +117,12 @@ void Game::collision()
                 this->deleteLater();
                 this->score->deleteLater();
                 this->health->deleteLater();
+            }
+            // decrease 1 health
+            else if (health->getHP() == 0 && health->getHealth() != 0)
+            {
+                health->decrease();
+                health->setHP(4);
             }
 
             // remove them both

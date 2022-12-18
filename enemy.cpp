@@ -24,7 +24,6 @@ void Enemy::move()
 
         //decrease the health
         health->decrease();
-
         scene()->removeItem(this);
         this->deleteLater();
     }
